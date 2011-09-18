@@ -38,8 +38,11 @@
     else if ([@"-" isEqual:waitingOperation]) {
         operand = waitingOperand - operand; }
     else if ([@"/" isEqual: waitingOperation]) {
-        if (operand) {
+        if (operand != 0) {
             operand = waitingOperand / operand;
+        }
+        else {
+            printf("%s", "Cannot divide by zero.");
         }
     }
 }
