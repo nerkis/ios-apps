@@ -20,25 +20,29 @@
 - (IBAction)digitPressed:(UIButton *)sender
 {
     NSString *digit = [[sender titleLabel] text];
-    if (userIsInTheMiddleOfTypingANumber)
-    {
-        [display setText:[[display text]stringByAppendingString:digit]];
+    
+    if ([[self brain]setFloatingPointNumber:digit]) {
+
+    
+        if (userIsInTheMiddleOfTypingANumber)
+        {
+            [display setText:[[display text]stringByAppendingString:digit]];
+        }
+        else {
+        
+            [display setText:digit];
+            userIsInTheMiddleOfTypingANumber = YES;
+        
+            //if pi button is pressed, display pi on uilabel instead of digit
+            //  if ([display text isEqualToString:@"π"]) 
+            //{
+            //  [display setText:[[display text]:M_PI]];
+            //}
+            //else
+        }
     }
-    else {
-        
-        //if ([self brain]setFloatingPointNumber:[display text]) {
-        
-        [display setText:digit];
-        userIsInTheMiddleOfTypingANumber = YES;
-        
-        //if pi button is pressed, display pi on uilabel instead of digit
-        //  if ([display text isEqualToString:@"π"]) 
-        //{
-        //  [display setText:[[display text]:M_PI]];
-        //}
-        //else
-        
-    }
+    else
+        return;
 }
 
 //implementation of operationPressed

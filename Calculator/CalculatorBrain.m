@@ -110,14 +110,21 @@
 {
     //when . is pressed, checks if . is already present in number
     //if ok to add . returns YES
-    NSRange range = [inputNum rangeOfString:@"."];
+    if ([inputNum rangeOfString:@"."].location != NSNotFound) {
+        printf("%s", "Operand contains decimal point already.");
+        return NO;
+    }
+    else
+        return YES;
+    
+    /*NSRange range = [inputNum rangeOfString:@"."];
     if (range.location == NSNotFound)
         return YES;
     else
     {
         printf("%s","Operand contains decimal point already.");
         return NO;
-    }
+    }*/
 }
 
 @end
