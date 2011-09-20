@@ -19,30 +19,34 @@
 //handles typing in the number, displays numbers on label
 - (IBAction)digitPressed:(UIButton *)sender
 {
-    NSString *digit = [[sender titleLabel] text];
+    NSString *digit;
     
-    if ([[self brain]setFloatingPointNumber:digit]) {
+    if (![@"Delete" isEqual:[sender titleLabel]]) 
+    {
+        digit = [[sender titleLabel] text];
+    }
+    
+    //if ([[self brain]setFloatingPointNumber:[display text]]) {
 
     
         if (userIsInTheMiddleOfTypingANumber)
         {
-            [display setText:[[display text]stringByAppendingString:digit]];
+            if ([@"Delete" isEqual:[sender titleLabel]]){
+                if ([[display text] length] > 0) {
+                    [display setText:[[display text] substringToIndex:[[display text] length] - 1]];
+                }
+            }
+            else
+                [display setText:[[display text]stringByAppendingString:digit]];
         }
         else {
         
             [display setText:digit];
             userIsInTheMiddleOfTypingANumber = YES;
-        
-            //if pi button is pressed, display pi on uilabel instead of digit
-            //  if ([display text isEqualToString:@"π"]) 
-            //{
-            //  [display setText:[[display text]:M_PI]];
-            //}
-            //else
         }
-    }
-    else
-        return;
+    //}
+    //else
+      //  return;
 }
 
 //implementation of operationPressed

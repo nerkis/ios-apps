@@ -75,6 +75,10 @@
     else if ([@"cos" isEqual: operation]){
         operand = cos(operand);
     }
+    //calculate tangent
+    else if([@"tan" isEqual: operation]){
+        operand = tan(operand);
+    }
     //store current display
     else if ([@"Store" isEqual: operation]){
         memory = operand;
@@ -92,8 +96,14 @@
         waitingOperand = 0;
         memory = 0;
     }
+    //clear memory
     else if([@"ClearM" isEqual: operation]){
         memory = 0;
+    }
+    //clear display
+    else if([@"ClearD" isEqual: operation]){
+        operand = 0;
+        waitingOperand = 0;
     }
     else {
         //if performing operation that requires two operands,
