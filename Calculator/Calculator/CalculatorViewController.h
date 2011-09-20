@@ -10,16 +10,15 @@
 #import "CalculatorBrain.h"
 
 @interface CalculatorViewController : UIViewController {
-    //IBOutlet identifies outlet to graphical tool for
-    //connecting the Controller and View
-    IBOutlet UILabel *display;
-    CalculatorBrain *brain;
-    BOOL userIsInTheMiddleOfTypingANumber;
+    IBOutlet UILabel *display; //calculator display
+    CalculatorBrain *brain; //brain created to perform calculations
+    BOOL userIsInTheMiddleOfTypingANumber; //YES if user is typing
 }
 
-//IBAction is the same as void but is important to put app together
-//headers for view controller methods
+//updates display when a digit is pressed
 - (IBAction)digitPressed:(UIButton *)sender;
+
+//performs an operation when an operation is pressed
 - (IBAction)operationPressed:(UIButton *)sender;
 
 @end

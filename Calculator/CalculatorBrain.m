@@ -11,11 +11,11 @@
 
 @implementation CalculatorBrain
 
+//init function
 - (id)init
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
     }
     
     return self;
@@ -27,114 +27,127 @@
     operand = aDouble;
 }
 
-//performs +, *, -, /
-//waits for a second number before performOperation
+//performs operations requiring two operands
 - (void)performWaitingOperation
 {
-    if ([@"+" isEqual:waitingOperation]) {
-        operand = waitingOperand + operand; }
-    else if ([@"*" isEqual:waitingOperation]) {
-        operand = waitingOperand * operand; }
-    else if ([@"-" isEqual:waitingOperation]) {
-        operand = waitingOperand - operand; }
-    else if ([@"/" isEqual: waitingOperation]) {
-        if (operand != 0) {
+    //addition
+    if ([@"+" isEqual:waitingOperation])
+        operand = waitingOperand + operand;
+    
+    //multiplication
+    else if ([@"*" isEqual:waitingOperation])
+        operand = waitingOperand * operand;
+    
+    //subtraction
+    else if ([@"-" isEqual:waitingOperation])
+        operand = waitingOperand - operand;
+    
+    //division
+    else if ([@"/" isEqual: waitingOperation]) 
+    {
+        if (operand != 0)
             operand = waitingOperand / operand;
-        }
-        else {
+            
+        else
             printf("%s", "Cannot divide by zero.");
-        }
     }
 }
 
-//performs single-operand operations
+/* performs single-operand operations
+ *
+ * @param operation: string representing operation pressed
+ * @return: double operand value
+ */
 - (double) performOperation:(NSString *)operation
 {
     //square root
-    if ([operation isEqual:@"sqrt"]) {
-        if (operand > 0) {
+    if ([operation isEqual:@"sqrt"]) 
+    {
+        if (operand > 0) 
             operand = sqrt(operand);
-        }
     }
+    
     //change from positive to negative and vice-versa
-    else if ([@"+/-" isEqual: operation]){
+    else if ([@"+/-" isEqual: operation])
         operand = - operand;
-    }
-    //change to 1/x
-    else if ([@"1/x" isEqual: operation]){
+    
+    //return 1/x
+    else if ([@"1/x" isEqual: operation])
+    {
         if (operand != 0)
             operand = 1/operand;
         else
             printf("%s", "Cannot divide by zero.");
     }
+    
     //calculate sine
-    else if ([@"sin" isEqual: operation]){
+    else if ([@"sin" isEqual: operation])
         operand = sin(operand);
-    }
+    
     //calculate cosine
-    else if ([@"cos" isEqual: operation]){
+    else if ([@"cos" isEqual: operation])
         operand = cos(operand);
-    }
+    
     //calculate tangent
-    else if([@"tan" isEqual: operation]){
+    else if([@"tan" isEqual: operation])
         operand = tan(operand);
-    }
+    
     //store current display
-    else if ([@"Store" isEqual: operation]){
+    else if ([@"Store" isEqual: operation])
         memory = operand;
-    }
+    
     //recall value in memory
-    else if ([@"Recall" isEqual: operation]){
+    else if ([@"Recall" isEqual: operation])
         operand = memory;
-    }
+    
     //mem+ add value of display to value stored in memory
-    else if ([@"Mem+" isEqual: operation]){
+    else if ([@"Mem+" isEqual: operation])
         memory += operand;
-    }
-    else if([@"C" isEqual: operation]){
+    
+    //clear display, waiting operations, and memory
+    else if([@"C" isEqual: operation])
+    {
         operand = 0;
         waitingOperand = 0;
         memory = 0;
     }
-    //clear memory
-    else if([@"ClearM" isEqual: operation]){
+    
+    //clear only memory
+    else if([@"ClearM" isEqual: operation])
         memory = 0;
-    }
-    //clear display
-    else if([@"ClearD" isEqual: operation]){
+    
+    //clear only display
+    else if([@"ClearD" isEqual: operation])
+    {
         operand = 0;
         waitingOperand = 0;
     }
-    else {
-        //if performing operation that requires two operands,
-        //performWaitingOperation
+    
+    //if operation reqires two operands, performWaitingOperation
+    else 
+    {
         [self performWaitingOperation];
         waitingOperation = operation;
         waitingOperand = operand;
     }
+    
     return operand;
 }
 
-//allows user to enter floating point numbers
+/* checks if operand contains a decimal point
+ *
+ * @param inputNum: string representing operand so far
+ * @return: NO if inputNum contains a decimal point, else YES
+ */
 - (BOOL)setFloatingPointNumber:(NSString *)inputNum
 {
-    //when . is pressed, checks if . is already present in number
-    //if ok to add . returns YES
-    if ([inputNum rangeOfString:@"."].location != NSNotFound) {
+    if ([inputNum rangeOfString:@"."].location != NSNotFound) 
+    {
         printf("%s", "Operand contains decimal point already.");
         return NO;
     }
     else
         return YES;
-    
-    /*NSRange range = [inputNum rangeOfString:@"."];
-    if (range.location == NSNotFound)
-        return YES;
-    else
-    {
-        printf("%s","Operand contains decimal point already.");
-        return NO;
-    }*/
 }
 
 @end

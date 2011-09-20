@@ -10,14 +10,18 @@
 
 @interface CalculatorBrain : NSObject {
     double operand;
-    NSString *waitingOperation;
-    double waitingOperand;
-    double memory;
+    NSString *waitingOperation; //stores operation for two-operand operations
+    double waitingOperand; //second operand
+    double memory; //memory storage
 }
 
-//headers for the calculatorBrain methods
+//sets operand value
 - (void) setOperand:(double)aDouble;
+
+//returns the result
 - (double) performOperation:(NSString*)operation;
+
+//returns YES if it is OK to add a decimal point to operand
 - (BOOL) setFloatingPointNumber:(NSString*)inputNum;
 
 @end

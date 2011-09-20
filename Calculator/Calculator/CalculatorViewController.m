@@ -10,54 +10,60 @@
 
 @implementation CalculatorViewController
 
+//creates a brain object, used to perform calculations
 - (CalculatorBrain *) brain
 {
     if (!brain) brain = [[CalculatorBrain alloc] init];
     return brain;
 }
 
-//handles typing in the number, displays numbers on label
+/* updates the display when a digit is pressed
+ * calls setFloatingPointNumber to make sure decimals OK
+ *
+ * @param sender: the button that was pressed
+ * @returns IBAction: updates display
+ */
 - (IBAction)digitPressed:(UIButton *)sender
 {
-    NSString *digit;
+    NSString *digit = [[sender titleLabel] text];
     
-    if (![@"Delete" isEqual:[sender titleLabel]]) 
+    //if new digit is a decimal point, make sure adding it is legal
+    if ([@"." isEqual: digit]) 
     {
-        digit = [[sender titleLabel] text];
+        if (![[self brain]setFloatingPointNumber:[display text]]) 
+            return;
     }
     
-    //if ([[self brain]setFloatingPointNumber:[display text]]) {
-
+    //if user was typing, add next digit to display
+    if (userIsInTheMiddleOfTypingANumber)
+    {
+        [display setText:[[display text]stringByAppendingString:digit]];
+    }
     
-        if (userIsInTheMiddleOfTypingANumber)
-        {
-            if ([@"Delete" isEqual:[sender titleLabel]]){
-                if ([[display text] length] > 0) {
-                    [display setText:[[display text] substringToIndex:[[display text] length] - 1]];
-                }
-            }
-            else
-                [display setText:[[display text]stringByAppendingString:digit]];
-        }
-        else {
-        
-            [display setText:digit];
-            userIsInTheMiddleOfTypingANumber = YES;
-        }
-    //}
-    //else
-      //  return;
+    //if user wasn't typing, add first digit to display
+    else 
+    {
+        [display setText:digit];
+        userIsInTheMiddleOfTypingANumber = YES;
+    }
 }
 
-//implementation of operationPressed
+/* performs operation when operations are pressed
+ * calls performOperation
+ *
+ * @param sender: the button that was pressed
+ * @returns IBAction: updates display with the result
+ */
 - (IBAction)operationPressed:(UIButton *)sender
 {
-    //if user in the middle of a number, set operand, change BOOL to NO
-    if (userIsInTheMiddleOfTypingANumber) {
+    //if user typing, set operand
+    if (userIsInTheMiddleOfTypingANumber) 
+    {
         [[self brain]setOperand: [[display text] doubleValue]];
         userIsInTheMiddleOfTypingANumber = NO;
     }
-    //if not in middle of typing, perform the operation
+    
+    //perform the operation
     NSString *operation = [[sender titleLabel] text];
     double result = [[self brain] performOperation:operation];
     [display setText: [NSString stringWithFormat:@"%g", result]];
