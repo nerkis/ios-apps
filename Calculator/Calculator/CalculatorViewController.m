@@ -110,14 +110,11 @@
 }
 
 
-//TODO: put performOperation:@"=" at the beginning and check to make sure it doesn't already have =; check if userIsInTheMiddleOfTyping
-    //get rid of the sigabrt
-
 /* evaluates the expression using test set of variable values
  * calls evaluateExpression:usingVariableValues:
  */
 - (IBAction)solvePressed
-{        
+{            
     //create NSDictionary
     NSArray *keys = [[NSArray alloc] initWithObjects:@"x", @"a", @"b", @"c", nil];
     NSArray *values = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:2], [NSNumber numberWithDouble:4], [NSNumber numberWithDouble:6], [NSNumber numberWithDouble:8], nil];

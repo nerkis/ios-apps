@@ -197,8 +197,6 @@
 } 
 
 
-/************if not all of the variables are defined in variables dictionary, return value undefined***************/
-
 /* returns the result of anExpression using test variable values
  *
  * @param anExpression: the expression being evaluated

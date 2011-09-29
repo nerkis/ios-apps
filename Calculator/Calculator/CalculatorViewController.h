@@ -33,6 +33,7 @@
 - (IBAction)variablePressed:(UIButton *)sender;
 
 //evaluates the expression using test set of variable values
--(IBAction)solvePressed;
+//-(IBAction)solvePressed;
+- (IBAction)solvePressed:(UIButton *)sender;
 
 @end
