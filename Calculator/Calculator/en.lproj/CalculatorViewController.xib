@@ -1108,16 +1108,7 @@
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">97</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">solvePressed</string>
-						<reference key="source" ref="328513232"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">98</int>
+					<int key="connectionID">99</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1461,7 +1452,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">98</int>
+			<int key="maxID">99</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1475,14 +1466,14 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>digitPressed:</string>
 							<string>operationPressed:</string>
-							<string>solvePressed</string>
+							<string>solvePressed:</string>
 							<string>variablePressed:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIButton</string>
 							<string>UIButton</string>
-							<string>id</string>
+							<string>UIButton</string>
 							<string>UIButton</string>
 						</object>
 					</object>
@@ -1492,7 +1483,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>digitPressed:</string>
 							<string>operationPressed:</string>
-							<string>solvePressed</string>
+							<string>solvePressed:</string>
 							<string>variablePressed:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1506,8 +1497,8 @@
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">solvePressed</string>
-								<string key="candidateClassName">id</string>
+								<string key="name">solvePressed:</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">variablePressed:</string>

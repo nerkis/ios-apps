@@ -20,7 +20,8 @@
 }
 
 //properties
-@property (nonatomic, retain) IBOutlet UILabel *display;
+//@property (nonatomic, retain) IBOutlet UILabel *display;
+@property (nonatomic, copy) NSString *displayLabel; //text of the display
 @property (nonatomic, retain) IBOutlet UIButton *button;
 
 //updates display when a digit is pressed
@@ -33,7 +34,6 @@
 - (IBAction)variablePressed:(UIButton *)sender;
 
 //evaluates the expression using test set of variable values
-//-(IBAction)solvePressed;
 - (IBAction)solvePressed:(UIButton *)sender;
 
 @end

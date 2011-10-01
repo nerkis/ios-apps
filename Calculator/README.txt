@@ -14,7 +14,7 @@ Features
 	Version 2
 	- Ability to enter variables as part of an expression
 	- Ability to evaluate expressions that contain variables
-	- Solve button that substitutes values for variables and evaluates the expression
+	- Solve button that substitutes values for variables and evaluates the expression (in progress)
 
 	Version 1
 	- Basic math functions (addition, subtraction, multiplication, division)
@@ -27,3 +27,4 @@ Known Issues
 
 	- Silently fails when attempts to divide by zero
 	- Silently fails when garbage entered by user
+	- Solve button raises an exception--cannot evaluate expressions with variables

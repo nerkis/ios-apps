@@ -14,7 +14,7 @@
 
 @implementation CalculatorViewController
 @synthesize brain;
-@synthesize display, button;
+@synthesize displayLabel, button;
 
 
 //creates a brain object, used to perform calculations
@@ -22,6 +22,18 @@
 {
     if (!brain) brain = [[CalculatorBrain alloc] init];
     return brain;
+}
+
+//returns the value of the display
+- (NSString *) displayLabel
+{
+    return [display text];
+}
+
+//sets the display via setting a string label
+- (void) setDisplayLabel:(NSString *)label
+{
+    [display setText:label];
 }
 
 
@@ -40,20 +52,20 @@
     //if new digit is a decimal point, make sure adding it is legal
     if ([@"." isEqual: digit]) 
     {
-        if (![self.brain setFloatingPointNumber:[self.display text]]) 
+        if (![self.brain setFloatingPointNumber:[display text]]) 
             return;
     }
     
     //if user was typing, add next digit to display
     if (userIsInTheMiddleOfTypingANumber)
     {
-        [self.display setText:[[self.display text]stringByAppendingString:digit]];
+        self.displayLabel = [self.displayLabel stringByAppendingString:digit];
     }
     
     //if user wasn't typing, add first digit to display
     else 
     {
-        [self.display setText:digit];
+        self.displayLabel = digit;
         userIsInTheMiddleOfTypingANumber = YES;
     }
 }
@@ -91,7 +103,7 @@
     //if user typing, set operand
     if (userIsInTheMiddleOfTypingANumber) 
     {
-        self.brain.operand = [[self.display text] doubleValue];
+        self.brain.operand = [self.displayLabel doubleValue];
         userIsInTheMiddleOfTypingANumber = NO;
     }
     
@@ -103,29 +115,36 @@
     //check if dealing with variables
     if (isExpression)
     { 
-        [self.display setText:[CalculatorBrain descriptionOfExpression: self.brain.expression]];
+        self.displayLabel = [CalculatorBrain descriptionOfExpression: self.brain.expression];
     }
     else 
-        [self.display setText:output];
+        self.displayLabel = output;
 }
 
+//invalid argument in solvePressed
+//unrecognized selector to instance 0x4b2d130
+//an nsobject doesn't recognize the selector
 
 /* evaluates the expression using test set of variable values
  * calls evaluateExpression:usingVariableValues:
  */
-- (IBAction)solvePressed
+- (IBAction)solvePressed:(UIButton *)sender
 {            
+    self.button = sender;
+    
     //create NSDictionary
     NSArray *keys = [[NSArray alloc] initWithObjects:@"x", @"a", @"b", @"c", nil];
     NSArray *values = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:2], [NSNumber numberWithDouble:4], [NSNumber numberWithDouble:6], [NSNumber numberWithDouble:8], nil];
     NSDictionary *dictionary = [[NSDictionary alloc] initWithObjects:values forKeys: keys];
+    
+    //NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithDouble:2], @"x", [NSNumber numberWithDouble:4], @"a", [NSNumber numberWithDouble:6], @"b", [NSNumber numberWithDouble:8], @"c", nil];
     
     //get results from evaluateExpression:usingVariableValues:
     double output = [CalculatorBrain evaluateExpression:self.brain.expression
      usingVariableValues:dictionary];
     
     //display results
-    [self.display setText:[NSString stringWithFormat:@"%g", output]];
+    self.displayLabel = [NSString stringWithFormat:@"%g", output];
     
     [keys release];
     [values release];
