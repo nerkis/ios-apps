@@ -57,8 +57,8 @@
 		686A53BC14198EE300C3F1BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		686A53BE14198EE300C3F1BC /* CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorTests.h; sourceTree = "<group>"; };
 		686A53C014198EE300C3F1BC /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
-		686A53CA1419912D00C3F1BC /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
-		686A53CB1419912D00C3F1BC /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
+		686A53CA1419912D00C3F1BC /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = SOURCE_ROOT; };
+		686A53CB1419912D00C3F1BC /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +89,6 @@
 		686A538114198EE200C3F1BC = {
 			isa = PBXGroup;
 			children = (
-				686A53CA1419912D00C3F1BC /* CalculatorBrain.h */,
-				686A53CB1419912D00C3F1BC /* CalculatorBrain.m */,
 				686A539614198EE200C3F1BC /* Calculator */,
 				686A53B814198EE200C3F1BC /* CalculatorTests */,
 				686A538F14198EE200C3F1BC /* Frameworks */,
@@ -121,6 +119,8 @@
 		686A539614198EE200C3F1BC /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				686A53CB1419912D00C3F1BC /* CalculatorBrain.m */,
+				686A53CA1419912D00C3F1BC /* CalculatorBrain.h */,
 				686A539F14198EE200C3F1BC /* CalculatorAppDelegate.h */,
 				686A53A014198EE200C3F1BC /* CalculatorAppDelegate.m */,
 				686A53A214198EE200C3F1BC /* MainWindow.xib */,
