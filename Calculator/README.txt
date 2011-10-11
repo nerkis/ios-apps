@@ -27,4 +27,3 @@ Known Issues
 
 	- Silently fails when attempts to divide by zero
 	- Silently fails when garbage entered by user
-	- Solve button raises an exception--cannot evaluate expressions with variables
