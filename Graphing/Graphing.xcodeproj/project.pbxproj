@@ -25,6 +25,7 @@
 		68201C45144508BE00D23B5E /* CalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C44144508BE00D23B5E /* CalculatorAppDelegate.m */; };
 		68201C49144508C700D23B5E /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C47144508C700D23B5E /* CalculatorViewController.m */; };
 		68201C4A144508C700D23B5E /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68201C48144508C700D23B5E /* CalculatorViewController.xib */; };
+		68201C4D14450DB900D23B5E /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C4C14450DB800D23B5E /* AxesDrawer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		68201C46144508C600D23B5E /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		68201C47144508C700D23B5E /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		68201C48144508C700D23B5E /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
+		68201C4B14450DB800D23B5E /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
+		68201C4C14450DB800D23B5E /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 		68201C091444CA6300D23B5E /* Graphing */ = {
 			isa = PBXGroup;
 			children = (
+				68201C4B14450DB800D23B5E /* AxesDrawer.h */,
+				68201C4C14450DB800D23B5E /* AxesDrawer.m */,
 				68201C40144508B200D23B5E /* CalculatorBrain.m */,
 				68201C42144508BE00D23B5E /* CalculatorBrain.h */,
 				68201C43144508BE00D23B5E /* CalculatorAppDelegate.h */,
@@ -277,6 +282,7 @@
 				68201C41144508B200D23B5E /* CalculatorBrain.m in Sources */,
 				68201C45144508BE00D23B5E /* CalculatorAppDelegate.m in Sources */,
 				68201C49144508C700D23B5E /* CalculatorViewController.m in Sources */,
+				68201C4D14450DB900D23B5E /* AxesDrawer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +384,7 @@
 				GCC_PREFIX_HEADER = "Graphing/Graphing-Prefix.pch";
 				INFOPLIST_FILE = "Graphing/Graphing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,6 +396,7 @@
 				GCC_PREFIX_HEADER = "Graphing/Graphing-Prefix.pch";
 				INFOPLIST_FILE = "Graphing/Graphing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
