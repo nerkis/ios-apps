@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680B82401445229D004D7CA7 /* GraphDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 680B823F1445229D004D7CA7 /* GraphDraw.m */; };
 		68201C041444CA6300D23B5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68201C031444CA6300D23B5E /* UIKit.framework */; };
 		68201C061444CA6300D23B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68201C051444CA6300D23B5E /* Foundation.framework */; };
 		68201C081444CA6300D23B5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68201C071444CA6300D23B5E /* CoreGraphics.framework */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		680B823E1445229D004D7CA7 /* GraphDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphDraw.h; sourceTree = "<group>"; };
+		680B823F1445229D004D7CA7 /* GraphDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphDraw.m; sourceTree = "<group>"; };
 		68201BFF1444CA6300D23B5E /* Graphing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68201C031444CA6300D23B5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		68201C051444CA6300D23B5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,16 +130,18 @@
 		68201C091444CA6300D23B5E /* Graphing */ = {
 			isa = PBXGroup;
 			children = (
-				68201C121444CA6300D23B5E /* GraphingAppDelegate.h */,
-				68201C131444CA6300D23B5E /* GraphingAppDelegate.m */,
 				68201C4B14450DB800D23B5E /* AxesDrawer.h */,
 				68201C4C14450DB800D23B5E /* AxesDrawer.m */,
 				68201C42144508BE00D23B5E /* CalculatorBrain.h */,
 				68201C40144508B200D23B5E /* CalculatorBrain.m */,
 				68201C46144508C600D23B5E /* CalculatorViewController.h */,
 				68201C47144508C700D23B5E /* CalculatorViewController.m */,
+				68201C121444CA6300D23B5E /* GraphingAppDelegate.h */,
+				68201C131444CA6300D23B5E /* GraphingAppDelegate.m */,
 				68201C4E1445149B00D23B5E /* GraphViewController.h */,
 				68201C4F1445149B00D23B5E /* GraphViewController.m */,
+				680B823E1445229D004D7CA7 /* GraphDraw.h */,
+				680B823F1445229D004D7CA7 /* GraphDraw.m */,
 				68201C151444CA6300D23B5E /* MainWindow.xib */,
 				68201C48144508C700D23B5E /* CalculatorViewController.xib */,
 				68201C501445149B00D23B5E /* GraphViewController.xib */,
@@ -287,6 +292,7 @@
 				68201C49144508C700D23B5E /* CalculatorViewController.m in Sources */,
 				68201C4D14450DB900D23B5E /* AxesDrawer.m in Sources */,
 				68201C511445149C00D23B5E /* GraphViewController.m in Sources */,
+				680B82401445229D004D7CA7 /* GraphDraw.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +466,7 @@
 				68201C331444CA6300D23B5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		68201C341444CA6300D23B5E /* Build configuration list for PBXNativeTarget "GraphingTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +475,7 @@
 				68201C361444CA6300D23B5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
