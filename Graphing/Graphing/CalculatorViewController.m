@@ -6,6 +6,7 @@
 //  Copyright 2011 Bowdoin College. All rights reserved.
 
 #import "CalculatorViewController.h"
+#import "GraphViewController.h"
 
 //private brain property
 @interface CalculatorViewController()
@@ -127,6 +128,14 @@
 - (IBAction)solvePressed:(UIButton *)sender
 {            
     self.button = sender;
+    
+    GraphViewController *gvc = [[GraphViewController alloc] init];
+    //make a graphViewController expression?
+    //graph class can't know about expressions or calculator brains though!
+    //gvc.graph = diagnosis;
+    gvc.title = @"Graph";
+    [self.navigationController pushViewController:gvc animated:YES];
+    [gvc release];
     
     //create NSDictionary
     NSArray *keys = [[NSArray alloc] initWithObjects:@"x", @"a", @"b", @"c", nil];
