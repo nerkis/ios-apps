@@ -6,6 +6,8 @@
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 
+//should contain all variables needed to draw the graph
+//need another class that just draws everything (equivalent of faceview)
 #import "GraphViewController.h"
 
 @implementation GraphViewController

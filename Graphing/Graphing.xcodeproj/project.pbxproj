@@ -22,7 +22,6 @@
 		68201C2C1444CA6300D23B5E /* GraphingTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 68201C2B1444CA6300D23B5E /* GraphingTests.h */; };
 		68201C2E1444CA6300D23B5E /* GraphingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C2D1444CA6300D23B5E /* GraphingTests.m */; };
 		68201C41144508B200D23B5E /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C40144508B200D23B5E /* CalculatorBrain.m */; };
-		68201C45144508BE00D23B5E /* CalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C44144508BE00D23B5E /* CalculatorAppDelegate.m */; };
 		68201C49144508C700D23B5E /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C47144508C700D23B5E /* CalculatorViewController.m */; };
 		68201C4A144508C700D23B5E /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68201C48144508C700D23B5E /* CalculatorViewController.xib */; };
 		68201C4D14450DB900D23B5E /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C4C14450DB800D23B5E /* AxesDrawer.m */; };
@@ -60,8 +59,6 @@
 		68201C2D1444CA6300D23B5E /* GraphingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphingTests.m; sourceTree = "<group>"; };
 		68201C40144508B200D23B5E /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 		68201C42144508BE00D23B5E /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
-		68201C43144508BE00D23B5E /* CalculatorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorAppDelegate.h; sourceTree = "<group>"; };
-		68201C44144508BE00D23B5E /* CalculatorAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorAppDelegate.m; sourceTree = "<group>"; };
 		68201C46144508C600D23B5E /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		68201C47144508C700D23B5E /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		68201C48144508C700D23B5E /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
@@ -130,8 +127,6 @@
 		68201C091444CA6300D23B5E /* Graphing */ = {
 			isa = PBXGroup;
 			children = (
-				68201C43144508BE00D23B5E /* CalculatorAppDelegate.h */,
-				68201C44144508BE00D23B5E /* CalculatorAppDelegate.m */,
 				68201C121444CA6300D23B5E /* GraphingAppDelegate.h */,
 				68201C131444CA6300D23B5E /* GraphingAppDelegate.m */,
 				68201C4B14450DB800D23B5E /* AxesDrawer.h */,
@@ -289,7 +284,6 @@
 				68201C101444CA6300D23B5E /* main.m in Sources */,
 				68201C141444CA6300D23B5E /* GraphingAppDelegate.m in Sources */,
 				68201C41144508B200D23B5E /* CalculatorBrain.m in Sources */,
-				68201C45144508BE00D23B5E /* CalculatorAppDelegate.m in Sources */,
 				68201C49144508C700D23B5E /* CalculatorViewController.m in Sources */,
 				68201C4D14450DB900D23B5E /* AxesDrawer.m in Sources */,
 				68201C511445149C00D23B5E /* GraphViewController.m in Sources */,
