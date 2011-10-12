@@ -145,6 +145,13 @@
     [dictionary release];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.title = @"Calculator";
+    // Do any additional setup after loading the view from its nib.
+}
+
 
 //dealloc method
 - (void) dealloc
