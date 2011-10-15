@@ -1,16 +1,21 @@
 //
 //  GraphViewController.m
-//  Graphing
+//  erkisGraphing
 //
-//  Created by Nicole Erkis on 10/11/11.
-//  Copyright 2011 Bowdoin College. All rights reserved.
+//  Created by Nicole Erkis on 10/15/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-//should contain all variables needed to draw the graph
-//need another class that just draws everything (equivalent of faceview)
 #import "GraphViewController.h"
 
 @implementation GraphViewController
+
+@synthesize graphDraw;
+
+- (void)updateUI
+{
+    [self.graphDraw setNeedsDisplay];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.graphDraw.delegate = self;
+    [self updateUI];
     // Do any additional setup after loading the view from its nib.
 }
 

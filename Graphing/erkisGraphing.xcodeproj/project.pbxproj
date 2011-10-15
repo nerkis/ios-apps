@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		680B82401445229D004D7CA7 /* GraphDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 680B823F1445229D004D7CA7 /* GraphDraw.m */; };
+		680B8244144A1DFD004D7CA7 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680B8242144A1DFD004D7CA7 /* GraphViewController.m */; };
+		680B8245144A1DFD004D7CA7 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680B8243144A1DFD004D7CA7 /* GraphViewController.xib */; };
 		68201C041444CA6300D23B5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68201C031444CA6300D23B5E /* UIKit.framework */; };
 		68201C061444CA6300D23B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68201C051444CA6300D23B5E /* Foundation.framework */; };
 		68201C081444CA6300D23B5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68201C071444CA6300D23B5E /* CoreGraphics.framework */; };
@@ -26,8 +28,6 @@
 		68201C49144508C700D23B5E /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C47144508C700D23B5E /* CalculatorViewController.m */; };
 		68201C4A144508C700D23B5E /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68201C48144508C700D23B5E /* CalculatorViewController.xib */; };
 		68201C4D14450DB900D23B5E /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C4C14450DB800D23B5E /* AxesDrawer.m */; };
-		68201C511445149C00D23B5E /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68201C4F1445149B00D23B5E /* GraphViewController.m */; };
-		68201C521445149C00D23B5E /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68201C501445149B00D23B5E /* GraphViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,20 +43,23 @@
 /* Begin PBXFileReference section */
 		680B823E1445229D004D7CA7 /* GraphDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphDraw.h; sourceTree = "<group>"; };
 		680B823F1445229D004D7CA7 /* GraphDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphDraw.m; sourceTree = "<group>"; };
-		68201BFF1444CA6300D23B5E /* Graphing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		680B8241144A1DFD004D7CA7 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
+		680B8242144A1DFD004D7CA7 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
+		680B8243144A1DFD004D7CA7 /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
+		68201BFF1444CA6300D23B5E /* erkisGraphing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = erkisGraphing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68201C031444CA6300D23B5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		68201C051444CA6300D23B5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		68201C071444CA6300D23B5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		68201C0B1444CA6300D23B5E /* Graphing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Graphing-Info.plist"; sourceTree = "<group>"; };
 		68201C0D1444CA6300D23B5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		68201C0F1444CA6300D23B5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		68201C111444CA6300D23B5E /* Graphing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Graphing-Prefix.pch"; sourceTree = "<group>"; };
+		68201C111444CA6300D23B5E /* erkisGraphing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "erkisGraphing-Prefix.pch"; sourceTree = "<group>"; };
 		68201C121444CA6300D23B5E /* GraphingAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphingAppDelegate.h; sourceTree = "<group>"; };
 		68201C131444CA6300D23B5E /* GraphingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphingAppDelegate.m; sourceTree = "<group>"; };
 		68201C161444CA6300D23B5E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		68201C1D1444CA6300D23B5E /* GraphingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68201C1D1444CA6300D23B5E /* erkisGraphingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = erkisGraphingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68201C1E1444CA6300D23B5E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		68201C271444CA6300D23B5E /* GraphingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraphingTests-Info.plist"; sourceTree = "<group>"; };
+		68201C271444CA6300D23B5E /* erkisGraphingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "erkisGraphingTests-Info.plist"; sourceTree = "<group>"; };
 		68201C291444CA6300D23B5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		68201C2B1444CA6300D23B5E /* GraphingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphingTests.h; sourceTree = "<group>"; };
 		68201C2D1444CA6300D23B5E /* GraphingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphingTests.m; sourceTree = "<group>"; };
@@ -67,9 +70,6 @@
 		68201C48144508C700D23B5E /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		68201C4B14450DB800D23B5E /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
 		68201C4C14450DB800D23B5E /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
-		68201C4E1445149B00D23B5E /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
-		68201C4F1445149B00D23B5E /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
-		68201C501445149B00D23B5E /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +110,8 @@
 		68201C001444CA6300D23B5E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				68201BFF1444CA6300D23B5E /* Graphing.app */,
-				68201C1D1444CA6300D23B5E /* GraphingTests.octest */,
+				68201BFF1444CA6300D23B5E /* erkisGraphing.app */,
+				68201C1D1444CA6300D23B5E /* erkisGraphingTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,13 +138,13 @@
 				68201C47144508C700D23B5E /* CalculatorViewController.m */,
 				68201C121444CA6300D23B5E /* GraphingAppDelegate.h */,
 				68201C131444CA6300D23B5E /* GraphingAppDelegate.m */,
-				68201C4E1445149B00D23B5E /* GraphViewController.h */,
-				68201C4F1445149B00D23B5E /* GraphViewController.m */,
+				680B8241144A1DFD004D7CA7 /* GraphViewController.h */,
+				680B8242144A1DFD004D7CA7 /* GraphViewController.m */,
 				680B823E1445229D004D7CA7 /* GraphDraw.h */,
 				680B823F1445229D004D7CA7 /* GraphDraw.m */,
 				68201C151444CA6300D23B5E /* MainWindow.xib */,
 				68201C48144508C700D23B5E /* CalculatorViewController.xib */,
-				68201C501445149B00D23B5E /* GraphViewController.xib */,
+				680B8243144A1DFD004D7CA7 /* GraphViewController.xib */,
 				68201C0A1444CA6300D23B5E /* Supporting Files */,
 			);
 			path = Graphing;
@@ -156,7 +156,7 @@
 				68201C0B1444CA6300D23B5E /* Graphing-Info.plist */,
 				68201C0C1444CA6300D23B5E /* InfoPlist.strings */,
 				68201C0F1444CA6300D23B5E /* main.m */,
-				68201C111444CA6300D23B5E /* Graphing-Prefix.pch */,
+				68201C111444CA6300D23B5E /* erkisGraphing-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 		68201C261444CA6300D23B5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				68201C271444CA6300D23B5E /* GraphingTests-Info.plist */,
+				68201C271444CA6300D23B5E /* erkisGraphingTests-Info.plist */,
 				68201C281444CA6300D23B5E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -183,9 +183,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		68201BFE1444CA6300D23B5E /* Graphing */ = {
+		68201BFE1444CA6300D23B5E /* erkisGraphing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 68201C311444CA6300D23B5E /* Build configuration list for PBXNativeTarget "Graphing" */;
+			buildConfigurationList = 68201C311444CA6300D23B5E /* Build configuration list for PBXNativeTarget "erkisGraphing" */;
 			buildPhases = (
 				68201BFB1444CA6300D23B5E /* Sources */,
 				68201BFC1444CA6300D23B5E /* Frameworks */,
@@ -195,14 +195,14 @@
 			);
 			dependencies = (
 			);
-			name = Graphing;
+			name = erkisGraphing;
 			productName = Graphing;
-			productReference = 68201BFF1444CA6300D23B5E /* Graphing.app */;
+			productReference = 68201BFF1444CA6300D23B5E /* erkisGraphing.app */;
 			productType = "com.apple.product-type.application";
 		};
-		68201C1C1444CA6300D23B5E /* GraphingTests */ = {
+		68201C1C1444CA6300D23B5E /* erkisGraphingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 68201C341444CA6300D23B5E /* Build configuration list for PBXNativeTarget "GraphingTests" */;
+			buildConfigurationList = 68201C341444CA6300D23B5E /* Build configuration list for PBXNativeTarget "erkisGraphingTests" */;
 			buildPhases = (
 				68201C181444CA6300D23B5E /* Sources */,
 				68201C191444CA6300D23B5E /* Frameworks */,
@@ -214,9 +214,9 @@
 			dependencies = (
 				68201C241444CA6300D23B5E /* PBXTargetDependency */,
 			);
-			name = GraphingTests;
+			name = erkisGraphingTests;
 			productName = GraphingTests;
-			productReference = 68201C1D1444CA6300D23B5E /* GraphingTests.octest */;
+			productReference = 68201C1D1444CA6300D23B5E /* erkisGraphingTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -224,7 +224,7 @@
 /* Begin PBXProject section */
 		68201BF61444CA6300D23B5E /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 68201BF91444CA6300D23B5E /* Build configuration list for PBXProject "Graphing" */;
+			buildConfigurationList = 68201BF91444CA6300D23B5E /* Build configuration list for PBXProject "erkisGraphing" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -236,8 +236,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				68201BFE1444CA6300D23B5E /* Graphing */,
-				68201C1C1444CA6300D23B5E /* GraphingTests */,
+				68201BFE1444CA6300D23B5E /* erkisGraphing */,
+				68201C1C1444CA6300D23B5E /* erkisGraphingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,7 +250,7 @@
 				68201C0E1444CA6300D23B5E /* InfoPlist.strings in Resources */,
 				68201C171444CA6300D23B5E /* MainWindow.xib in Resources */,
 				68201C4A144508C700D23B5E /* CalculatorViewController.xib in Resources */,
-				68201C521445149C00D23B5E /* GraphViewController.xib in Resources */,
+				680B8245144A1DFD004D7CA7 /* GraphViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +291,8 @@
 				68201C41144508B200D23B5E /* CalculatorBrain.m in Sources */,
 				68201C49144508C700D23B5E /* CalculatorViewController.m in Sources */,
 				68201C4D14450DB900D23B5E /* AxesDrawer.m in Sources */,
-				68201C511445149C00D23B5E /* GraphViewController.m in Sources */,
 				680B82401445229D004D7CA7 /* GraphDraw.m in Sources */,
+				680B8244144A1DFD004D7CA7 /* GraphViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +309,7 @@
 /* Begin PBXTargetDependency section */
 		68201C241444CA6300D23B5E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 68201BFE1444CA6300D23B5E /* Graphing */;
+			target = 68201BFE1444CA6300D23B5E /* erkisGraphing */;
 			targetProxy = 68201C231444CA6300D23B5E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -372,7 +372,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Johnson";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -381,6 +381,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "21B3AD73-1F97-4E3A-B16C-4F2D97A19819";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -391,9 +392,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Graphing/Graphing-Prefix.pch";
+				GCC_PREFIX_HEADER = "Graphing/erkisGraphing-Prefix.pch";
 				INFOPLIST_FILE = "Graphing/Graphing-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = erkisGraphing;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -403,9 +404,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Graphing/Graphing-Prefix.pch";
+				GCC_PREFIX_HEADER = "Graphing/erkisGraphing-Prefix.pch";
 				INFOPLIST_FILE = "Graphing/Graphing-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = erkisGraphing;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -422,8 +423,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Graphing/Graphing-Prefix.pch";
-				INFOPLIST_FILE = "GraphingTests/GraphingTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "erkisGraphingTests-Info.plist";
+				PRODUCT_NAME = erkisGraphingTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -440,8 +441,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Graphing/Graphing-Prefix.pch";
-				INFOPLIST_FILE = "GraphingTests/GraphingTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "erkisGraphingTests-Info.plist";
+				PRODUCT_NAME = erkisGraphingTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -450,7 +451,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		68201BF91444CA6300D23B5E /* Build configuration list for PBXProject "Graphing" */ = {
+		68201BF91444CA6300D23B5E /* Build configuration list for PBXProject "erkisGraphing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				68201C2F1444CA6300D23B5E /* Debug */,
@@ -459,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		68201C311444CA6300D23B5E /* Build configuration list for PBXNativeTarget "Graphing" */ = {
+		68201C311444CA6300D23B5E /* Build configuration list for PBXNativeTarget "erkisGraphing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				68201C321444CA6300D23B5E /* Debug */,
@@ -468,7 +469,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		68201C341444CA6300D23B5E /* Build configuration list for PBXNativeTarget "GraphingTests" */ = {
+		68201C341444CA6300D23B5E /* Build configuration list for PBXNativeTarget "erkisGraphingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				68201C351444CA6300D23B5E /* Debug */,

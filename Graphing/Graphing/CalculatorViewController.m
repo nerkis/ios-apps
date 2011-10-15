@@ -154,6 +154,7 @@
     [dictionary release];
 }
 
+//gives calculator view a title
 - (void)viewDidLoad
 {
     [super viewDidLoad];
