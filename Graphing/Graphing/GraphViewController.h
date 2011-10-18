@@ -11,9 +11,16 @@
 
 @interface GraphViewController : UIViewController <GraphDrawDelegate>
 {
-    GraphDraw *graphDraw;
+    @private
+        GraphDraw *graphDraw;
 }
 
 @property (retain) IBOutlet GraphDraw *graphDraw;
+
+//updates graph scale when zoom in is pressed
+- (IBAction)zoomInPressed:(UIButton *)sender;
+
+//updates graph scale when zoom out is pressed
+- (IBAction)zoomOutPressed:(UIButton *)sender;
 
 @end

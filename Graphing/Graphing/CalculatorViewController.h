@@ -36,4 +36,7 @@
 //evaluates the expression using test set of variable values
 - (IBAction)solvePressed:(UIButton *)sender;
 
+//brings up the graph view
+- (IBAction)graphPressed:(UIButton *)sender;
+
 @end

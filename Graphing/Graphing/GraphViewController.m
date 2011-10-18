@@ -3,7 +3,7 @@
 //  erkisGraphing
 //
 //  Created by Nicole Erkis on 10/15/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Bowdoin College. All rights reserved.
 //
 
 #import "GraphViewController.h"
@@ -24,6 +24,22 @@
         // Custom initialization
     }
     return self;
+}
+
+/* Changes the scale of the graph accordingly when
+ * zoom in button is pressed
+ */
+- (IBAction)zoomInPressed:(UIButton *)sender
+{
+    //implementation
+}
+
+/* Changes the scale of the graph accordingly when
+ * zoom out button is pressed
+ */
+- (IBAction)zoomOutPressed:(UIButton *)sender
+{
+    //implementation
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +71,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc
+{
+    [super dealloc];
 }
 
 @end

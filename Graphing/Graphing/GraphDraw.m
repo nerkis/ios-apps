@@ -21,7 +21,7 @@
     return self;
 }
 
-//drawRect to draw the function
+//drawRect to draw the axes and the function
 - (void)drawRect:(CGRect)rect
 {
     NSLog(@"draw");
