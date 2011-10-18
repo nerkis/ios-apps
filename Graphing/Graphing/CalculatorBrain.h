@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CalculatorBrain : NSObject {
+@interface CalculatorBrain : NSObject { //<Solver>
 
     @public
         double operand;
@@ -26,6 +26,8 @@
 @property (readonly) id expression;
 
 
+- (id) expression;
+
 //sets operand value
 - (void) setOperand:(double)aDouble;
 
@@ -41,6 +43,9 @@
 //returns YES if it is OK to add a decimal point to operand
 - (BOOL) setFloatingPointNumber:(NSString*)inputNum;
 
+//returns the y value for a given x value
+- (double) getYFromX:(double)x;
+
 //returns result of expression using test variable values
 + (double) evaluateExpression:(id)anExpression
           usingVariableValues:(NSDictionary *) variables;
@@ -54,7 +59,5 @@
 //returns property list of expression and vice versa, respectively
 + (id)propertyListForExpression:(id)anExpression;
 + (id)expressionForPropertyList:(id)propertyList;
-
-- (id) expression;
 
 @end

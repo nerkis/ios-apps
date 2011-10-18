@@ -9,13 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "GraphDraw.h"
 
+#define DEFAULT_SCALE 20.0;
+#define SCALE_CHANGE 5.0;
+
 @interface GraphViewController : UIViewController <GraphDrawDelegate>
 {
     @private
-        GraphDraw *graphDraw;
+    IBOutlet GraphDraw *graphDraw;
+    
+    @public
+    CGFloat scale;
 }
 
 @property (retain) IBOutlet GraphDraw *graphDraw;
+
+@property CGFloat scale;
+
+- (CGFloat) scale;
 
 //updates graph scale when zoom in is pressed
 - (IBAction)zoomInPressed:(UIButton *)sender;

@@ -12,16 +12,16 @@
 @class GraphDraw;
 
 @protocol GraphDrawDelegate
-//add methods like smileForFaceView
+    - (CGFloat) scale;
+//- (CGFloat) getyforx:(float)x;
 @end
 
-//why
 @interface GraphDraw : UIView
 {
     id <GraphDrawDelegate> delegate;
+    //CGPoint midpoint;
 }
 
-//why
 @property (assign) id <GraphDrawDelegate> delegate;
 
 @end

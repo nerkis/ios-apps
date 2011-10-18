@@ -11,28 +11,31 @@
 @implementation GraphViewController
 
 @synthesize graphDraw;
+@synthesize scale;
 
 - (void)updateUI
 {
     [self.graphDraw setNeedsDisplay];
 }
 
+//should this be a regular init?
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.scale = DEFAULT_SCALE;
     }
     return self;
 }
+
 
 /* Changes the scale of the graph accordingly when
  * zoom in button is pressed
  */
 - (IBAction)zoomInPressed:(UIButton *)sender
 {
-    printf("i");
-    //implementation
+    self.scale -= SCALE_CHANGE;
+    [self updateUI];
 }
 
 /* Changes the scale of the graph accordingly when
@@ -40,9 +43,10 @@
  */
 - (IBAction)zoomOutPressed:(UIButton *)sender
 {
-    printf("o");
-    //implementation
+    self.scale += SCALE_CHANGE;
+    [self updateUI];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,15 +62,15 @@
 {
     [super viewDidLoad];
     self.graphDraw.delegate = self;
+    
     [self updateUI];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
+    [graphDraw release]; 
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -77,6 +81,7 @@
 
 - (void)dealloc
 {
+    [graphDraw release];
     [super dealloc];
 }
 

@@ -44,17 +44,18 @@
     //if (self.bounds.size.height < self.bounds.size.width) size = self.bounds.size.height/2;
     //size *= 0.90;
     
+    CGFloat scale = [delegate scale];
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetLineWidth(context, 5.0);
     [[UIColor blackColor] setStroke];
     
-    //make scale a variable!!
     //draw the axes
-    [AxesDrawer drawAxesInRect:rect originAtPoint:midPoint scale:30];
+    [AxesDrawer drawAxesInRect:rect originAtPoint:midPoint scale:20];
     
     //call drawing method
-    [self drawExpressionInContext: context scale:30];
+   // [self drawExpressionInContext:context scale:scale];
 }
 
 - (void)dealloc {
