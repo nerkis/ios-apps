@@ -31,6 +31,7 @@
  */
 - (IBAction)zoomInPressed:(UIButton *)sender
 {
+    printf("i");
     //implementation
 }
 
@@ -39,6 +40,7 @@
  */
 - (IBAction)zoomOutPressed:(UIButton *)sender
 {
+    printf("o");
     //implementation
 }
 

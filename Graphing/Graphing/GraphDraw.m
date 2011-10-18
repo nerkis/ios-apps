@@ -7,7 +7,6 @@
 //
 
 #import "GraphDraw.h"
-#import "AxesDrawer.h"
 
 @implementation GraphDraw
 
@@ -21,36 +20,41 @@
     return self;
 }
 
-//drawRect to draw the axes and the function
+/* method like axesDrawer that draws the
+ * graphical expression
+ */
+- (void)drawExpressionInContext:(CGContextRef)context scale:(CGFloat)pointsPerUnit
+{
+    //draw the expression
+}
+
+/* custom drawRect that draws the axes using
+ * axesDrawer and then draws the graphical expression
+ */
 - (void)drawRect:(CGRect)rect
 {
     NSLog(@"draw");
+    
+    //find midpoint of rect for axes origin
     CGPoint midPoint;
     midPoint.x = self.bounds.origin.x + self.bounds.size.width/2;
     midPoint.y = self.bounds.origin.y + self.bounds.size.height/2;
     
-    CGFloat size = self.bounds.size.width/2;
-    if (self.bounds.size.height < self.bounds.size.width) size = self.bounds.size.height/2;
-    size *= 0.90;
+    //CGFloat size = self.bounds.size.width/2;
+    //if (self.bounds.size.height < self.bounds.size.width) size = self.bounds.size.height/2;
+    //size *= 0.90;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetLineWidth(context, 5.0);
     [[UIColor blackColor] setStroke];
     
-    [AxesDrawer drawAxesInRect:rect originAtPoint:midPoint scale:0.2];
+    //make scale a variable!!
+    //draw the axes
+    [AxesDrawer drawAxesInRect:rect originAtPoint:midPoint scale:30];
     
-    //first set up the graphics context
-    //make sure to use same scaling approach as is used in the axesdrawer class
-    //see professor facedraw for example--set the drawing context, then draw axes
-
-    //draw axes here using helper code
-    //AxesDrawer drawAxesInRect:(CGRect)bounds originAtPoint:(CGPoint)axisOrigin scale:(CGFloat)pointsPerUnit;
-    
-    
-    //after all that, deal with drawing the function?
-    //how to fill in x values without having graphdraw know about calculator brains?
-    //x values are the value of the axes at this point
+    //call drawing method
+    [self drawExpressionInContext: context scale:30];
 }
 
 - (void)dealloc {
