@@ -12,7 +12,7 @@
 
 @synthesize graphView;
 @synthesize dataModel;
-@synthesize currentGraphType;
+@synthesize currentGraphType, currentTimeframe;
 @synthesize navBar;
 @synthesize dateRangeControl, graphTypeControl;
 
@@ -20,8 +20,8 @@
 #define TRIPLE_SALINITY_GRAPH 1
 #define CHLOROPHYLL_GRAPH 2
 
-#define DAY_TIMEFRAME 89
-#define WEEK_TIMEFRAME 99
+#define DAY_TIMEFRAME 0
+#define WEEK_TIMEFRAME 1
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -115,7 +115,7 @@
 #define SALINITY_TITLE @"Salinity"
 #define CHLOROPHYLL_TITLE @"Chlorophyll"
 
-- (void)segmentedControlIndexChanged
+- (void)graphSegmentedControlIndexChanged
 {
     NSLog(@"Inside changed graph type");
     
@@ -137,6 +137,23 @@
     }
 }
 
+- (void)dateSegmentedControlIndexChanged
+{
+    switch (self.dateRangeControl.selectedSegmentIndex){
+        case DAY_TIMEFRAME:
+            [self.graphView setTimeInterval:DAY_TIMEFRAME];
+            [self.graphView setNeedsDisplay];
+            break;
+        case WEEK_TIMEFRAME:
+            [self.graphView setTimeInterval:WEEK_TIMEFRAME];
+            [self.graphView setNeedsDisplay];
+            break;
+        default:
+            break;
+    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -150,7 +167,7 @@
         
     //need drawing setup code here to do anything
     [self.graphView defineOrigin];
-    [self.graphView setTimeInterval:WEEK_TIMEFRAME];
+    [self.graphView setTimeInterval:DAY_TIMEFRAME];
     [self.graphView setDrawingMode:currentGraphType];
     [self.graphView setFirstDay:@"2011-12-01"];
 }

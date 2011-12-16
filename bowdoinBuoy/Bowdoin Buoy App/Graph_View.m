@@ -55,8 +55,8 @@
 #define TRIPLE_SALINITY_GRAPH 1
 #define CHLOROPHYLL_GRAPH 2
 
-#define DAY_TIMEFRAME 89
-#define WEEK_TIMEFRAME 99
+#define DAY_TIMEFRAME 0
+#define WEEK_TIMEFRAME 1
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -92,6 +92,7 @@
             self.timeIntervalIsDay = NO;
             self.timeIntervalIsWeek = YES;
             self.scaleX = IPHONE_DEFAULT_SCALE_X_WEEK;
+            break;
             
         default:
             break;
