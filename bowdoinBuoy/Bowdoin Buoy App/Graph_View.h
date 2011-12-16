@@ -13,7 +13,6 @@
 
 @protocol GraphViewDelegate  
 - (NSArray *)dataForGraphingFromDelegate:(Graph_View *)requestor withCategoryID:(int)identifier andNumberOfDays:(int)numDays andStartDate:(NSString *)startDate;
-
 @end
 
 @interface Graph_View : UIView 
@@ -48,14 +47,6 @@
 
 @property (nonatomic, retain) NSString *firstDayForData;
 
-
-+ (UIColor*)myLightBlueColor;
-+ (UIColor*)myMediumBlueColor;
-+ (UIColor*)myDarkBlueColor;
-+ (UIColor*)myLightRedColor;
-+ (UIColor*)myMediumRedColor;
-+ (UIColor*)myDarkRedColor;
-
 - (void)doubleTap:(UIGestureRecognizer *)recognizer;
 
 - (void)setTimeInterval:(int)identifier;
@@ -64,7 +55,11 @@
 - (void)defineOrigin;
 - (void)setFirstDay:(NSString *)date;
 
-
-
++ (UIColor*)myLightBlueColor;
++ (UIColor*)myMediumBlueColor;
++ (UIColor*)myDarkBlueColor;
++ (UIColor*)myLightRedColor;
++ (UIColor*)myMediumRedColor;
++ (UIColor*)myDarkRedColor;
 
 @end

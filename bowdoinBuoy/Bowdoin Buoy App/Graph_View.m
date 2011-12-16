@@ -22,7 +22,6 @@
 #define TWO_METER_WATER_TEMP 10
 #define TWO_METER_WATER_SALINITY 100
 
-
 #define TEN_METER_WATER 1
 #define TEN_METER_WATER_TEMP 11
 #define TEN_METER_WATER_SALINITY 111
@@ -465,8 +464,8 @@
             {
                 //NSLog(@"%i", [[dataTwenty objectAtIndex:counter] count]);
                 NSArray *readingsForHour = [dataTwo objectAtIndex:counter];
-                NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                double doubleSalinityValue = [tempReading doubleValue];
+                NSNumber *salinityReading = [readingsForHour objectAtIndex:0];
+                double doubleSalinityValue = [salinityReading doubleValue];
                 //NSLog(@"%f", doubleSalinityValue);
                 CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                 if (shouldSetYAxisMarker)
@@ -499,8 +498,8 @@
                 {
                     //NSLog(@"%i", [[day objectAtIndex:counter] count]);
                     NSArray *readingsForHour = [day objectAtIndex:counter];
-                    NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                    double doubleSalinityValue = [tempReading doubleValue];
+                    NSNumber *salinityReading = [readingsForHour objectAtIndex:0];
+                    double doubleSalinityValue = [salinityReading doubleValue];
                     //NSLog(@"%f", doubleSalinityValue);
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                     didFirstDay = YES;
@@ -517,8 +516,8 @@
                 else 
                 {
                     NSArray *readingsForHour = [day objectAtIndex:counter];
-                    NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                    double doubleSalinityValue = [tempReading doubleValue];
+                    NSNumber *salinityReading = [readingsForHour objectAtIndex:0];
+                    double doubleSalinityValue = [salinityReading doubleValue];
                     //NSLog(@"%f", doubleSalinityValue);
                     //NSLog(@"%f", self.graphOrigin.x+(counter*widthIncrement));
                     CGContextAddLineToPoint(context, self.graphOrigin.x+(widthIncrement*numberOfPointsGraphed), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
@@ -564,8 +563,8 @@
             {
                 //NSLog(@"%i", [[dataTwenty objectAtIndex:counter] count]);
                 NSArray *readingsForHour = [dataTen objectAtIndex:counter];
-                NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                double doubleSalinityValue = [tempReading doubleValue];
+                NSNumber *salinityReading = [readingsForHour objectAtIndex:1];
+                double doubleSalinityValue = [salinityReading doubleValue];
                 //NSLog(@"%f", doubleSalinityValue);
                 CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                 if (shouldSetYAxisMarker)
@@ -577,8 +576,8 @@
             else 
             {
                 NSArray *readingsForHour = [dataTen objectAtIndex:counter];
-                NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                double doubleSalinityValue = [tempReading doubleValue];
+                NSNumber *salinityReading = [readingsForHour objectAtIndex:1];
+                double doubleSalinityValue = [salinityReading doubleValue];
                 //NSLog(@"%f", doubleSalinityValue);
                 CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
             }
@@ -598,8 +597,8 @@
                 {
                     //NSLog(@"%i", [[day objectAtIndex:counter] count]);
                     NSArray *readingsForHour = [day objectAtIndex:counter];
-                    NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                    double doubleSalinityValue = [tempReading doubleValue];
+                    NSNumber *salinityReading = [readingsForHour objectAtIndex:1];
+                    double doubleSalinityValue = [salinityReading doubleValue];
                     //NSLog(@"%f", doubleSalinityValue);
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                     didFirstDay = YES;
@@ -616,8 +615,8 @@
                 else 
                 {
                     NSArray *readingsForHour = [day objectAtIndex:counter];
-                    NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                    double doubleSalinityValue = [tempReading doubleValue];
+                    NSNumber *salinityReading = [readingsForHour objectAtIndex:1];
+                    double doubleSalinityValue = [salinityReading doubleValue];
                     //NSLog(@"%f", self.graphOrigin.x+(counter*widthIncrement));
                     CGContextAddLineToPoint(context, self.graphOrigin.x+(widthIncrement*numberOfPointsGraphed), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                     numberOfPointsGraphed ++;
@@ -661,8 +660,8 @@
             {
                 //NSLog(@"%i", [[dataTwenty objectAtIndex:counter] count]);
                 NSArray *readingsForHour = [dataTwenty objectAtIndex:counter];
-                NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                double doubleSalinityValue = [tempReading doubleValue];
+                NSNumber *salinityReading = [readingsForHour objectAtIndex:1];
+                double doubleSalinityValue = [salinityReading doubleValue];
                 //NSLog(@"%f", doubleSalinityValue);
                 CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                 if (shouldSetYAxisMarker)
@@ -674,8 +673,8 @@
             else 
             {
                 NSArray *readingsForHour = [dataTwenty objectAtIndex:counter];
-                NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                double doubleSalinityValue = [tempReading doubleValue];
+                NSNumber *salinityReading = [readingsForHour objectAtIndex:1];
+                double doubleSalinityValue = [salinityReading doubleValue];
                 //NSLog(@"%f", doubleSalinityValue);
                 CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
             }
@@ -695,8 +694,8 @@
                 {
                     //NSLog(@"%i", [[day objectAtIndex:counter] count]);
                     NSArray *readingsForHour = [day objectAtIndex:counter];
-                    NSNumber *tempReading = [readingsForHour objectAtIndex:0];
-                    double doubleSalinityValue = [tempReading doubleValue];
+                    NSNumber *salinityReading = [readingsForHour objectAtIndex:1];
+                    double doubleSalinityValue = [salinityReading doubleValue];
                     //NSLog(@"%f", doubleSalinityValue);
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                     didFirstDay = YES;
@@ -713,7 +712,7 @@
                 else 
                 {
                     NSArray *readingsForHour = [day objectAtIndex:counter];
-                    NSNumber *tempReading = [readingsForHour objectAtIndex:0];
+                    NSNumber *tempReading = [readingsForHour objectAtIndex:1];
                     double doubleSalinityValue = [tempReading doubleValue];
                     //NSLog(@"%f", self.graphOrigin.x+(counter*widthIncrement));
                     CGContextAddLineToPoint(context, self.graphOrigin.x+(widthIncrement*numberOfPointsGraphed), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));

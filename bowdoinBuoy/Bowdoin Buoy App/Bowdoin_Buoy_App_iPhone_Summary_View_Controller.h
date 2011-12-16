@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Bowdoin_Buoy_App_iPhone_Summary_View_Controller : UIViewController {
-    
+@interface Bowdoin_Buoy_App_iPhone_Summary_View_Controller : UIViewController 
+{    
     IBOutlet UILabel *airTempDisplay;
     IBOutlet UILabel *windSpeedDisplay;
     IBOutlet UILabel *waveHeightDisplay;
@@ -21,10 +21,6 @@
     IBOutlet UILabel *latitudeDisplay;
     IBOutlet UILabel *longitudeDisplay;
     IBOutlet UILabel *timeStampDisplay;
-
-
-
-    
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *airTempDisplay;
@@ -38,7 +34,5 @@
 @property (nonatomic, retain) IBOutlet UILabel *latitudeDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *longitudeDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *timeStampDisplay;
-
-
 
 @end

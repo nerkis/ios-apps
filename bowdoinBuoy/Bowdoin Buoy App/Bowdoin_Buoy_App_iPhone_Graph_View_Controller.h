@@ -12,21 +12,24 @@
 
 @interface Bowdoin_Buoy_App_iPhone_Graph_View_Controller : 
     UIViewController <GraphViewDelegate>
-
 {
     Graph_View *graphView;
     Bowdoin_Buoy_App_iPhone_Graph_Data *dataModel;
+    
     int currentGraphType;
     int currentTimeframe;
-    UINavigationItem *navBar;    
+    
+    UINavigationItem *navBar; 
     UISegmentedControl *dateRangeControl;
     UISegmentedControl *graphTypeControl;
 }
 
 @property (nonatomic, retain) IBOutlet Graph_View *graphView;
 @property (nonatomic, retain) Bowdoin_Buoy_App_iPhone_Graph_Data *dataModel;
+
 @property (nonatomic) int currentGraphType;
 @property (nonatomic) int currentTimeframe;
+
 @property (nonatomic, retain) IBOutlet UINavigationItem *navBar;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *dateRangeControl;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *graphTypeControl;

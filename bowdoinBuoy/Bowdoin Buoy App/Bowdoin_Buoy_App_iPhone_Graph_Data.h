@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface Bowdoin_Buoy_App_iPhone_Graph_Data : NSObject
-
 {
     NSMutableDictionary *sensorSBE37DataForHourDictionaryForTwoMeterWater; 
     NSMutableDictionary *sensorSBE37DataForDayDictionaryForTwoMeterWater; 
@@ -46,6 +45,5 @@
 - (NSArray *)getDataFromSensor:(int)identifier andDateRequested:(NSString *)date forNumberofDays:(int)numberOfDays;
 
 - (void)downloadAllData;
-
 
 @end
