@@ -12,16 +12,18 @@
 
 @synthesize graphView;
 @synthesize dataModel;
-@synthesize graphChoices;
 @synthesize currentGraphType;
 @synthesize navBar;
+@synthesize dateRangeControl, graphTypeControl;
 
-#define TRIPLE_TEMPERATURE_GRAPH 42
-#define TRIPLE_SALINITY_GRAPH 43
-#define CHLOROPHYLL_GRAPH 44
+#define TRIPLE_TEMPERATURE_GRAPH 0
+#define TRIPLE_SALINITY_GRAPH 1
+#define CHLOROPHYLL_GRAPH 2
 
 #define DAY_TIMEFRAME 89
 #define WEEK_TIMEFRAME 99
+
+static NSArray *graphChoices = nil;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,15 +32,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (NSArray *)graphChoices
-{
-
-    if (!graphChoices) {
-    graphChoices = [[NSArray arrayWithObjects:[NSNumber numberWithInt:TRIPLE_SALINITY_GRAPH], [NSNumber numberWithInt:TRIPLE_TEMPERATURE_GRAPH], [NSNumber numberWithInt:CHLOROPHYLL_GRAPH], nil] retain];
-    }
-    return graphChoices;
 }
 
 - (Bowdoin_Buoy_App_iPhone_Graph_Data *)dataModel
@@ -81,6 +74,8 @@
 - (void)dealloc
 {
     [navBar release];
+    [dateRangeControl release];
+    [graphTypeControl release];
     [super dealloc];
     [self releaseOutlets];
 }
@@ -119,45 +114,62 @@
     [tripleTapGesture release];
 }
 
-/*- (UISegmentedControl *)graphTypeSegmentedControl
+#define TEMPERATURE_TITLE @"Temperature"
+#define SALINITY_TITLE @"Salinity"
+#define CHLOROPHYLL_TITLE @"Chlorophyll"
+
+- (UISegmentedControl *)graphTypeControl
 {
+    NSLog(@"Inside graphTypeControl");
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:self.graphChoices];
-    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    [segmentedControl addTarget:self action:@selector(changedGraphType:) forControlEvents:UIControlEventValueChanged];
-    switch (currentGraphType) {
-     case TRIPLE_SALINITY_GRAPH:
-     segmentedControl.selectedSegmentIndex = [self.graphChoices indexOfObject:[NSNumber numberWithInt:TRIPLE_SALINITY_GRAPH]];
-     break;
-     case TRIPLE_TEMPERATURE_GRAPH:
-     segmentedControl.selectedSegmentIndex = [self.graphChoices indexOfObject:[NSNumber numberWithInt:TRIPLE_TEMPERATURE_GRAPH]];
-     break;        
-     case CHLOROPHYLL_GRAPH:
-     segmentedControl.selectedSegmentIndex = [self.graphChoices indexOfObject:[NSNumber numberWithInt:CHLOROPHYLL_GRAPH]];
-     break;           
-     default:
-     break;
-     }
-    return [segmentedControl autorelease];
+    if (!graphChoices) {
+        graphChoices = [[NSArray arrayWithObjects:TEMPERATURE_TITLE, SALINITY_TITLE, CHLOROPHYLL_TITLE, nil] retain];
+    }
+    
+    self.graphTypeControl = [[UISegmentedControl alloc] initWithItems:graphChoices];
+    
+    [graphTypeControl addTarget:self action:@selector(changedGraphType:) forControlEvents: UIControlEventValueChanged];
+    
+    switch (currentGraphType)
+    {
+        case TRIPLE_TEMPERATURE_GRAPH:
+            graphTypeControl.selectedSegmentIndex = [graphChoices indexOfObject:TEMPERATURE_TITLE];
+            break;
+        case TRIPLE_SALINITY_GRAPH:
+            graphTypeControl.selectedSegmentIndex = [graphChoices indexOfObject:SALINITY_TITLE];
+            break;
+        case CHLOROPHYLL_GRAPH:
+            graphTypeControl.selectedSegmentIndex = [graphChoices indexOfObject:CHLOROPHYLL_TITLE];
+            break;
+        default:
+            break;
+    }
+    
+    return [graphTypeControl autorelease];
 }
 
 
-- (void)changedGraphType:(UISegmentedControl *)segmentedControl
+- (void)changedGraphType:(UISegmentedControl *)graphTypeSegmentedControl
 {
-    if (segmentedControl.selectedSegmentIndex == [self.graphChoices indexOfObject:[NSNumber numberWithInt:TRIPLE_SALINITY_GRAPH]])
-    {
-        self.currentGraphType = TRIPLE_SALINITY_GRAPH;
-    } 
-    else if (segmentedControl.selectedSegmentIndex == [self.graphChoices indexOfObject:[NSNumber numberWithInt:TRIPLE_TEMPERATURE_GRAPH]])
+    NSLog(@"Inside changed graph type");
+    
+    if (graphTypeSegmentedControl.selectedSegmentIndex == [graphChoices indexOfObject:TEMPERATURE_TITLE])
     {
         self.currentGraphType = TRIPLE_TEMPERATURE_GRAPH;
+        NSLog(@"changed to type %i", TRIPLE_TEMPERATURE_GRAPH);
     } 
-    else if (segmentedControl.selectedSegmentIndex == [self.graphChoices indexOfObject:[NSNumber numberWithInt:CHLOROPHYLL_GRAPH]])
+    else if (graphTypeSegmentedControl.selectedSegmentIndex == [graphChoices indexOfObject:SALINITY_TITLE])
+    {
+        self.currentGraphType = TRIPLE_SALINITY_GRAPH;
+        NSLog(@"changed to type %i", TRIPLE_SALINITY_GRAPH);
+    } 
+    else if (graphTypeSegmentedControl.selectedSegmentIndex == [graphChoices indexOfObject:CHLOROPHYLL_TITLE])
     {
         self.currentGraphType = CHLOROPHYLL_GRAPH;
+        NSLog(@"changed to type %i", CHLOROPHYLL_GRAPH);
     }
 }
-*/
+
 
 - (void)viewDidLoad
 {
@@ -169,9 +181,7 @@
     [self addPanGestureRecognizerToGraph_View:self.graphView];
     [self addDoubleTapGestureRecognizerToGraph_View:self.graphView];
     [self addTripleTapGestureRecognizerToGraph_View:self.graphView];
-    
-   // self.navigationItem.titleView = [self graphTypeSegmentedControl];
-    
+        
     //need drawing setup code here to do anything
     [self.graphView defineOrigin];
     [self.graphView setTimeInterval:WEEK_TIMEFRAME];
@@ -184,6 +194,8 @@
 - (void)viewDidUnload
 {
     [self setNavBar:nil];
+    [self setDateRangeControl:nil];
+    [self setGraphTypeControl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

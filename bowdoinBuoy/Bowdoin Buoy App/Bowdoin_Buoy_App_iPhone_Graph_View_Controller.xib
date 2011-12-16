@@ -50,29 +50,32 @@
 						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUINavigationBar" id="783244141">
+							<object class="IBUINavigationBar" id="244292926">
 								<reference key="NSNextResponder" ref="959155737"/>
 								<int key="NSvFlags">290</int>
 								<object class="NSMutableArray" key="NSSubviews">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUISegmentedControl" id="472973262">
-										<reference key="NSNextResponder" ref="783244141"/>
+									<object class="IBUISegmentedControl" id="106233336">
+										<reference key="NSNextResponder" ref="244292926"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{5, 7}, {175, 30}}</string>
-										<reference key="NSSuperview" ref="783244141"/>
+										<string key="NSFrame">{{5, 7}, {263, 30}}</string>
+										<reference key="NSSuperview" ref="244292926"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="773551483"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBSegmentControlStyle">2</int>
-										<int key="IBNumberOfSegments">2</int>
+										<int key="IBNumberOfSegments">3</int>
 										<int key="IBSelectedSegmentIndex">0</int>
 										<object class="NSArray" key="IBSegmentTitles">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<string>Temperature</string>
 											<string>Salinity</string>
+											<string>Chlorophyll</string>
 										</object>
 										<object class="NSMutableArray" key="IBSegmentWidths">
 											<bool key="EncodedWithXMLCoder">YES</bool>
+											<real value="0.0"/>
 											<real value="0.0"/>
 											<real value="0.0"/>
 										</object>
@@ -80,9 +83,11 @@
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<boolean value="YES"/>
 											<boolean value="YES"/>
+											<boolean value="YES"/>
 										</object>
 										<object class="NSMutableArray" key="IBSegmentContentOffsets">
 											<bool key="EncodedWithXMLCoder">YES</bool>
+											<string>{0, 0}</string>
 											<string>{0, 0}</string>
 											<string>{0, 0}</string>
 										</object>
@@ -90,14 +95,16 @@
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<object class="NSNull" id="4"/>
 											<reference ref="4"/>
+											<reference ref="4"/>
 										</object>
 									</object>
-									<object class="IBUISegmentedControl" id="819443417">
-										<reference key="NSNextResponder" ref="783244141"/>
+									<object class="IBUISegmentedControl" id="773551483">
+										<reference key="NSNextResponder" ref="244292926"/>
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{358, 7}, {117, 30}}</string>
-										<reference key="NSSuperview" ref="783244141"/>
+										<reference key="NSSuperview" ref="244292926"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBSegmentControlStyle">2</int>
@@ -133,23 +140,25 @@
 								<string key="NSFrameSize">{480, 44}</string>
 								<reference key="NSSuperview" ref="959155737"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="106233336"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIBarStyle">2</int>
 								<object class="NSArray" key="IBUIItems">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUINavigationItem" id="771749256">
-										<reference key="IBUINavigationBar" ref="783244141"/>
+									<object class="IBUINavigationItem" id="474540269">
+										<reference key="IBUINavigationBar" ref="244292926"/>
 										<string key="IBUITitle"/>
-										<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="1043438906">
+										<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="378862332">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-											<reference key="IBUICustomView" ref="472973262"/>
-											<reference key="IBUINavigationItem" ref="771749256"/>
+											<int key="IBUIStyle">1</int>
+											<reference key="IBUICustomView" ref="106233336"/>
+											<reference key="IBUINavigationItem" ref="474540269"/>
 										</object>
-										<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="1008773251">
+										<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="423301750">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-											<reference key="IBUICustomView" ref="819443417"/>
-											<reference key="IBUINavigationItem" ref="771749256"/>
+											<int key="IBUIStyle">1</int>
+											<reference key="IBUICustomView" ref="773551483"/>
+											<reference key="IBUINavigationItem" ref="474540269"/>
 										</object>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									</object>
@@ -159,7 +168,7 @@
 						<string key="NSFrameSize">{480, 300}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="783244141"/>
+						<reference key="NSNextKeyView" ref="244292926"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -210,9 +219,25 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">navBar</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="771749256"/>
+						<reference key="destination" ref="474540269"/>
 					</object>
 					<int key="connectionID">19</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dateRangeControl</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="423301750"/>
+					</object>
+					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">graphTypeControl</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="106233336"/>
+					</object>
+					<int key="connectionID">26</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -249,56 +274,56 @@
 						<reference key="object" ref="959155737"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="783244141"/>
+							<reference ref="244292926"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
-						<reference key="object" ref="783244141"/>
+						<reference key="object" ref="244292926"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="771749256"/>
+							<reference ref="474540269"/>
 						</object>
 						<reference key="parent" ref="959155737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">18</int>
-						<reference key="object" ref="771749256"/>
+						<reference key="object" ref="474540269"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1008773251"/>
-							<reference ref="1043438906"/>
+							<reference ref="378862332"/>
+							<reference ref="423301750"/>
 						</object>
-						<reference key="parent" ref="783244141"/>
+						<reference key="parent" ref="244292926"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">21</int>
-						<reference key="object" ref="1008773251"/>
+						<reference key="object" ref="423301750"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="819443417"/>
+							<reference ref="773551483"/>
 						</object>
-						<reference key="parent" ref="771749256"/>
+						<reference key="parent" ref="474540269"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="819443417"/>
-						<reference key="parent" ref="1008773251"/>
+						<reference key="object" ref="773551483"/>
+						<reference key="parent" ref="423301750"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
-						<reference key="object" ref="1043438906"/>
+						<reference key="object" ref="378862332"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="472973262"/>
+							<reference ref="106233336"/>
 						</object>
-						<reference key="parent" ref="771749256"/>
+						<reference key="parent" ref="474540269"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">22</int>
-						<reference key="object" ref="472973262"/>
-						<reference key="parent" ref="1043438906"/>
+						<reference key="object" ref="106233336"/>
+						<reference key="parent" ref="378862332"/>
 					</object>
 				</object>
 			</object>
@@ -349,7 +374,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">23</int>
+			<int key="maxID">26</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -361,11 +386,15 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dateRangeControl</string>
+							<string>graphTypeControl</string>
 							<string>graphView</string>
 							<string>navBar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UISegmentedControl</string>
+							<string>UISegmentedControl</string>
 							<string>Graph_View</string>
 							<string>UINavigationItem</string>
 						</object>
@@ -374,11 +403,21 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dateRangeControl</string>
+							<string>graphTypeControl</string>
 							<string>graphView</string>
 							<string>navBar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">dateRangeControl</string>
+								<string key="candidateClassName">UISegmentedControl</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">graphTypeControl</string>
+								<string key="candidateClassName">UISegmentedControl</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">graphView</string>
 								<string key="candidateClassName">Graph_View</string>
