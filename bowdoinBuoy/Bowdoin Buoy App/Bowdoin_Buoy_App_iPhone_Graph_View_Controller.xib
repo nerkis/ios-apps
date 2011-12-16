@@ -50,17 +50,17 @@
 						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUINavigationBar" id="1011681247">
+							<object class="IBUINavigationBar" id="770737828">
 								<reference key="NSNextResponder" ref="959155737"/>
 								<int key="NSvFlags">290</int>
 								<object class="NSMutableArray" key="NSSubviews">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUISegmentedControl" id="316456933">
-										<reference key="NSNextResponder" ref="1011681247"/>
+									<object class="IBUISegmentedControl" id="375148049">
+										<reference key="NSNextResponder" ref="770737828"/>
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{5, 7}, {263, 30}}</string>
-										<reference key="NSSuperview" ref="1011681247"/>
-										<reference key="NSNextKeyView" ref="842233563"/>
+										<reference key="NSSuperview" ref="770737828"/>
+										<reference key="NSNextKeyView" ref="538995751"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBSegmentControlStyle">2</int>
@@ -97,11 +97,11 @@
 											<reference ref="4"/>
 										</object>
 									</object>
-									<object class="IBUISegmentedControl" id="842233563">
-										<reference key="NSNextResponder" ref="1011681247"/>
+									<object class="IBUISegmentedControl" id="538995751">
+										<reference key="NSNextResponder" ref="770737828"/>
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{358, 7}, {117, 30}}</string>
-										<reference key="NSSuperview" ref="1011681247"/>
+										<reference key="NSSuperview" ref="770737828"/>
 										<reference key="NSNextKeyView"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -137,25 +137,25 @@
 								</object>
 								<string key="NSFrameSize">{480, 44}</string>
 								<reference key="NSSuperview" ref="959155737"/>
-								<reference key="NSNextKeyView" ref="316456933"/>
+								<reference key="NSNextKeyView" ref="375148049"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIBarStyle">2</int>
 								<object class="NSArray" key="IBUIItems">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUINavigationItem" id="660726356">
-										<reference key="IBUINavigationBar" ref="1011681247"/>
+									<object class="IBUINavigationItem" id="268308941">
+										<reference key="IBUINavigationBar" ref="770737828"/>
 										<string key="IBUITitle"/>
-										<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="770406948">
+										<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="1036735196">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 											<int key="IBUIStyle">1</int>
-											<reference key="IBUICustomView" ref="316456933"/>
-											<reference key="IBUINavigationItem" ref="660726356"/>
+											<reference key="IBUICustomView" ref="375148049"/>
+											<reference key="IBUINavigationItem" ref="268308941"/>
 										</object>
-										<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="692125316">
+										<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="685329659">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 											<int key="IBUIStyle">1</int>
-											<reference key="IBUICustomView" ref="842233563"/>
-											<reference key="IBUINavigationItem" ref="660726356"/>
+											<reference key="IBUICustomView" ref="538995751"/>
+											<reference key="IBUINavigationItem" ref="268308941"/>
 										</object>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									</object>
@@ -164,7 +164,7 @@
 						</object>
 						<string key="NSFrameSize">{480, 300}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="1011681247"/>
+						<reference key="NSNextKeyView" ref="770737828"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -214,7 +214,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">navBar</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="660726356"/>
+						<reference key="destination" ref="268308941"/>
 					</object>
 					<int key="connectionID">19</int>
 				</object>
@@ -222,7 +222,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dateRangeControl</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="692125316"/>
+						<reference key="destination" ref="685329659"/>
 					</object>
 					<int key="connectionID">24</int>
 				</object>
@@ -230,18 +230,18 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">graphTypeControl</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="316456933"/>
+						<reference key="destination" ref="375148049"/>
 					</object>
 					<int key="connectionID">26</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">segmentedControlIndexChanged:</string>
-						<reference key="source" ref="316456933"/>
+						<string key="label">segmentedControlIndexChanged</string>
+						<reference key="source" ref="375148049"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">13</int>
 					</object>
-					<int key="connectionID">27</int>
+					<int key="connectionID">28</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -278,56 +278,56 @@
 						<reference key="object" ref="959155737"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1011681247"/>
+							<reference ref="770737828"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
-						<reference key="object" ref="1011681247"/>
+						<reference key="object" ref="770737828"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="660726356"/>
+							<reference ref="268308941"/>
 						</object>
 						<reference key="parent" ref="959155737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">18</int>
-						<reference key="object" ref="660726356"/>
+						<reference key="object" ref="268308941"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="770406948"/>
-							<reference ref="692125316"/>
+							<reference ref="1036735196"/>
+							<reference ref="685329659"/>
 						</object>
-						<reference key="parent" ref="1011681247"/>
+						<reference key="parent" ref="770737828"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">21</int>
-						<reference key="object" ref="692125316"/>
+						<reference key="object" ref="685329659"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="842233563"/>
+							<reference ref="538995751"/>
 						</object>
-						<reference key="parent" ref="660726356"/>
+						<reference key="parent" ref="268308941"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="842233563"/>
-						<reference key="parent" ref="692125316"/>
+						<reference key="object" ref="538995751"/>
+						<reference key="parent" ref="685329659"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">23</int>
-						<reference key="object" ref="770406948"/>
+						<reference key="object" ref="1036735196"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="316456933"/>
+							<reference ref="375148049"/>
 						</object>
-						<reference key="parent" ref="660726356"/>
+						<reference key="parent" ref="268308941"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">22</int>
-						<reference key="object" ref="316456933"/>
-						<reference key="parent" ref="770406948"/>
+						<reference key="object" ref="375148049"/>
+						<reference key="parent" ref="1036735196"/>
 					</object>
 				</object>
 			</object>
@@ -378,7 +378,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">27</int>
+			<int key="maxID">28</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -387,14 +387,35 @@
 					<string key="className">Bowdoin_Buoy_App_iPhone_Graph_View_Controller</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">segmentedControlIndexChanged:</string>
-						<string key="NS.object.0">UISegmentedControl</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>segmentedControlIndexChanged</string>
+							<string>segmentedControlIndexChanged:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>UISegmentedControl</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">segmentedControlIndexChanged:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">segmentedControlIndexChanged:</string>
-							<string key="candidateClassName">UISegmentedControl</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>segmentedControlIndexChanged</string>
+							<string>segmentedControlIndexChanged:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">segmentedControlIndexChanged</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">segmentedControlIndexChanged:</string>
+								<string key="candidateClassName">UISegmentedControl</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">

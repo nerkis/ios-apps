@@ -23,13 +23,10 @@
 #define DAY_TIMEFRAME 89
 #define WEEK_TIMEFRAME 99
 
-static NSArray *graphChoices = nil;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -118,60 +115,27 @@ static NSArray *graphChoices = nil;
 #define SALINITY_TITLE @"Salinity"
 #define CHLOROPHYLL_TITLE @"Chlorophyll"
 
-- (UISegmentedControl *)graphTypeControl
-{
-    NSLog(@"Inside graphTypeControl");
-    
-    if (!graphChoices) {
-        graphChoices = [[NSArray arrayWithObjects:TEMPERATURE_TITLE, SALINITY_TITLE, CHLOROPHYLL_TITLE, nil] retain];
-    }
-    
-    self.graphTypeControl = [[UISegmentedControl alloc] initWithItems:graphChoices];
-        
-    [self.graphTypeControl addTarget:self action:@selector(changedGraphType:) forControlEvents: UIControlEventValueChanged];
-    
-    switch (currentGraphType)
-    {
-        case TRIPLE_TEMPERATURE_GRAPH:
-            graphTypeControl.selectedSegmentIndex = [graphChoices indexOfObject:TEMPERATURE_TITLE];
-        break;
-        case TRIPLE_SALINITY_GRAPH:
-            graphTypeControl.selectedSegmentIndex = [graphChoices indexOfObject:SALINITY_TITLE];
-        break;
-        case CHLOROPHYLL_GRAPH:
-            graphTypeControl.selectedSegmentIndex = [graphChoices indexOfObject:CHLOROPHYLL_TITLE];
-        break;
-        default:
-        break;
-    }
-    
-    NSLog(@"outside graphtypecontrol switch");
-    
-    return [graphTypeControl autorelease];
-}
-
-
-- (void)segmentedControlIndexChanged:(UISegmentedControl *)graphTypeControl
+- (void)segmentedControlIndexChanged
 {
     NSLog(@"Inside changed graph type");
     
-    if (self.graphTypeControl.selectedSegmentIndex == [graphChoices indexOfObject:TEMPERATURE_TITLE])
-    {
-        self.currentGraphType = TRIPLE_TEMPERATURE_GRAPH;
-        NSLog(@"changed to type %i", TRIPLE_TEMPERATURE_GRAPH);
-    } 
-    else if (self.graphTypeControl.selectedSegmentIndex == [graphChoices indexOfObject:SALINITY_TITLE])
-    {
-        self.currentGraphType = TRIPLE_SALINITY_GRAPH;
-        NSLog(@"changed to type %i", TRIPLE_SALINITY_GRAPH);
-    } 
-    else if (self.graphTypeControl.selectedSegmentIndex == [graphChoices indexOfObject:CHLOROPHYLL_TITLE])
-    {
-        self.currentGraphType = CHLOROPHYLL_GRAPH;
-        NSLog(@"changed to type %i", CHLOROPHYLL_GRAPH);
+    switch (self.graphTypeControl.selectedSegmentIndex){
+        case TRIPLE_TEMPERATURE_GRAPH:
+            [self.graphView setDrawingMode:TRIPLE_TEMPERATURE_GRAPH];
+            [self.graphView setNeedsDisplay];
+            break;
+        case TRIPLE_SALINITY_GRAPH:
+            [self.graphView setDrawingMode:TRIPLE_SALINITY_GRAPH];
+            [self.graphView setNeedsDisplay];
+            break;
+        case CHLOROPHYLL_GRAPH:
+            [self.graphView setDrawingMode:CHLOROPHYLL_GRAPH];
+            [self.graphView setNeedsDisplay];
+            break;
+        default:
+            break;
     }
 }
-
 
 - (void)viewDidLoad
 {

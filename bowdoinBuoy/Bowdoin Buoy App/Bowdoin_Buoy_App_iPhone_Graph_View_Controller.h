@@ -29,6 +29,6 @@
 @property (nonatomic, retain) IBOutlet UISegmentedControl *dateRangeControl;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *graphTypeControl;
 
-- (IBAction)segmentedControlIndexChanged:(UISegmentedControl *) graphTypeControl;
+- (IBAction)segmentedControlIndexChanged;
 
 @end
