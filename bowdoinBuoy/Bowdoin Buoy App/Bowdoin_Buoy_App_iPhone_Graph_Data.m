@@ -80,15 +80,15 @@
         }
     }
     
-    NSLog(@"found first new day, index is:");
-    NSLog(@"%i", indexOfFirstMidnight);
+    //NSLog(@"found first new day, index is:");
+    //NSLog(@"%i", indexOfFirstMidnight);
     
     //takes the dates and sorts them
     NSArray *uniqueDaysInOrderList = [[self.sensorOptics_SDataForDayDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
     
     
-    NSLog(@"number of days:");
-    NSLog(@"%i", [uniqueDaysInOrderList count]);
+    //NSLog(@"number of days:");
+    //NSLog(@"%i", [uniqueDaysInOrderList count]);
     
     //goes through each day, where its data array starts as empty
     for (NSString *day in uniqueDaysInOrderList) 
@@ -121,7 +121,7 @@
         //NSLog(@"%@", day);
         //NSLog(@"%i", [[self.tempDataForDayDictionary objectForKey:day] count]);
     }
-    NSLog(@"done building dictionaries");
+    NSLog(@"done building chlorophyll dictionaries");
     
 
 }
@@ -191,8 +191,8 @@
         }
     }
     
-    NSLog(@"found first new day, index is:");
-    NSLog(@"%i", indexOfFirstMidnight);
+    //NSLog(@"found first new day, index is:");
+    //NSLog(@"%i", indexOfFirstMidnight);
     
     NSArray *uniqueDaysInOrderList;
     //takes the dates and sorts them
@@ -212,8 +212,8 @@
     
     
     
-    NSLog(@"number of days:");
-    NSLog(@"%i", [uniqueDaysInOrderList count]);
+    //NSLog(@"number of days:");
+    //NSLog(@"%i", [uniqueDaysInOrderList count]);
     
     //goes through each day, where its data array starts as empty
     for (NSString *day in uniqueDaysInOrderList) 
@@ -289,7 +289,7 @@
         //NSLog(@"%@", day);
         //NSLog(@"%i", [[self.tempDataForDayDictionary objectForKey:day] count]);
     }
-    NSLog(@"done building dictionaries");
+    NSLog(@"done building temp and salinity dictionaries");
     
 }
 
@@ -330,8 +330,8 @@
         //NSLog(@"%@", time);
         
     }
-    NSLog(@"number of data points in 2M water stuff:");
-    NSLog(@"%i", [self.sensorSBE37DataForHourDictionaryForTwoMeterWater count]);
+    //NSLog(@"number of data points in 2M water stuff:");
+    //NSLog(@"%i", [self.sensorSBE37DataForHourDictionaryForTwoMeterWater count]);
     [self buildDayTemperatureAndSalinityDictionaryWithGraphType:TWO_METER_WATER];
 }
 
@@ -376,8 +376,8 @@
         //NSLog(@"%@", time);
         
     }
-    NSLog(@"number of data points in 10M water stuff:");
-    NSLog(@"%i", [self.sensorSBE16DataForHourDictionaryForTenMeterWater count]);
+    //NSLog(@"number of data points in 10M water stuff:");
+    //NSLog(@"%i", [self.sensorSBE16DataForHourDictionaryForTenMeterWater count]);
     [self buildDayTemperatureAndSalinityDictionaryWithGraphType:TEN_METER_WATER];
 }
 
@@ -422,8 +422,8 @@
         //NSLog(@"%@", time);
         
     }
-    NSLog(@"number of data points in 20M water stuff:");
-    NSLog(@"%i", [self.sensorSBE16DataForHourDictionaryForTwentyMeterWater count]);
+    //NSLog(@"number of data points in 20M water stuff:");
+    //NSLog(@"%i", [self.sensorSBE16DataForHourDictionaryForTwentyMeterWater count]);
     [self buildDayTemperatureAndSalinityDictionaryWithGraphType:TWENTY_METER_WATER];
 }
 
@@ -461,8 +461,8 @@
         //NSLog(@"%@", time);
         
     }
-    NSLog(@"number of data points in chlorophyll water stuff:");
-    NSLog(@"%i", [self.sensorOptics_SDataForHourDictionary count]);
+    //NSLog(@"number of data points in chlorophyll water stuff:");
+    //NSLog(@"%i", [self.sensorOptics_SDataForHourDictionary count]);
     [self buildDayChlorophyll];
 
     
@@ -475,30 +475,30 @@
         case CHLOROPHYLL_IDENTIFIER:
             if (numberOfDays == DAY_INTERVAL) 
             {
-                NSLog(@"numDays == 1");
+                //NSLog(@"numDays == 1");
                 NSArray *chlorophyllData = [self.sensorOptics_SDataForDayDictionary objectForKey:startDate];
-                NSLog(@"%i", [chlorophyllData count]);
+                //NSLog(@"%i", [chlorophyllData count]);
                 
                 return chlorophyllData;
             }
             if (numberOfDays == WEEK_INTERVAL) 
             {
-                NSLog(@"numDays == 7");
+                //NSLog(@"numDays == 7");
                 uniqueDaysInOrderList = [[self.sensorOptics_SDataForDayDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
-                NSLog(@"%i", [uniqueDaysInOrderList count]);
+                //NSLog(@"%i", [uniqueDaysInOrderList count]);
                 
                 NSMutableArray *chlorophyllData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                 
-                NSLog(@"%i", indexOfFirstDayOfWeek);
+                //NSLog(@"%i", indexOfFirstDayOfWeek);
                 
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
                     [chlorophyllData addObject:[self.sensorOptics_SDataForDayDictionary objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
                 }
                 
-                NSLog(@"%i", [chlorophyllData count]);
+                //NSLog(@"%i", [chlorophyllData count]);
                 
                 return chlorophyllData;
             }
@@ -508,30 +508,30 @@
         case TWO_METER_WATER_TEMP:
             if (numberOfDays == DAY_INTERVAL) 
             {
-                NSLog(@"numDays == 1");
+                //NSLog(@"numDays == 1");
                 NSArray *twoMeterWaterTemperatureData = [self.sensorSBE37DataForDayDictionaryForTwoMeterWater objectForKey:startDate];
-                NSLog(@"%i", [twoMeterWaterTemperatureData count]);
+                //NSLog(@"%i", [twoMeterWaterTemperatureData count]);
                 
                 return twoMeterWaterTemperatureData;
             }
             if (numberOfDays == WEEK_INTERVAL) 
             {
-                NSLog(@"numDays == 7");
+                //NSLog(@"numDays == 7");
                 uniqueDaysInOrderList = [[self.sensorSBE37DataForDayDictionaryForTwoMeterWater allKeys] sortedArrayUsingSelector:@selector(compare:)];
-                NSLog(@"%i", [uniqueDaysInOrderList count]);
+                //NSLog(@"%i", [uniqueDaysInOrderList count]);
                 
                 NSMutableArray *twoMeterWaterTemperatureData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                 
-                NSLog(@"%i", indexOfFirstDayOfWeek);
+                //NSLog(@"%i", indexOfFirstDayOfWeek);
                 
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
                     [twoMeterWaterTemperatureData addObject:[self.sensorSBE37DataForDayDictionaryForTwoMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
                 }
                 
-                NSLog(@"%i", [twoMeterWaterTemperatureData count]);
+                //NSLog(@"%i", [twoMeterWaterTemperatureData count]);
                 
                 return twoMeterWaterTemperatureData;
             }
@@ -540,31 +540,31 @@
         case TEN_METER_WATER_TEMP:
             if (numberOfDays == 1) 
             {
-                NSLog(@"numDays == 1");
+                //NSLog(@"numDays == 1");
                 NSArray *data = [self.sensorSBE16DataForDayDictionaryForTenMeterWater objectForKey:startDate];
-                NSLog(@"%i", [data count]);
+                //NSLog(@"%i", [data count]);
                 
                 return data;
             }
             if (numberOfDays == WEEK_INTERVAL) 
             {
-                NSLog(@"numDays == 7");
+                //NSLog(@"numDays == 7");
                 uniqueDaysInOrderList = [[self.sensorSBE16DataForDayDictionaryForTenMeterWater allKeys] sortedArrayUsingSelector:@selector(compare:)];
                 
-                NSLog(@"%i", [uniqueDaysInOrderList count]);
+                //NSLog(@"%i", [uniqueDaysInOrderList count]);
                 
                 NSMutableArray *tenMeterWaterTemperatureData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                 
-                NSLog(@"%i", indexOfFirstDayOfWeek);
+                //NSLog(@"%i", indexOfFirstDayOfWeek);
                 
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
                     [tenMeterWaterTemperatureData addObject:[self.sensorSBE16DataForDayDictionaryForTenMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
                 }
                 
-                NSLog(@"%i", [tenMeterWaterTemperatureData count]);
+                //NSLog(@"%i", [tenMeterWaterTemperatureData count]);
                 
                 return tenMeterWaterTemperatureData;
             }
@@ -573,31 +573,31 @@
         case TWENTY_METER_WATER_TEMP:
             if (numberOfDays == 1) 
             {
-                NSLog(@"numDays == 1");
+                //NSLog(@"numDays == 1");
                 NSArray *data = [self.sensorSBE16DataForDayDictionaryForTwentyMeterWater objectForKey:startDate];
-                NSLog(@"%i", [data count]);
+                //NSLog(@"%i", [data count]);
                 
                 return data;
             }
             if (numberOfDays == WEEK_INTERVAL) 
             {
-                NSLog(@"numDays == 7");
+                //NSLog(@"numDays == 7");
                 uniqueDaysInOrderList = [[self.sensorSBE16DataForDayDictionaryForTwentyMeterWater allKeys] sortedArrayUsingSelector:@selector(compare:)];
                 
-                NSLog(@"%i", [uniqueDaysInOrderList count]);
+                //NSLog(@"%i", [uniqueDaysInOrderList count]);
                 
                 NSMutableArray *twentyMeterWaterTemperatureData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                 
-                NSLog(@"%i", indexOfFirstDayOfWeek);
+                //NSLog(@"%i", indexOfFirstDayOfWeek);
                 
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
                     [twentyMeterWaterTemperatureData addObject:[self.sensorSBE16DataForDayDictionaryForTwentyMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
                 }
                 
-                NSLog(@"%i", [twentyMeterWaterTemperatureData count]);
+                //NSLog(@"%i", [twentyMeterWaterTemperatureData count]);
                 
                 return twentyMeterWaterTemperatureData;
             }
@@ -606,31 +606,31 @@
         case TWO_METER_WATER_SALINITY:
             if (numberOfDays == DAY_INTERVAL) 
             {
-                NSLog(@"numDays == 1");
+                //NSLog(@"numDays == 1");
                 NSArray *twoMeterWaterSalinityData = [self.sensorSBE37DataForDayDictionaryForTwoMeterWater objectForKey:startDate];
-                NSLog(@"%i", [twoMeterWaterSalinityData count]);
+                //NSLog(@"%i", [twoMeterWaterSalinityData count]);
                 
                 return twoMeterWaterSalinityData;
             }
             if (numberOfDays == WEEK_INTERVAL) 
             {
-                NSLog(@"numDays == 7");
+                //NSLog(@"numDays == 7");
                 uniqueDaysInOrderList = [[self.sensorOptics_SDataForDayDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
                 
-                NSLog(@"%i", [uniqueDaysInOrderList count]);
+                //NSLog(@"%i", [uniqueDaysInOrderList count]);
                 
                 NSMutableArray *twoMeterWaterSalinityData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                 
-                NSLog(@"%i", indexOfFirstDayOfWeek);
+                //NSLog(@"%i", indexOfFirstDayOfWeek);
                 
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
                     [twoMeterWaterSalinityData addObject:[self.sensorOptics_SDataForDayDictionary objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
                 }
                 
-                NSLog(@"%i", [twoMeterWaterSalinityData count]);
+                //NSLog(@"%i", [twoMeterWaterSalinityData count]);
                 
                 return twoMeterWaterSalinityData;
             }
@@ -640,31 +640,31 @@
         case TEN_METER_WATER_SALINITY:
             if (numberOfDays == DAY_INTERVAL) 
             {
-                NSLog(@"numDays == 1");
+                //NSLog(@"numDays == 1");
                 NSArray *tenMeterWaterSalinityData = [self.sensorSBE16DataForDayDictionaryForTenMeterWater objectForKey:startDate];
-                NSLog(@"%i", [tenMeterWaterSalinityData count]);
+                //NSLog(@"%i", [tenMeterWaterSalinityData count]);
                 
                 return tenMeterWaterSalinityData;
             }
             if (numberOfDays == WEEK_INTERVAL) 
             {
-                NSLog(@"numDays == 7");
+                //NSLog(@"numDays == 7");
                 uniqueDaysInOrderList = [[self.sensorOptics_SDataForDayDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
                 
-                NSLog(@"%i", [uniqueDaysInOrderList count]);
+                //NSLog(@"%i", [uniqueDaysInOrderList count]);
                 
                 NSMutableArray *tenMeterWaterTemperatureData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                 
-                NSLog(@"%i", indexOfFirstDayOfWeek);
+                //NSLog(@"%i", indexOfFirstDayOfWeek);
                 
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
                     [tenMeterWaterTemperatureData addObject:[self.sensorOptics_SDataForDayDictionary objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
                 }
                 
-                NSLog(@"%i", [tenMeterWaterTemperatureData count]);
+                //NSLog(@"%i", [tenMeterWaterTemperatureData count]);
                 
                 return tenMeterWaterTemperatureData;
             }
@@ -674,31 +674,31 @@
         case TWENTY_METER_WATER_SALINITY:
             if (numberOfDays == DAY_INTERVAL) 
             {
-                NSLog(@"numDays == 1");
+                //NSLog(@"numDays == 1");
                 NSArray *twentyMeterWaterSalinityData = [self.sensorSBE16DataForDayDictionaryForTwentyMeterWater objectForKey:startDate];
-                NSLog(@"%i", [twentyMeterWaterSalinityData count]);
+               // NSLog(@"%i", [twentyMeterWaterSalinityData count]);
                 
                 return twentyMeterWaterSalinityData;
             }
             if (numberOfDays == WEEK_INTERVAL) 
             {
-                NSLog(@"numDays == 7");
+                //NSLog(@"numDays == 7");
                 uniqueDaysInOrderList = [[self.sensorOptics_SDataForDayDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
                 
-                NSLog(@"%i", [uniqueDaysInOrderList count]);
+                //NSLog(@"%i", [uniqueDaysInOrderList count]);
                 
                 NSMutableArray *twentyMeterWaterSalinityData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                 
-                NSLog(@"%i", indexOfFirstDayOfWeek);
+                //NSLog(@"%i", indexOfFirstDayOfWeek);
                 
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
                     [twentyMeterWaterSalinityData addObject:[self.sensorOptics_SDataForDayDictionary objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
                 }
                 
-                NSLog(@"%i", [twentyMeterWaterSalinityData count]);
+                //NSLog(@"%i", [twentyMeterWaterSalinityData count]);
                 
                 return twentyMeterWaterSalinityData;
             }

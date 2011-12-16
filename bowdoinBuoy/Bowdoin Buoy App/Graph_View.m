@@ -169,7 +169,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         for (int counter = 0; counter < [dataTwo count]; counter++) {
             if (counter == 0)
@@ -197,7 +197,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -260,7 +260,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         for (int counter = 0; counter < [dataTen count]; counter++) {
             if (counter == 0)
@@ -288,7 +288,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -352,7 +352,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         for (int counter = 0; counter < [dataTwenty count]; counter++) {
             if (counter == 0)
@@ -383,7 +383,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -443,7 +443,7 @@
     
     NSArray *dataTwo = [self.delegate dataForGraphingFromDelegate:self withCategoryID:TWO_METER_WATER_SALINITY andNumberOfDays:interval andStartDate:date];
     
-    NSLog(@"size of dataTwo is %i", [dataTwo count]);
+    //NSLog(@"size of dataTwo is %i", [dataTwo count]);
     
     CGFloat width = self.bounds.size.width;
     
@@ -457,7 +457,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         for (int counter = 0; counter < [dataTwo count]; counter++) {
             if (counter == 0)
@@ -488,7 +488,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -500,7 +500,7 @@
                     NSArray *readingsForHour = [day objectAtIndex:counter];
                     NSNumber *tempReading = [readingsForHour objectAtIndex:0];
                     double doubleSalinityValue = [tempReading doubleValue];
-                    NSLog(@"%f", doubleSalinityValue);
+                    //NSLog(@"%f", doubleSalinityValue);
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                     didFirstDay = YES;
                     if (shouldSetYAxisMarker)
@@ -518,7 +518,7 @@
                     NSArray *readingsForHour = [day objectAtIndex:counter];
                     NSNumber *tempReading = [readingsForHour objectAtIndex:0];
                     double doubleSalinityValue = [tempReading doubleValue];
-                    NSLog(@"%f", doubleSalinityValue);
+                    //NSLog(@"%f", doubleSalinityValue);
                     //NSLog(@"%f", self.graphOrigin.x+(counter*widthIncrement));
                     CGContextAddLineToPoint(context, self.graphOrigin.x+(widthIncrement*numberOfPointsGraphed), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                     numberOfPointsGraphed ++;
@@ -556,7 +556,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         for (int counter = 0; counter < [dataTen count]; counter++) {
             if (counter == 0)
@@ -587,7 +587,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -653,7 +653,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         for (int counter = 0; counter < [dataTwenty count]; counter++) {
             if (counter == 0)
@@ -684,7 +684,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -747,7 +747,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         for (int counter = 0; counter < [dataChlorophyll count]; counter++) {
             if (counter == 0)
@@ -775,7 +775,7 @@
     {
         //CHANGED
         double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
-        NSLog(@"spacing = %f", spacing);
+        //NSLog(@"spacing = %f", spacing);
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -823,7 +823,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"called drawRect in Graph_View");
+    //NSLog(@"called drawRect in Graph_View");
     
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;
