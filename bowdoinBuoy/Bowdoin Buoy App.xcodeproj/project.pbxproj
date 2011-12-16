@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0982C9D3148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982C9D1148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m */; };
+		0982C9D4148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */; };
+		0982C9DF148AA185007EF09E /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982C9DE148AA185007EF09E /* AxesDrawer.m */; };
+		09A2857F1497E508005C87D6 /* Graph_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A2857E1497E508005C87D6 /* Graph_View.m */; };
+		09A547C314782BCA000C296C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C214782BCA000C296C /* UIKit.framework */; };
+		09A547C514782BCA000C296C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C414782BCA000C296C /* Foundation.framework */; };
+		09A547C714782BCA000C296C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C614782BCA000C296C /* CoreGraphics.framework */; };
+		09A547C914782BCA000C296C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C814782BCA000C296C /* CoreData.framework */; };
+		09A547CF14782BCA000C296C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09A547CD14782BCA000C296C /* InfoPlist.strings */; };
+		09A547D114782BCA000C296C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A547D014782BCA000C296C /* main.m */; };
+		09A547D514782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A547D414782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate.m */; };
+		09A547D814782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09A547D614782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodeld */; };
+		09A547DC14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A547DB14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.m */; };
+		09A547DF14782BCA000C296C /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09A547DD14782BCA000C296C /* MainWindow_iPhone.xib */; };
+		09A547E314782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A547E214782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPad.m */; };
+		09A547E614782BCA000C296C /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09A547E414782BCA000C296C /* MainWindow_iPad.xib */; };
+		09A547EE14782BCA000C296C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547ED14782BCA000C296C /* SenTestingKit.framework */; };
+		09A547EF14782BCA000C296C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C214782BCA000C296C /* UIKit.framework */; };
+		09A547F014782BCA000C296C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C414782BCA000C296C /* Foundation.framework */; };
+		09A547F114782BCA000C296C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C614782BCA000C296C /* CoreGraphics.framework */; };
+		09A547F214782BCA000C296C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A547C814782BCA000C296C /* CoreData.framework */; };
+		09A547FA14782BCA000C296C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09A547F814782BCA000C296C /* InfoPlist.strings */; };
+		09A547FC14782BCA000C296C /* Bowdoin_Buoy_AppTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 09A547FB14782BCA000C296C /* Bowdoin_Buoy_AppTests.h */; };
+		09A547FE14782BCA000C296C /* Bowdoin_Buoy_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A547FD14782BCA000C296C /* Bowdoin_Buoy_AppTests.m */; };
+		09A5480A14782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A5480814782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m */; };
+		09A5480B14782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */; };
+		09B724EF14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09A547F314782BCA000C296C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09A547B514782BC9000C296C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09A547BD14782BC9000C296C;
+			remoteInfo = "Bowdoin Buoy App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0982C9D0148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h; sourceTree = "<group>"; };
+		0982C9D1148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m; sourceTree = "<group>"; };
+		0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib; sourceTree = "<group>"; };
+		0982C9DD148AA185007EF09E /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
+		0982C9DE148AA185007EF09E /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
+		09A2857D1497E508005C87D6 /* Graph_View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graph_View.h; sourceTree = "<group>"; };
+		09A2857E1497E508005C87D6 /* Graph_View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Graph_View.m; sourceTree = "<group>"; };
+		09A547BE14782BC9000C296C /* Bowdoin Buoy App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bowdoin Buoy App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09A547C214782BCA000C296C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		09A547C414782BCA000C296C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		09A547C614782BCA000C296C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		09A547C814782BCA000C296C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		09A547CC14782BCA000C296C /* Bowdoin Buoy App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bowdoin Buoy App-Info.plist"; sourceTree = "<group>"; };
+		09A547CE14782BCA000C296C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		09A547D014782BCA000C296C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		09A547D214782BCA000C296C /* Bowdoin Buoy App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bowdoin Buoy App-Prefix.pch"; sourceTree = "<group>"; };
+		09A547D314782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_AppAppDelegate.h; sourceTree = "<group>"; };
+		09A547D414782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_AppAppDelegate.m; sourceTree = "<group>"; };
+		09A547D714782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bowdoin_Buoy_App.xcdatamodel; sourceTree = "<group>"; };
+		09A547DA14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Bowdoin_Buoy_AppAppDelegate_iPhone.h; path = iPhone/Bowdoin_Buoy_AppAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		09A547DB14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Bowdoin_Buoy_AppAppDelegate_iPhone.m; path = iPhone/Bowdoin_Buoy_AppAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		09A547DE14782BCA000C296C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		09A547E114782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Bowdoin_Buoy_AppAppDelegate_iPad.h; path = iPad/Bowdoin_Buoy_AppAppDelegate_iPad.h; sourceTree = "<group>"; };
+		09A547E214782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Bowdoin_Buoy_AppAppDelegate_iPad.m; path = iPad/Bowdoin_Buoy_AppAppDelegate_iPad.m; sourceTree = "<group>"; };
+		09A547E514782BCA000C296C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+		09A547EC14782BCA000C296C /* Bowdoin Buoy AppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bowdoin Buoy AppTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09A547ED14782BCA000C296C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		09A547F714782BCA000C296C /* Bowdoin Buoy AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bowdoin Buoy AppTests-Info.plist"; sourceTree = "<group>"; };
+		09A547F914782BCA000C296C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		09A547FB14782BCA000C296C /* Bowdoin_Buoy_AppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_AppTests.h; sourceTree = "<group>"; };
+		09A547FD14782BCA000C296C /* Bowdoin_Buoy_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_AppTests.m; sourceTree = "<group>"; };
+		09A5480714782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_App_iPhone_Summary_View_Controller.h; sourceTree = "<group>"; };
+		09A5480814782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m; sourceTree = "<group>"; };
+		09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib; sourceTree = "<group>"; };
+		09B724ED14999AC7006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_App_iPhone_Graph_Data.h; sourceTree = "<group>"; };
+		09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_App_iPhone_Graph_Data.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09A547BB14782BC9000C296C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09A547C314782BCA000C296C /* UIKit.framework in Frameworks */,
+				09A547C514782BCA000C296C /* Foundation.framework in Frameworks */,
+				09A547C714782BCA000C296C /* CoreGraphics.framework in Frameworks */,
+				09A547C914782BCA000C296C /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09A547E814782BCA000C296C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09A547EE14782BCA000C296C /* SenTestingKit.framework in Frameworks */,
+				09A547EF14782BCA000C296C /* UIKit.framework in Frameworks */,
+				09A547F014782BCA000C296C /* Foundation.framework in Frameworks */,
+				09A547F114782BCA000C296C /* CoreGraphics.framework in Frameworks */,
+				09A547F214782BCA000C296C /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09A547B314782BC9000C296C = {
+			isa = PBXGroup;
+			children = (
+				09A547CA14782BCA000C296C /* Bowdoin Buoy App */,
+				09A547F514782BCA000C296C /* Bowdoin Buoy AppTests */,
+				09A547C114782BC9000C296C /* Frameworks */,
+				09A547BF14782BC9000C296C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09A547BF14782BC9000C296C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09A547BE14782BC9000C296C /* Bowdoin Buoy App.app */,
+				09A547EC14782BCA000C296C /* Bowdoin Buoy AppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09A547C114782BC9000C296C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09A547C214782BCA000C296C /* UIKit.framework */,
+				09A547C414782BCA000C296C /* Foundation.framework */,
+				09A547C614782BCA000C296C /* CoreGraphics.framework */,
+				09A547C814782BCA000C296C /* CoreData.framework */,
+				09A547ED14782BCA000C296C /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		09A547CA14782BCA000C296C /* Bowdoin Buoy App */ = {
+			isa = PBXGroup;
+			children = (
+				09A547D314782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate.h */,
+				09A547D414782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate.m */,
+				09A547D614782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodeld */,
+				09A547D914782BCA000C296C /* iPhone */,
+				09A547E014782BCA000C296C /* iPad */,
+				09A547CB14782BCA000C296C /* Supporting Files */,
+			);
+			path = "Bowdoin Buoy App";
+			sourceTree = "<group>";
+		};
+		09A547CB14782BCA000C296C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				09A547CC14782BCA000C296C /* Bowdoin Buoy App-Info.plist */,
+				09A547CD14782BCA000C296C /* InfoPlist.strings */,
+				09A547D014782BCA000C296C /* main.m */,
+				09A547D214782BCA000C296C /* Bowdoin Buoy App-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		09A547D914782BCA000C296C /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				09A547DA14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.h */,
+				09A547DB14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.m */,
+				09A547DD14782BCA000C296C /* MainWindow_iPhone.xib */,
+				0982C9DD148AA185007EF09E /* AxesDrawer.h */,
+				0982C9DE148AA185007EF09E /* AxesDrawer.m */,
+				09A5480714782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.h */,
+				09A5480814782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m */,
+				09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */,
+				09B724ED14999AC7006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.h */,
+				09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */,
+				0982C9D0148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h */,
+				0982C9D1148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m */,
+				0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */,
+				09A2857D1497E508005C87D6 /* Graph_View.h */,
+				09A2857E1497E508005C87D6 /* Graph_View.m */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		09A547E014782BCA000C296C /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				09A547E114782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPad.h */,
+				09A547E214782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPad.m */,
+				09A547E414782BCA000C296C /* MainWindow_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		09A547F514782BCA000C296C /* Bowdoin Buoy AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				09A547FB14782BCA000C296C /* Bowdoin_Buoy_AppTests.h */,
+				09A547FD14782BCA000C296C /* Bowdoin_Buoy_AppTests.m */,
+				09A547F614782BCA000C296C /* Supporting Files */,
+			);
+			path = "Bowdoin Buoy AppTests";
+			sourceTree = "<group>";
+		};
+		09A547F614782BCA000C296C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				09A547F714782BCA000C296C /* Bowdoin Buoy AppTests-Info.plist */,
+				09A547F814782BCA000C296C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09A547BD14782BC9000C296C /* Bowdoin Buoy App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09A5480114782BCA000C296C /* Build configuration list for PBXNativeTarget "Bowdoin Buoy App" */;
+			buildPhases = (
+				09A547BA14782BC9000C296C /* Sources */,
+				09A547BB14782BC9000C296C /* Frameworks */,
+				09A547BC14782BC9000C296C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bowdoin Buoy App";
+			productName = "Bowdoin Buoy App";
+			productReference = 09A547BE14782BC9000C296C /* Bowdoin Buoy App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		09A547EB14782BCA000C296C /* Bowdoin Buoy AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09A5480414782BCA000C296C /* Build configuration list for PBXNativeTarget "Bowdoin Buoy AppTests" */;
+			buildPhases = (
+				09A547E714782BCA000C296C /* Sources */,
+				09A547E814782BCA000C296C /* Frameworks */,
+				09A547E914782BCA000C296C /* Resources */,
+				09A547EA14782BCA000C296C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09A547F414782BCA000C296C /* PBXTargetDependency */,
+			);
+			name = "Bowdoin Buoy AppTests";
+			productName = "Bowdoin Buoy AppTests";
+			productReference = 09A547EC14782BCA000C296C /* Bowdoin Buoy AppTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09A547B514782BC9000C296C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Bowdoin College";
+			};
+			buildConfigurationList = 09A547B814782BC9000C296C /* Build configuration list for PBXProject "Bowdoin Buoy App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 09A547B314782BC9000C296C;
+			productRefGroup = 09A547BF14782BC9000C296C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09A547BD14782BC9000C296C /* Bowdoin Buoy App */,
+				09A547EB14782BCA000C296C /* Bowdoin Buoy AppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09A547BC14782BC9000C296C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09A547CF14782BCA000C296C /* InfoPlist.strings in Resources */,
+				09A547DF14782BCA000C296C /* MainWindow_iPhone.xib in Resources */,
+				09A547E614782BCA000C296C /* MainWindow_iPad.xib in Resources */,
+				09A5480B14782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib in Resources */,
+				0982C9D4148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09A547E914782BCA000C296C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09A547FA14782BCA000C296C /* InfoPlist.strings in Resources */,
+				09A547FC14782BCA000C296C /* Bowdoin_Buoy_AppTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09A547EA14782BCA000C296C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09A547BA14782BC9000C296C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09A547D114782BCA000C296C /* main.m in Sources */,
+				09A547D514782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate.m in Sources */,
+				09A547D814782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodeld in Sources */,
+				09A547DC14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.m in Sources */,
+				09A547E314782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPad.m in Sources */,
+				09A5480A14782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m in Sources */,
+				0982C9D3148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m in Sources */,
+				0982C9DF148AA185007EF09E /* AxesDrawer.m in Sources */,
+				09A2857F1497E508005C87D6 /* Graph_View.m in Sources */,
+				09B724EF14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09A547E714782BCA000C296C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09A547FE14782BCA000C296C /* Bowdoin_Buoy_AppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09A547F414782BCA000C296C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09A547BD14782BC9000C296C /* Bowdoin Buoy App */;
+			targetProxy = 09A547F314782BCA000C296C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		09A547CD14782BCA000C296C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09A547CE14782BCA000C296C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		09A547DD14782BCA000C296C /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09A547DE14782BCA000C296C /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		09A547E414782BCA000C296C /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09A547E514782BCA000C296C /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+		09A547F814782BCA000C296C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09A547F914782BCA000C296C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		09A547FF14782BCA000C296C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09A5480014782BCA000C296C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09A5480214782BCA000C296C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bowdoin Buoy App/Bowdoin Buoy App-Prefix.pch";
+				INFOPLIST_FILE = "Bowdoin Buoy App/Bowdoin Buoy App-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		09A5480314782BCA000C296C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bowdoin Buoy App/Bowdoin Buoy App-Prefix.pch";
+				INFOPLIST_FILE = "Bowdoin Buoy App/Bowdoin Buoy App-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		09A5480514782BCA000C296C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bowdoin Buoy App.app/Bowdoin Buoy App";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bowdoin Buoy App/Bowdoin Buoy App-Prefix.pch";
+				INFOPLIST_FILE = "Bowdoin Buoy AppTests/Bowdoin Buoy AppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		09A5480614782BCA000C296C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bowdoin Buoy App.app/Bowdoin Buoy App";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bowdoin Buoy App/Bowdoin Buoy App-Prefix.pch";
+				INFOPLIST_FILE = "Bowdoin Buoy AppTests/Bowdoin Buoy AppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09A547B814782BC9000C296C /* Build configuration list for PBXProject "Bowdoin Buoy App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09A547FF14782BCA000C296C /* Debug */,
+				09A5480014782BCA000C296C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09A5480114782BCA000C296C /* Build configuration list for PBXNativeTarget "Bowdoin Buoy App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09A5480214782BCA000C296C /* Debug */,
+				09A5480314782BCA000C296C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09A5480414782BCA000C296C /* Build configuration list for PBXNativeTarget "Bowdoin Buoy AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09A5480514782BCA000C296C /* Debug */,
+				09A5480614782BCA000C296C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		09A547D614782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				09A547D714782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodel */,
+			);
+			currentVersion = 09A547D714782BCA000C296C /* Bowdoin_Buoy_App.xcdatamodel */;
+			path = Bowdoin_Buoy_App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 09A547B514782BC9000C296C /* Project object */;
+}
