@@ -18,12 +18,13 @@
     Bowdoin_Buoy_App_iPhone_Graph_Data *dataModel;
     NSArray *graphChoices;
     int currentGraphType;
-    
+    UINavigationItem *navBar;    
 }
 
 @property (nonatomic, retain) IBOutlet Graph_View *graphView;
 @property (nonatomic, retain) Bowdoin_Buoy_App_iPhone_Graph_Data *dataModel;
 @property (nonatomic, retain) NSArray *graphChoices;
 @property (nonatomic) int currentGraphType;
+@property (nonatomic, retain) IBOutlet UINavigationItem *navBar;
 
 @end

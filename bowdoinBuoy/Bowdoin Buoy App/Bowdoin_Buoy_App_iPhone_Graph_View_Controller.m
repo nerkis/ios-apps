@@ -14,6 +14,7 @@
 @synthesize dataModel;
 @synthesize graphChoices;
 @synthesize currentGraphType;
+@synthesize navBar;
 
 #define TRIPLE_TEMPERATURE_GRAPH 42
 #define TRIPLE_SALINITY_GRAPH 43
@@ -79,6 +80,7 @@
 
 - (void)dealloc
 {
+    [navBar release];
     [super dealloc];
     [self releaseOutlets];
 }
@@ -181,6 +183,7 @@
 
 - (void)viewDidUnload
 {
+    [self setNavBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -172,19 +172,19 @@
 			children = (
 				09A547DA14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.h */,
 				09A547DB14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.m */,
-				09A547DD14782BCA000C296C /* MainWindow_iPhone.xib */,
-				0982C9DD148AA185007EF09E /* AxesDrawer.h */,
-				0982C9DE148AA185007EF09E /* AxesDrawer.m */,
 				09A5480714782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.h */,
 				09A5480814782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m */,
-				09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */,
 				09B724ED14999AC7006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.h */,
 				09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */,
 				0982C9D0148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h */,
 				0982C9D1148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m */,
-				0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */,
 				09A2857D1497E508005C87D6 /* Graph_View.h */,
 				09A2857E1497E508005C87D6 /* Graph_View.m */,
+				0982C9DD148AA185007EF09E /* AxesDrawer.h */,
+				0982C9DE148AA185007EF09E /* AxesDrawer.m */,
+				09A547DD14782BCA000C296C /* MainWindow_iPhone.xib */,
+				09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */,
+				0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";

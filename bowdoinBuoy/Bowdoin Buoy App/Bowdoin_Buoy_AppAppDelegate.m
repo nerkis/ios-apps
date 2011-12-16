@@ -30,15 +30,24 @@
     UITabBarItem *summaryTab = [[[UITabBarItem alloc]initWithTitle:@"Summary" image:nil tag:1] autorelease];
     [summary setTabBarItem:summaryTab];
     
+    /*Bowdoin_Buoy_App_iPhone_Graph_View_Controller *graph = [[Bowdoin_Buoy_App_iPhone_Graph_View_Controller alloc] init];    
+    UITabBarItem *graphTab = [[[UITabBarItem alloc]initWithTitle:@"Graph" image:nil tag:1] autorelease];
+    [graph setTabBarItem:graphTab];*/
+    
     Bowdoin_Buoy_App_iPhone_Graph_View_Controller *graph = [[Bowdoin_Buoy_App_iPhone_Graph_View_Controller alloc] init];    
     UITabBarItem *graphTab = [[[UITabBarItem alloc]initWithTitle:@"Graph" image:nil tag:1] autorelease];
     [graph setTabBarItem:graphTab];
+    
+   /* UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController: graph];
+    [self.window addSubview:navCon.view];
+    [graph release];*/
     
     [self.tabBarController setViewControllers:[NSArray arrayWithObjects:summary,graph,nil] animated:NO];
     
     [self.window addSubview:self.tabBarController.view];    
     
     [graph.dataModel downloadAllData];
+    [graph release];
     
     [self.window makeKeyAndVisible];
     return YES;
