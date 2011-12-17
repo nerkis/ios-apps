@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface Bowdoin_Buoy_App_iPhone_Summary_View_Controller : UIViewController 
-{    
+{
+    // labels for current conditions
     IBOutlet UILabel *airTempDisplay;
     IBOutlet UILabel *windSpeedDisplay;
     IBOutlet UILabel *waveHeightDisplay;
-    IBOutlet UILabel *waterSurfaceDisplay;
-    IBOutlet UILabel *surfaceSalinityDisplay;
+    IBOutlet UILabel *waterTempDisplay;
+    IBOutlet UILabel *salinityDisplay;
     IBOutlet UILabel *chlorophyllDisplay;
     IBOutlet UILabel *PARDisplay;
     IBOutlet UILabel *locationDisplay;
@@ -26,8 +27,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *airTempDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *windSpeedDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *waveHeightDisplay;
-@property (nonatomic, retain) IBOutlet UILabel *waterSurfaceDisplay;
-@property (nonatomic, retain) IBOutlet UILabel *surfaceSalinityDisplay;
+@property (nonatomic, retain) IBOutlet UILabel *waterTempDisplay;
+@property (nonatomic, retain) IBOutlet UILabel *salinityDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *chlorophyllDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *PARDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *locationDisplay;

@@ -19,9 +19,9 @@
 {
     CGFloat scaleY;   
     CGFloat scaleX;
-
-    CGFloat yAxisMarker;
     
+    //for use in double and triple tap gestures
+    CGFloat yAxisMarker;
     BOOL shouldSetYAxisMarker;
     
     CGPoint graphOrigin;
@@ -47,14 +47,23 @@
 
 @property (nonatomic, retain) NSString *firstDayForData;
 
-- (void)doubleTap:(UIGestureRecognizer *)recognizer;
+//graph setup
+- (void)defineOrigin;
+- (void)setFirstDay:(NSString *)date;
 
 - (void)setTimeInterval:(int)identifier;
 - (void)setDrawingMode:(int)identifier;
 
-- (void)defineOrigin;
-- (void)setFirstDay:(NSString *)date;
+//gesture recognizers
+- (void)pinch:(UIGestureRecognizer *)recognizer;
+- (void)pan:(UIGestureRecognizer *)recognizer;
+- (void)doubleTap:(UIGestureRecognizer *)recognizer;
+- (void)tripleTap:(UIGestureRecognizer *)recognizer;
 
+//custom drawing
+- (void)drawGraphForTwoMeterWaterTempOverTimeInterval:(int)interval andContext:(CGContextRef)context andStartDate:(NSString *)date;
+
+//define custom colors
 + (UIColor*)myLightBlueColor;
 + (UIColor*)myMediumBlueColor;
 + (UIColor*)myDarkBlueColor;

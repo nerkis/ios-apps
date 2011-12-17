@@ -2,6 +2,7 @@
 //  AxesDrawer.m
 //
 //  Created for Stanford University CS193p Fall 2010.
+//  Updated to allow for different x and y scales.
 //
 
 #import "AxesDrawer.h"
@@ -93,17 +94,10 @@
 	int stillGoing = YES;
     for (int offset = unitsPerHashmarkY; !started || stillGoing; offset += unitsPerHashmarkY)
 	{
-        //NSLog(@"unitsPerHashmarkY = %i", unitsPerHashmarkY);
-        //NSLog(@"pointsPerUnitY = %f", pointsPerUnitY);
-        
-    
-
 		NSString *positiveLabel = nil;
 		NSString *negativeLabel = nil;
 		BOOL drew = NO;
 		CGFloat scaledOffset = floor(offset * pointsPerUnitY);
-
-        //NSLog(@"scaledOffset = %f", scaledOffset);
 
  		CGPoint hashMarkPoint;
         hashMarkPoint.x = axisOrigin.x;
@@ -142,20 +136,15 @@
     
     started = NO;
 	stillGoing = YES;
-    
-    //problem happens in here
-    
+        
 	for (int offset = unitsPerHashmarkX; !started || stillGoing; offset += unitsPerHashmarkX)
 	{
-        //NSLog(@"unitsPerHashmarkX = %i", unitsPerHashmarkX);
 		NSString *positiveLabel = nil;
 		NSString *negativeLabel = nil;
         
 		BOOL drew = NO;
-        //NSLog(@"pointsPerUnitX = %f", pointsPerUnitX);
 
 		CGFloat scaledOffset = floor(offset * pointsPerUnitX);
-        //NSLog(@"scaledOffset = %f", scaledOffset);
 
  		CGPoint hashMarkPoint;
         
@@ -164,7 +153,6 @@
         
 		if (CGRectContainsPoint(bounds, hashMarkPoint)) 
         {
-            //NSLog(@"here inside contains");
 			CGContextMoveToPoint(context, hashMarkPoint.x, hashMarkPoint.y-HASH_MARK_SIZE);
             
 			CGContextAddLineToPoint(context, hashMarkPoint.x, hashMarkPoint.y+HASH_MARK_SIZE);

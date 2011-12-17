@@ -10,6 +10,7 @@
 
 @interface Bowdoin_Buoy_App_iPhone_Graph_Data : NSObject
 {
+    //dictionaries to hold per-hour and per-day data for each sensor
     NSMutableDictionary *sensorSBE37DataForHourDictionaryForTwoMeterWater; 
     NSMutableDictionary *sensorSBE37DataForDayDictionaryForTwoMeterWater; 
     
@@ -36,14 +37,21 @@
 @property (nonatomic, retain) NSMutableDictionary *sensorOptics_SDataForHourDictionary;
 @property (nonatomic, retain) NSMutableDictionary *sensorOptics_SDataForDayDictionary;
 
-- (void)buildDayTemperatureAndSalinityDictionaryWithGraphType:(int)type;
+
+//retrieves all sensor data sets from the web
+- (void)downloadAllData;
+
+//grab data sets and create dictionaries of per-hour data
 - (void)readFromURLforTwoMeterWater:(NSURL *)fileURL;
 - (void)readFromURLforTenMeterWater:(NSURL *)fileURL;
 - (void)readFromURLforTwentyMeterWater:(NSURL *)fileURL;
 - (void)readFromURLforChlorophyll:(NSURL *)fileURL;
 
-- (NSArray *)getDataFromSensor:(int)identifier andDateRequested:(NSString *)date forNumberofDays:(int)numberOfDays;
+//create dictionaries of per-day data
+- (void)buildDayTemperatureAndSalinityDictionaryWithGraphType:(int)type;
+- (void)buildDayChlorophyll;
 
-- (void)downloadAllData;
+//returns an array of data from the appropriate per-day dictionary
+- (NSArray *)getDataFromSensor:(int)identifier andDateRequested:(NSString *)date forNumberofDays:(int)numberOfDays;
 
 @end

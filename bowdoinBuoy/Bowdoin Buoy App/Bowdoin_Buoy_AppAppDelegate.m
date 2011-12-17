@@ -11,6 +11,7 @@
 #import "Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h"
 #import "Graph_View.h"
 #import "Bowdoin_Buoy_App_iPhone_Graph_Data.h"
+
 @implementation Bowdoin_Buoy_AppAppDelegate
 
 @synthesize window = _window;
@@ -22,28 +23,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-    NSLog(@"start in application didFinishlaunching...");
     
     self.tabBarController = [[UITabBarController alloc]init];
     
+    //add summary view to tab bar controller
     Bowdoin_Buoy_App_iPhone_Summary_View_Controller *summary = [[Bowdoin_Buoy_App_iPhone_Summary_View_Controller alloc] init];
     UITabBarItem *summaryTab = [[[UITabBarItem alloc]initWithTitle:@"Summary" image:nil tag:1] autorelease];
     [summary setTabBarItem:summaryTab];
     
-    /*Bowdoin_Buoy_App_iPhone_Graph_View_Controller *graph = [[Bowdoin_Buoy_App_iPhone_Graph_View_Controller alloc] init];    
-    UITabBarItem *graphTab = [[[UITabBarItem alloc]initWithTitle:@"Graph" image:nil tag:1] autorelease];
-    [graph setTabBarItem:graphTab];*/
-    
+    //add graph view to tab bar controller
     Bowdoin_Buoy_App_iPhone_Graph_View_Controller *graph = [[Bowdoin_Buoy_App_iPhone_Graph_View_Controller alloc] init];    
     UITabBarItem *graphTab = [[[UITabBarItem alloc]initWithTitle:@"Graph" image:nil tag:1] autorelease];
     [graph setTabBarItem:graphTab];
     
-   /* UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController: graph];
-    [self.window addSubview:navCon.view];
-    [graph release];*/
-    
     [self.tabBarController setViewControllers:[NSArray arrayWithObjects:summary,graph,nil] animated:NO];
-    
     [self.window addSubview:self.tabBarController.view];    
     
     [graph.dataModel downloadAllData];

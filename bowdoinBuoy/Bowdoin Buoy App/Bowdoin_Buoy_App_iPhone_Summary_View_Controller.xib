@@ -422,7 +422,6 @@
 						<string key="NSFrame">{{88, 271}, {304, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4yNjM3NTM4MjY0IDAuNTcwNzMyNTk3OSAwLjY5NTY1MjE3MzkAA</bytes>
@@ -493,22 +492,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">waterSurfaceDisplay</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="741957333"/>
-					</object>
-					<int key="connectionID">29</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">surfaceSalinityDisplay</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="923299791"/>
-					</object>
-					<int key="connectionID">30</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">chlorophyllDisplay</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="250334773"/>
@@ -554,6 +537,22 @@
 						<reference key="destination" ref="7517510"/>
 					</object>
 					<int key="connectionID">43</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">waterTempDisplay</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="741957333"/>
+					</object>
+					<int key="connectionID">44</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">salinityDisplay</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="923299791"/>
+					</object>
+					<int key="connectionID">45</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -761,7 +760,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">43</int>
+			<int key="maxID">45</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -779,9 +778,9 @@
 							<string>latitudeDisplay</string>
 							<string>locationDisplay</string>
 							<string>longitudeDisplay</string>
-							<string>surfaceSalinityDisplay</string>
+							<string>salinityDisplay</string>
 							<string>timeStampDisplay</string>
-							<string>waterSurfaceDisplay</string>
+							<string>waterTempDisplay</string>
 							<string>waveHeightDisplay</string>
 							<string>windSpeedDisplay</string>
 						</object>
@@ -810,9 +809,9 @@
 							<string>latitudeDisplay</string>
 							<string>locationDisplay</string>
 							<string>longitudeDisplay</string>
-							<string>surfaceSalinityDisplay</string>
+							<string>salinityDisplay</string>
 							<string>timeStampDisplay</string>
-							<string>waterSurfaceDisplay</string>
+							<string>waterTempDisplay</string>
 							<string>waveHeightDisplay</string>
 							<string>windSpeedDisplay</string>
 						</object>
@@ -843,7 +842,7 @@
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">surfaceSalinityDisplay</string>
+								<string key="name">salinityDisplay</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -851,7 +850,7 @@
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">waterSurfaceDisplay</string>
+								<string key="name">waterTempDisplay</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">

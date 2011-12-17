@@ -11,10 +11,11 @@
 #import "Bowdoin_Buoy_App_iPhone_Graph_Data.h"
 
 @interface Bowdoin_Buoy_App_iPhone_Graph_View_Controller : 
-    UIViewController <GraphViewDelegate>
+
+UIViewController <GraphViewDelegate>
 {
-    Graph_View *graphView;
-    Bowdoin_Buoy_App_iPhone_Graph_Data *dataModel;
+    Graph_View *graphView;                          //class that draws graph
+    Bowdoin_Buoy_App_iPhone_Graph_Data *dataModel;  //class that collects data
     
     int currentGraphType;
     int currentTimeframe;
@@ -34,6 +35,7 @@
 @property (nonatomic, retain) IBOutlet UISegmentedControl *dateRangeControl;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *graphTypeControl;
 
+//called when user interacts with segmented controls
 - (IBAction)graphSegmentedControlIndexChanged;
 - (IBAction)dateSegmentedControlIndexChanged;
 

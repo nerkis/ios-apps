@@ -5,6 +5,10 @@
 //  Created by Peter Yaworsky on 12/3/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
+//  A class that communicates with instances of Graph_View
+//  and Bowdoin_Buoy_App_iPhone_Graph_Data to obtain, store,
+//  and graph the buoy data.
+//
 
 #import "Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h"
 
@@ -16,20 +20,30 @@
 @synthesize navBar;
 @synthesize dateRangeControl, graphTypeControl;
 
+//constants for graph type
 #define TRIPLE_TEMPERATURE_GRAPH 0
 #define TRIPLE_SALINITY_GRAPH 1
 #define CHLOROPHYLL_GRAPH 2
 
+//constants for date range
 #define DAY_TIMEFRAME 0
 #define WEEK_TIMEFRAME 1
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
+    if (self) {}
+    return self;}
+
+- (void)didReceiveMemoryWarning{[super didReceiveMemoryWarning];}
+
+- (void) viewWillAppear:(BOOL)animated{}
+
+- (void)releaseOutlets{self.graphView = nil;}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);}
+
 
 - (Bowdoin_Buoy_App_iPhone_Graph_Data *)dataModel
 {
@@ -48,38 +62,11 @@
     return graphView;
 }	
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
-#pragma mark - View lifecycle
-
-- (void) viewWillAppear:(BOOL)animated
-{
-
-}
-
-- (void)releaseOutlets
-{
-    self.graphView = nil;
-}
-
-- (void)dealloc
-{
-    [navBar release];
-    [dateRangeControl release];
-    [graphTypeControl release];
-    [super dealloc];
-    [self releaseOutlets];
-}
+/*---------- ADD GESTURE RECOGNIZERS ----------*/
 
 - (void)addPinchGestureRecognizerToGraph_View:(Graph_View *)graph
 {
-    //adds a pinch gesture to the graphView
     UIGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:graph action:@selector(pinch:)];
     [graph addGestureRecognizer:pinchGesture];
     [pinchGesture release];
@@ -87,7 +74,6 @@
 
 - (void)addPanGestureRecognizerToGraph_View:(Graph_View *)graph
 {
-    //adds a pan gesture to the graphView
     UIGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.graphView action: @selector(pan:)];
     [self.graphView addGestureRecognizer:panGesture];
     [panGesture release];
@@ -95,7 +81,6 @@
 
 - (void)addDoubleTapGestureRecognizerToGraph_View:(Graph_View *)graph
 {
-    //adds a double tap gesture to the graphView
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.graphView action: @selector(doubleTap:)];
     [doubleTapGesture setNumberOfTapsRequired:2];
     [self.graphView addGestureRecognizer:doubleTapGesture];
@@ -104,55 +89,66 @@
 
 - (void)addTripleTapGestureRecognizerToGraph_View:(Graph_View *)graph
 {
-    //adds a triple tap gesture to the graphView
-    UITapGestureRecognizer *tripleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.graphView action: @selector(tripleTapGesture:)];
+    UITapGestureRecognizer *tripleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.graphView action: @selector(tripleTap:)];
     [tripleTapGesture setNumberOfTapsRequired:3];
     [self.graphView addGestureRecognizer:tripleTapGesture];
     [tripleTapGesture release];
 }
 
+
+/*---------- RESPONDING TO SEGMENTED CONTROLS ----------*/
+
 #define TEMPERATURE_TITLE @"Temperature"
 #define SALINITY_TITLE @"Salinity"
 #define CHLOROPHYLL_TITLE @"Chlorophyll"
 
+//graph type changed
 - (void)graphSegmentedControlIndexChanged
-{
-    NSLog(@"Inside changed graph type");
-    
-    switch (self.graphTypeControl.selectedSegmentIndex){
+{    
+    switch (self.graphTypeControl.selectedSegmentIndex)
+    {
         case TRIPLE_TEMPERATURE_GRAPH:
             [self.graphView setDrawingMode:TRIPLE_TEMPERATURE_GRAPH];
             [self.graphView setNeedsDisplay];
             break;
+            
         case TRIPLE_SALINITY_GRAPH:
             [self.graphView setDrawingMode:TRIPLE_SALINITY_GRAPH];
             [self.graphView setNeedsDisplay];
             break;
+            
         case CHLOROPHYLL_GRAPH:
             [self.graphView setDrawingMode:CHLOROPHYLL_GRAPH];
             [self.graphView setNeedsDisplay];
             break;
+            
         default:
             break;
     }
 }
 
+//date range changed
 - (void)dateSegmentedControlIndexChanged
 {
-    switch (self.dateRangeControl.selectedSegmentIndex){
+    switch (self.dateRangeControl.selectedSegmentIndex)
+    {
         case DAY_TIMEFRAME:
             [self.graphView setTimeInterval:DAY_TIMEFRAME];
             [self.graphView setNeedsDisplay];
             break;
+            
         case WEEK_TIMEFRAME:
             [self.graphView setTimeInterval:WEEK_TIMEFRAME];
             [self.graphView setNeedsDisplay];
             break;
+            
         default:
             break;
     }
 }
 
+
+/*---------- OTHER METHODS ----------*/
 
 - (void)viewDidLoad
 {
@@ -164,12 +160,19 @@
     [self addPanGestureRecognizerToGraph_View:self.graphView];
     [self addDoubleTapGestureRecognizerToGraph_View:self.graphView];
     [self addTripleTapGestureRecognizerToGraph_View:self.graphView];
-        
+    
     //need drawing setup code here to do anything
     [self.graphView defineOrigin];
     [self.graphView setTimeInterval:DAY_TIMEFRAME];
     [self.graphView setDrawingMode:currentGraphType];
     [self.graphView setFirstDay:@"2011-12-01"];
+}
+
+
+//gets data from Bowdoin_Buoy_App_iPhone_Graph_Data using delegate
+- (NSArray *)dataForGraphingFromDelegate:(Graph_View *)requestor withCategoryID:(int)identifier andNumberOfDays:(int)numDays andStartDate:(NSString *)startDate
+{
+    return [self.dataModel getDataFromSensor:identifier andDateRequested:startDate forNumberofDays:numDays];
 }
 
 - (void)viewDidUnload
@@ -178,19 +181,14 @@
     [self setDateRangeControl:nil];
     [self setGraphTypeControl:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void)dealloc
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-}
-
-- (NSArray *)dataForGraphingFromDelegate:(Graph_View *)requestor withCategoryID:(int)identifier andNumberOfDays:(int)numDays andStartDate:(NSString *)startDate
-{
-    //NSLog(@"called delegate data method");
-    return [self.dataModel getDataFromSensor:identifier andDateRequested:startDate forNumberofDays:numDays];
+    [navBar release];
+    [dateRangeControl release];
+    [graphTypeControl release];
+    [super dealloc];
+    [self releaseOutlets];
 }
 @end
