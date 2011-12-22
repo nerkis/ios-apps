@@ -37,7 +37,10 @@
 
 - (void)didReceiveMemoryWarning{[super didReceiveMemoryWarning];}
 
-- (void) viewWillAppear:(BOOL)animated{}
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self.graphView defineOrigin];
+}
 
 - (void)releaseOutlets{self.graphView = nil;}
 
@@ -53,6 +56,7 @@
     }
     return dataModel;
 }	
+
 - (Graph_View *)graphView
 {
     if (!graphView)
@@ -165,9 +169,8 @@
     [self.graphView defineOrigin];
     [self.graphView setTimeInterval:DAY_TIMEFRAME];
     [self.graphView setDrawingMode:currentGraphType];
-    [self.graphView setFirstDay:@"2011-12-01"];
+    [self.graphView setFirstDay:@"2011-12-08"];
 }
-
 
 //gets data from Bowdoin_Buoy_App_iPhone_Graph_Data using delegate
 - (NSArray *)dataForGraphingFromDelegate:(Graph_View *)requestor withCategoryID:(int)identifier andNumberOfDays:(int)numDays andStartDate:(NSString *)startDate

@@ -23,8 +23,12 @@
     //for use in double and triple tap gestures
     CGFloat yAxisMarker;
     BOOL shouldSetYAxisMarker;
+    BOOL originalOriginIsSet;
     
+    CGPoint originalGraphOrigin;
     CGPoint graphOrigin;
+    CGFloat originalScaleY;
+    CGFloat scaleFactor;
     
     NSString *firstDayForData;
     
@@ -35,7 +39,9 @@
 @property (nonatomic) CGFloat scaleY;
 @property (nonatomic) CGFloat scaleX;
 @property (nonatomic) CGFloat yAxisMarker;
+@property (nonatomic) CGFloat scaleFactor;
 @property (nonatomic) BOOL shouldSetYAxisMarker;
+@property (nonatomic) BOOL originalOriginIsSet;
 
 @property (nonatomic) BOOL drawTripleTemperature;
 @property (nonatomic) BOOL drawChlorophyll;
@@ -44,6 +50,8 @@
 @property (nonatomic) BOOL timeIntervalIsDay;
 
 @property (nonatomic) CGPoint graphOrigin;
+@property (nonatomic) CGPoint originalGraphOrigin;
+@property (nonatomic) CGFloat originalScaleY;
 
 @property (nonatomic, retain) NSString *firstDayForData;
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0960929914A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 0960929814A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.m */; };
 		0982C9D3148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982C9D1148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m */; };
 		0982C9D4148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */; };
 		0982C9DF148AA185007EF09E /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0982C9DE148AA185007EF09E /* AxesDrawer.m */; };
@@ -34,6 +35,8 @@
 		09A5480A14782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A5480814782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m */; };
 		09A5480B14782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */; };
 		09B724EF14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */; };
+		09F71EA314A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F71EA214A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib */; };
+		09F71EA914A1A18200BAE9A8 /* D0205.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09F71EA814A1A18200BAE9A8 /* D0205.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0960929714A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_App_iPhone_Summary_Data.h; sourceTree = "<group>"; };
+		0960929814A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_App_iPhone_Summary_Data.m; sourceTree = "<group>"; };
 		0982C9D0148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h; sourceTree = "<group>"; };
 		0982C9D1148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m; sourceTree = "<group>"; };
 		0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib; sourceTree = "<group>"; };
@@ -83,6 +88,8 @@
 		09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib; sourceTree = "<group>"; };
 		09B724ED14999AC7006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bowdoin_Buoy_App_iPhone_Graph_Data.h; sourceTree = "<group>"; };
 		09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_App_iPhone_Graph_Data.m; sourceTree = "<group>"; };
+		09F71EA214A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib; sourceTree = "<group>"; };
+		09F71EA814A1A18200BAE9A8 /* D0205.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = D0205.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +166,7 @@
 		09A547CB14782BCA000C296C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				09F71EA814A1A18200BAE9A8 /* D0205.gif */,
 				09A547CC14782BCA000C296C /* Bowdoin Buoy App-Info.plist */,
 				09A547CD14782BCA000C296C /* InfoPlist.strings */,
 				09A547D014782BCA000C296C /* main.m */,
@@ -172,6 +180,8 @@
 			children = (
 				09A547DA14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.h */,
 				09A547DB14782BCA000C296C /* Bowdoin_Buoy_AppAppDelegate_iPhone.m */,
+				0960929714A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.h */,
+				0960929814A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.m */,
 				09A5480714782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.h */,
 				09A5480814782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m */,
 				09B724ED14999AC7006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.h */,
@@ -184,6 +194,7 @@
 				0982C9DE148AA185007EF09E /* AxesDrawer.m */,
 				09A547DD14782BCA000C296C /* MainWindow_iPhone.xib */,
 				09A5480914782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib */,
+				09F71EA214A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib */,
 				0982C9D2148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib */,
 			);
 			name = iPhone;
@@ -293,6 +304,8 @@
 				09A547E614782BCA000C296C /* MainWindow_iPad.xib in Resources */,
 				09A5480B14782C49000C296C /* Bowdoin_Buoy_App_iPhone_Summary_View_Controller.xib in Resources */,
 				0982C9D4148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.xib in Resources */,
+				09F71EA314A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib in Resources */,
+				09F71EA914A1A18200BAE9A8 /* D0205.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +351,7 @@
 				0982C9DF148AA185007EF09E /* AxesDrawer.m in Sources */,
 				09A2857F1497E508005C87D6 /* Graph_View.m in Sources */,
 				09B724EF14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m in Sources */,
+				0960929914A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +439,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ben Johnson";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
@@ -434,6 +448,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "21B3AD73-1F97-4E3A-B16C-4F2D97A19819";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

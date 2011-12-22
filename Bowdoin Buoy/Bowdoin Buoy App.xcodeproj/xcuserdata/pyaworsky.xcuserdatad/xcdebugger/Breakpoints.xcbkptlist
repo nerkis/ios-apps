@@ -8,42 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Bowdoin Buoy App/Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m"
-         timestampString = "344628832.266622"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "139"
-         endingLineNumber = "139"
-         landmarkName = "-viewWillAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Bowdoin Buoy App/Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m"
-         timestampString = "344628832.266622"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
-         landmarkName = "-viewWillAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "Bowdoin Buoy App/Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m"
          timestampString = "345499260.546967"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "11"
-         endingLineNumber = "11"
-         landmarkName = "@implementation Bowdoin_Buoy_App_iPhone_Graph_View_Controller"
-         landmarkType = "3">
+         endingLineNumber = "11">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -51,12 +21,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Bowdoin Buoy App/Graph_View.m"
-         timestampString = "345707579.221196"
+         timestampString = "346219298.683476"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "824"
-         endingLineNumber = "824"
-         landmarkName = "-drawRect:"
+         startingLineNumber = "968"
+         endingLineNumber = "968"
+         landmarkName = "-drawGraphForTwentyMeterWaterSalinityOverTimeInterval:andContext:andStartDate:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,12 +35,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Bowdoin Buoy App/Graph_View.m"
-         timestampString = "345706687.889122"
+         timestampString = "346219298.683476"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "+myLightBlueColor"
+         startingLineNumber = "227"
+         endingLineNumber = "227"
+         landmarkName = "-setDrawingMode:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -84,8 +54,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "42"
          endingLineNumber = "42"
-         landmarkName = "-init"
-         landmarkType = "5">
+         landmarkName = "@implementation Bowdoin_Buoy_App_iPhone_Graph_Data"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -107,11 +77,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Bowdoin Buoy App/Graph_View.m"
-         timestampString = "345706687.889122"
+         timestampString = "346219298.683476"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "321"
-         endingLineNumber = "321"
+         startingLineNumber = "427"
+         endingLineNumber = "427"
          landmarkName = "-drawGraphForTenMeterWaterTempOverTimeInterval:andContext:andStartDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -140,7 +110,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "299"
          endingLineNumber = "299"
-         landmarkName = "-readFromURLforTwoMeterWater:"
+         landmarkName = "-buildDayTemperatureAndSalinityDictionaryWithGraphType:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

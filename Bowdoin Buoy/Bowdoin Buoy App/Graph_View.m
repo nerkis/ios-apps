@@ -14,9 +14,9 @@
 @implementation Graph_View
 
 @synthesize delegate;
-@synthesize scaleY, scaleX, yAxisMarker;
-@synthesize graphOrigin;
-@synthesize shouldSetYAxisMarker;
+@synthesize scaleY, scaleX, yAxisMarker, originalScaleY, scaleFactor;
+@synthesize graphOrigin, originalGraphOrigin;
+@synthesize shouldSetYAxisMarker, originalOriginIsSet;
 @synthesize drawTripleTemperature, drawChlorophyll, drawTripleSalinity, timeIntervalIsWeek, timeIntervalIsDay;
 @synthesize firstDayForData;
 
@@ -49,19 +49,37 @@
 
 //constants for drawing axes and graph
 #define RIGHT_EDGE_BUFFER 10
-#define SCALE_X_FACTOR_DAY 18
-#define SCALE_X_FACTOR_WEEK 2.57
 
-#define IPHONE_DEFAULT_SCALE_Y_CHLOROPHYLL 20
-#define IPHONE_DEFAULT_SCALE_Y_TEMPERATURE 20
-#define IPHONE_DEFAULT_SCALE_Y_SALINITY 7
+
+#define IPHONE_SCALE_X_FACTOR_DAY 18
+#define IPHONE_SCALE_X_FACTOR_WEEK 2.57
 
 #define IPHONE_DEFAULT_SCALE_X_DAY 18.39
 #define IPHONE_DEFAULT_SCALE_X_WEEK 64
 
-#define MINIMUM_SCALE_Y 1
-#define MAXIMUM_SCALE_Y 100
 
+#define IPAD_SCALE_X_FACTOR_DAY 42
+#define IPAD_SCALE_X_FACTOR_WEEK 5.75
+
+#define IPAD_DEFAULT_SCALE_X_DAY 41.3
+#define IPAD_DEFAULT_SCALE_X_WEEK 140.5
+
+
+#define IPHONE_DEFAULT_SCALE_Y_CHLOROPHYLL 20
+#define IPHONE_DEFAULT_SCALE_Y_TEMPERATURE 17//20
+#define IPHONE_DEFAULT_SCALE_Y_SALINITY 5//7
+
+#define IPAD_DEFAULT_SCALE_Y_CHLOROPHYLL 40
+#define IPAD_DEFAULT_SCALE_Y_TEMPERATURE 40
+#define IPAD_DEFAULT_SCALE_Y_SALINITY 14
+
+#define MINIMUM_SCALE_Y 1
+#define MAXIMUM_SCALE_Y 150
+
+#define LEFT_Y_AXIS_OFFSET 25
+#define BOTTOM_X_AXIS_OFFSET 25
+
+#define CIRCLE_RADIUS 2
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -69,13 +87,15 @@
     return self;
 }
 
-
 /*---------- GRAPH SETUP ----------*/
 
 - (void)defineOrigin
 {
-    //hard-coded good offset for an iPhone
-    self.graphOrigin = CGPointMake(25, self.bounds.size.height - 68);
+    //hard-coded good offset 
+    self.graphOrigin = CGPointMake(LEFT_Y_AXIS_OFFSET, self.bounds.size.height - BOTTOM_X_AXIS_OFFSET);
+    self.originalGraphOrigin = self.graphOrigin;
+    self.originalScaleY = self.scaleY;
+    self.shouldSetYAxisMarker = YES;
 }
 
 - (void)setFirstDay:(NSString *)date
@@ -85,18 +105,42 @@
 
 - (void)setTimeInterval:(int)identifier
 {
+    BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+
     switch (identifier) 
     {
         case DAY_TIMEFRAME:
             self.timeIntervalIsDay = YES;
             self.timeIntervalIsWeek = NO;
-            self.scaleX = IPHONE_DEFAULT_SCALE_X_DAY;
+            self.shouldSetYAxisMarker = YES;
+            if (!iPad)
+            {
+                self.scaleX = IPHONE_DEFAULT_SCALE_X_DAY;
+                self.scaleFactor = IPHONE_SCALE_X_FACTOR_DAY;
+
+            }
+            else if (iPad)
+            {
+                self.scaleX = IPAD_DEFAULT_SCALE_X_DAY;
+                self.scaleFactor = IPAD_SCALE_X_FACTOR_DAY;
+            }
             break;
             
         case WEEK_TIMEFRAME:
             self.timeIntervalIsDay = NO;
             self.timeIntervalIsWeek = YES;
-            self.scaleX = IPHONE_DEFAULT_SCALE_X_WEEK;
+            self.shouldSetYAxisMarker = YES;
+            if (!iPad)
+            {
+                self.scaleX = IPHONE_DEFAULT_SCALE_X_WEEK;
+                self.scaleFactor = IPHONE_SCALE_X_FACTOR_WEEK;
+
+            }
+            else if (iPad)
+            {
+                self.scaleX = IPAD_DEFAULT_SCALE_X_WEEK;
+                self.scaleFactor = IPAD_SCALE_X_FACTOR_WEEK;
+            }
             break;
             
         default:
@@ -106,51 +150,77 @@
 
 - (void)setDrawingMode:(int)identifier
 {
+    BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
     switch (identifier) 
     {
         case TRIPLE_SALINITY_GRAPH:
             self.drawTripleTemperature = NO;
             self.drawTripleSalinity = YES;
             self.drawChlorophyll = NO;
-            self.scaleY = IPHONE_DEFAULT_SCALE_Y_SALINITY;
+            self.shouldSetYAxisMarker = YES;
+            if (!iPad)
+            {
+                self.originalScaleY = IPHONE_DEFAULT_SCALE_Y_SALINITY;
+                self.scaleY = IPHONE_DEFAULT_SCALE_Y_SALINITY;
+            }
+            else if (iPad)
+            {
+                self.originalScaleY = IPAD_DEFAULT_SCALE_Y_SALINITY;
+                self.scaleY = IPAD_DEFAULT_SCALE_Y_SALINITY;
+
+            }
             break;
             
         case TRIPLE_TEMPERATURE_GRAPH:
             self.drawTripleTemperature = YES;
             self.drawTripleSalinity = NO;
             self.drawChlorophyll = NO;
-            self.scaleY = IPHONE_DEFAULT_SCALE_Y_TEMPERATURE;
+            self.shouldSetYAxisMarker = YES;
+            if (!iPad)
+            {            
+                self.originalScaleY = IPHONE_DEFAULT_SCALE_Y_TEMPERATURE;
+                self.scaleY = IPHONE_DEFAULT_SCALE_Y_TEMPERATURE;
+            }
+            else if (iPad)
+            {
+                self.originalScaleY = IPAD_DEFAULT_SCALE_Y_TEMPERATURE;
+                self.scaleY = IPAD_DEFAULT_SCALE_Y_TEMPERATURE;
+            }
+
             break;
             
         case CHLOROPHYLL_GRAPH:
             self.drawTripleTemperature = NO;
             self.drawTripleSalinity = NO;
             self.drawChlorophyll = YES;
-            self.scaleY = IPHONE_DEFAULT_SCALE_Y_CHLOROPHYLL;
+            self.shouldSetYAxisMarker = YES;
+            if (!iPad)
+            {
+                self.originalScaleY = IPHONE_DEFAULT_SCALE_Y_CHLOROPHYLL;
+                self.scaleY = IPHONE_DEFAULT_SCALE_Y_CHLOROPHYLL;
+            }
+            else if (iPad)
+            {
+                self.originalScaleY = IPAD_DEFAULT_SCALE_Y_CHLOROPHYLL;
+                self.scaleY = IPAD_DEFAULT_SCALE_Y_CHLOROPHYLL;
+
+            }
             break;
             
         default:
             break;
     }
+    [self doubleTap:nil];
 }
 
 
 /*---------- GESTURE RECOGNIZERS ----------*/
 
-//FIX THIS
 //method for a zoom by pinching
 - (void)pinch:(UIPinchGestureRecognizer *)recognizer 
 {
     CGFloat factor = recognizer.scale;
     self.scaleY = self.scaleY*factor;
-    
-    //if (recognizer.state == UIGestureRecognizerStateEnded)
-    //{
-    //CGPoint dummy = self.graphOrigin;
-    //dummy.y = dummy.y-self.yAxisMarker+self.bounds.size.height/2;
-    //dummy.y = dummy.y-self.scaleY*self.bounds.size.height/2;
-    //self.graphOrigin = dummy;
-    //}
     
     //ensures reasonable zooming
     if (self.scaleY < MINIMUM_SCALE_Y)
@@ -177,13 +247,21 @@
     [self setNeedsDisplay];
 }
 
-//FIX THIS
 //re-center on origin by double tapping
 - (void)doubleTap:(UITapGestureRecognizer *)recognizer 
 {
+    CGFloat offsetFactor = self.originalScaleY - self.scaleY;
+    NSLog(@"originalScaleY = %f", self.originalScaleY);
+    NSLog(@"current ScaleY = %f", self.scaleY);
+    NSLog(@"offsetFactor = %f", offsetFactor);
+    
+    NSLog(@"yaxisMarker = %f", self.yAxisMarker);
+    
+    CGFloat offset = offsetFactor * self.yAxisMarker;
+    NSLog(@"offset = %f", offset);
+    
     CGPoint dummy = self.graphOrigin;
-    //dummy.y = dummy.y-self.yAxisMarker+self.bounds.size.height/2;   
-    dummy.y = self.yAxisMarker*self.scaleY+(self.bounds.size.height/2)*self.scaleY/20.0;
+    dummy.y = self.originalGraphOrigin.y - offset;
     
     self.graphOrigin = dummy;
     [self setNeedsDisplay];
@@ -206,12 +284,21 @@
         [self setDrawingMode:TRIPLE_TEMPERATURE_GRAPH];
     }
     
-    self.yAxisMarker = YES;
+    //self.yAxisMarker = YES;
     [self setNeedsDisplay];
 }
 
 
 /*---------- CUSTOM DRAWING METHODS ----------*/
+
+- (void)drawDotAtPoint:(CGPoint)point inContext:(CGContextRef)context
+{
+    UIGraphicsPushContext(context);
+    CGContextBeginPath(context);
+    CGContextAddArc(context, point.x, point.y, CIRCLE_RADIUS, 0, 2*M_PI, YES);
+    CGContextStrokePath(context);
+    UIGraphicsPopContext();
+}
 
 - (void)drawGraphForTwoMeterWaterTempOverTimeInterval:(int)interval andContext:(CGContextRef)context andStartDate:(NSString *)date
 {
@@ -224,12 +311,14 @@
     NSArray *dataTwo = [self.delegate dataForGraphingFromDelegate:self withCategoryID:TWO_METER_WATER_TEMP andNumberOfDays:interval andStartDate:date];
     
     CGFloat width = self.bounds.size.width;
-        
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:24];
+
     //graph water temperature at 2m for one day
     if (interval == DAY_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
+        
         
         for (int counter = 0; counter < [dataTwo count]; counter++) 
         {
@@ -241,7 +330,9 @@
                 double doubleTempValue = [tempReading doubleValue];
                 
                 //move to the first point
-                CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGContextMoveToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
             }
             else 
             {
@@ -251,17 +342,19 @@
                 double doubleTempValue = [tempReading doubleValue];
                 
                 //draw to the next value
-                CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGContextAddLineToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
             }
         }
-        
+  
         NSLog(@"drew 2M water graph for one day");
     }
     
     //graph water temperature at 2m for one week
     if (interval == WEEK_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -304,9 +397,19 @@
     
     //set context for axes
     CGContextStrokePath(context);
+    
+    for (NSValue *position in points)
+    {
+        CGPoint nextPoint = [position CGPointValue];
+        [self drawDotAtPoint:nextPoint inContext:context];
+    }
+    
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();
+    
+   
+    
 }
 
 - (void)drawGraphForTenMeterWaterTempOverTimeInterval:(int)interval andContext:(CGContextRef)context andStartDate:(NSString *)date
@@ -320,11 +423,13 @@
     NSArray *dataTen = [self.delegate dataForGraphingFromDelegate:self withCategoryID:TEN_METER_WATER_TEMP andNumberOfDays:interval andStartDate:date];
     
     CGFloat width = self.bounds.size.width;
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:24];
+
     
     //graph water temperature at 10m for one day
     if (interval == DAY_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         
         for (int counter = 0; counter < [dataTen count]; counter++) 
@@ -337,7 +442,9 @@
                 double doubleTempValue = [tempReading doubleValue];
 
                 //move to first point
-                CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGContextMoveToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
             }
             else 
             {
@@ -347,7 +454,10 @@
                 double doubleTempValue = [tempReading doubleValue];
 
                 //draw to the next value
-                CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGContextAddLineToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
             }
         }
         
@@ -357,7 +467,7 @@
     //graph water temperature at 10m for one week
     if (interval == WEEK_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -400,6 +510,13 @@
     
     //set context for axes
     CGContextStrokePath(context);
+    
+    for (NSValue *position in points)
+    {
+        CGPoint nextPoint = [position CGPointValue];
+        [self drawDotAtPoint:nextPoint inContext:context];
+    }
+    
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();
@@ -416,11 +533,13 @@
     NSArray *dataTwenty = [self.delegate dataForGraphingFromDelegate:self withCategoryID:TWENTY_METER_WATER_TEMP andNumberOfDays:interval andStartDate:date];
     
     CGFloat width = self.bounds.size.width;
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:24];
+
 
     //graph water temperature at 20M for one day
     if (interval == DAY_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         
         for (int counter = 0; counter < [dataTwenty count]; counter++) 
@@ -432,14 +551,17 @@
                 NSNumber *tempReading = [readingsForHour objectAtIndex:0];
                 double doubleTempValue = [tempReading doubleValue];
 
-                //move to first point
-                CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                //move to first point                
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGContextMoveToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
+
                 
-               /* if (shouldSetYAxisMarker)
+                if (self.shouldSetYAxisMarker)
                 {
-                    self.yAxisMarker = self.graphOrigin.y+(self.scaleY*doubleTempValue);
+                    self.yAxisMarker = doubleTempValue;
                     self.shouldSetYAxisMarker = NO;
-                }*/
+                }
             }
             else 
             {
@@ -449,14 +571,16 @@
                 double doubleTempValue = [tempReading doubleValue];
 
                 //draw to next value
-                CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleTempValue));
+                CGContextAddLineToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];            
             }
         }
     }
     //graph water temperature at 20m for one week
     if (interval == WEEK_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -478,11 +602,11 @@
                     
                     didFirstDay = YES;
                     
-                    /*if (shouldSetYAxisMarker)
+                    if (self.shouldSetYAxisMarker)
                     {
-                        self.yAxisMarker = self.graphOrigin.y-(self.scaleY*doubleTempValue);
+                        self.yAxisMarker = doubleTempValue;
                         self.shouldSetYAxisMarker = NO;
-                    }*/
+                    }
 
                     numberOfPointsGraphed ++;                    
                 }
@@ -506,6 +630,13 @@
     
     //set context for axes
     CGContextStrokePath(context);
+    
+    for (NSValue *position in points)
+    {
+        CGPoint nextPoint = [position CGPointValue];
+        [self drawDotAtPoint:nextPoint inContext:context];
+    }
+    
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();
@@ -522,11 +653,13 @@
     NSArray *dataTwo = [self.delegate dataForGraphingFromDelegate:self withCategoryID:TWO_METER_WATER_SALINITY andNumberOfDays:interval andStartDate:date];
         
     CGFloat width = self.bounds.size.width;
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:24];
+
         
     //graph salinity at 2m for one day
     if (interval == DAY_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         
         for (int counter = 0; counter < [dataTwo count]; counter++) 
@@ -539,13 +672,10 @@
                 double doubleSalinityValue = [salinityReading doubleValue];
 
                 //move to first point
-                CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGContextMoveToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
                 
-                /*if (shouldSetYAxisMarker)
-                {
-                    self.yAxisMarker = self.graphOrigin.y+(self.scaleY*doubleSalinityValue);
-                    self.shouldSetYAxisMarker = NO;
-                }*/
             }
             else 
             {
@@ -555,7 +685,9 @@
                 double doubleSalinityValue = [tempReading doubleValue];
 
                 //draw to next value
-                CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGContextAddLineToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]]; 
             }
         }
     }
@@ -563,7 +695,7 @@
     //graph salinity at 2m for one week
     if (interval == WEEK_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -582,13 +714,7 @@
 
                     //move to first point
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
-                   /*                     
-                    if (shouldSetYAxisMarker)
-                    {
-                        self.yAxisMarker = self.graphOrigin.y-(self.scaleY*doubleSalinityValue);
-                        self.shouldSetYAxisMarker = NO;
-                    }
-*/
+
                     didFirstDay = YES;
                     numberOfPointsGraphed ++;                    
                 }
@@ -612,6 +738,13 @@
     
     //set context for axes
     CGContextStrokePath(context);
+    
+    for (NSValue *position in points)
+    {
+        CGPoint nextPoint = [position CGPointValue];
+        [self drawDotAtPoint:nextPoint inContext:context];
+    }
+    
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();
@@ -628,11 +761,13 @@
     NSArray *dataTen = [self.delegate dataForGraphingFromDelegate:self withCategoryID:TEN_METER_WATER_SALINITY andNumberOfDays:interval andStartDate:date];
     
     CGFloat width = self.bounds.size.width;
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:24];
+
     
     //graph salinity at 10M for one day
     if (interval == DAY_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         
         for (int counter = 0; counter < [dataTen count]; counter++) 
@@ -645,13 +780,10 @@
                 double doubleSalinityValue = [salinityReading doubleValue];
 
                 //move to first point
-                CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
-                
-               /* if (shouldSetYAxisMarker)
-                {
-                    self.yAxisMarker = self.graphOrigin.y+(self.scaleY*doubleSalinityValue);
-                    self.shouldSetYAxisMarker = NO;
-                }*/
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGContextMoveToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
+    
             }
             else 
             {
@@ -661,7 +793,9 @@
                 double doubleSalinityValue = [salinityReading doubleValue];
 
                 //draw to next value
-                CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGContextAddLineToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]]; 
             }
         }
     }
@@ -669,7 +803,7 @@
     //graph salinity at 10m for one week
     if (interval == WEEK_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -689,12 +823,6 @@
                     //move to first point
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                                         
-                   /* if (shouldSetYAxisMarker)
-                    {
-                        self.yAxisMarker = self.graphOrigin.y-(self.scaleY*doubleSalinityValue);
-                        self.shouldSetYAxisMarker = NO;
-                    }*/
-
                     didFirstDay = YES;
                     numberOfPointsGraphed ++;                    
                 }
@@ -718,6 +846,13 @@
     
     //set context for axes
     CGContextStrokePath(context);
+    
+    for (NSValue *position in points)
+    {
+        CGPoint nextPoint = [position CGPointValue];
+        [self drawDotAtPoint:nextPoint inContext:context];
+    }
+    
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();
@@ -734,11 +869,13 @@
     NSArray *dataTwenty = [self.delegate dataForGraphingFromDelegate:self withCategoryID:TWENTY_METER_WATER_SALINITY andNumberOfDays:interval andStartDate:date];
     
     CGFloat width = self.bounds.size.width;
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:24];
+
     
     //graph salinity at 20M for one day
     if (interval == DAY_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         
         for (int counter = 0; counter < [dataTwenty count]; counter++) 
@@ -751,13 +888,15 @@
                 double doubleSalinityValue = [salinityReading doubleValue];
 
                 //move to first point
-                CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGContextMoveToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
                 
-                /*if (shouldSetYAxisMarker)
+                if (self.shouldSetYAxisMarker)
                 {
-                    self.yAxisMarker = self.graphOrigin.y+(self.scaleY*doubleSalinityValue);
+                    self.yAxisMarker = doubleSalinityValue;
                     self.shouldSetYAxisMarker = NO;
-                }*/
+                }
             }
             else 
             {
@@ -767,7 +906,9 @@
                 double doubleSalinityValue = [salinityReading doubleValue];
 
                 //draw to next value
-                CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
+                CGContextAddLineToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]]; 
             }
         }
     }
@@ -775,7 +916,7 @@
     //graph salinity at 20m for one week
     if (interval == WEEK_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -795,11 +936,11 @@
                     //move to first point
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleSalinityValue));
                                         
-                    /*if (shouldSetYAxisMarker)
+                    if (self.shouldSetYAxisMarker)
                     {
-                        self.yAxisMarker = self.graphOrigin.y-(self.scaleY*doubleSalinityValue);
+                        self.yAxisMarker = doubleSalinityValue;
                         self.shouldSetYAxisMarker = NO;
-                    }*/
+                    }
 
                     didFirstDay = YES;
                     numberOfPointsGraphed ++;                    
@@ -822,6 +963,13 @@
     
     //set context for axes
     CGContextStrokePath(context);
+    
+    for (NSValue *position in points)
+    {
+        CGPoint nextPoint = [position CGPointValue];
+        [self drawDotAtPoint:nextPoint inContext:context];
+    }
+    
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();
@@ -838,11 +986,13 @@
     NSArray *dataChlorophyll = [self.delegate dataForGraphingFromDelegate:self withCategoryID:CHLOROPHYLL_IDENTIFIER andNumberOfDays:interval andStartDate:date];
     
     CGFloat width = self.bounds.size.width;
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:24];
+
     
     //graph chlorophyll at 2.5 M for one day
     if (interval == DAY_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x)/SCALE_X_FACTOR_DAY;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         
         for (int counter = 0; counter < [dataChlorophyll count]; counter++) 
@@ -855,7 +1005,15 @@
                 double doubleChlorophyllValue = [tempReading doubleValue];
 
                 //move to first point
-                CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleChlorophyllValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleChlorophyllValue));
+                CGContextMoveToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]];
+                
+                if (self.shouldSetYAxisMarker)
+                {
+                    self.yAxisMarker = doubleChlorophyllValue;
+                    self.shouldSetYAxisMarker = NO;
+                }
             }
             else 
             {
@@ -865,7 +1023,9 @@
                 double doubleChlorophyllValue = [tempReading doubleValue];
 
                 //draw to next value
-                CGContextAddLineToPoint(context, self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleChlorophyllValue));
+                CGPoint nextPoint = CGPointMake(self.graphOrigin.x+(counter*widthIncrement), self.graphOrigin.y-(self.scaleY*doubleChlorophyllValue));
+                CGContextAddLineToPoint(context, nextPoint.x, nextPoint.y);
+                [points addObject: [NSValue valueWithCGPoint:nextPoint]]; 
             }
         }
     }
@@ -873,7 +1033,7 @@
     //graph chlorophyll for one week
     if (interval == WEEK_INTERVAL)
     {
-        double spacing = (self.bounds.size.width - self.graphOrigin.x + RIGHT_EDGE_BUFFER)/SCALE_X_FACTOR_WEEK;
+        double spacing = (self.bounds.size.width - self.graphOrigin.x)/self.scaleFactor;
         double widthIncrement = ((double)width)/(spacing);
         BOOL didFirstDay = NO;
         int numberOfPointsGraphed = 0;
@@ -892,6 +1052,12 @@
 
                     //move to first point
                     CGContextMoveToPoint(context, self.graphOrigin.x, self.graphOrigin.y-(self.scaleY*doubleChlorophyllValue));
+                    
+                    if (self.shouldSetYAxisMarker)
+                    {
+                        self.yAxisMarker = doubleChlorophyllValue;
+                        self.shouldSetYAxisMarker = NO;
+                    }
                     
                     didFirstDay = YES;
                     numberOfPointsGraphed ++;                    
@@ -914,6 +1080,13 @@
     
     //create context for axes
     CGContextStrokePath(context);
+    
+    for (NSValue *position in points)
+    {
+        CGPoint nextPoint = [position CGPointValue];
+        [self drawDotAtPoint:nextPoint inContext:context];
+    }
+    
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();

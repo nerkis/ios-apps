@@ -22,12 +22,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
     
     self.tabBarController = [[UITabBarController alloc]init];
     
     //add summary view to tab bar controller
-    Bowdoin_Buoy_App_iPhone_Summary_View_Controller *summary = [[Bowdoin_Buoy_App_iPhone_Summary_View_Controller alloc] init];
+    Bowdoin_Buoy_App_iPhone_Summary_View_Controller *summary;
+    BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+
+    if (!iPad)
+        summary = [[Bowdoin_Buoy_App_iPhone_Summary_View_Controller alloc] initWithNibName:@"Bowdoin_Buoy_App_iPhone_Summary_View_Controller" bundle:nil];
+    else if (iPad)
+        summary = [[Bowdoin_Buoy_App_iPhone_Summary_View_Controller alloc] initWithNibName:@"Bowdoin_Buoy_App_iPad_Summary_View_Controller" bundle:nil];
+    
     UITabBarItem *summaryTab = [[[UITabBarItem alloc]initWithTitle:@"Summary" image:nil tag:1] autorelease];
     [summary setTabBarItem:summaryTab];
     
