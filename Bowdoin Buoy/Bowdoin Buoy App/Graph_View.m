@@ -288,6 +288,18 @@
     [self setNeedsDisplay];
 }
 
+//brings up modal view after a swipe
+- (void)swipe:(UIGestureRecognizer *)recognizer
+{
+    //code to bring up modal view
+    NSLog(@"SWIPE");
+    NSLog(@"SWIPE");
+    NSLog(@"SWIPE");
+    NSLog(@"SWIPE");
+    NSLog(@"SWIPE");
+    NSLog(@"SWIPE");
+}
+
 
 /*---------- CUSTOM DRAWING METHODS ----------*/
 

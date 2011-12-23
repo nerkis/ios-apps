@@ -78,7 +78,8 @@
 
 - (void)addPanGestureRecognizerToGraph_View:(Graph_View *)graph
 {
-    UIGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.graphView action: @selector(pan:)];
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self.graphView action: @selector(pan:)];
+    [panGesture setMaximumNumberOfTouches: 1];
     [self.graphView addGestureRecognizer:panGesture];
     [panGesture release];
 }
@@ -99,6 +100,13 @@
     [tripleTapGesture release];
 }
 
+- (void)addSwipeRecognizerToGraph_View:(Graph_View *)graph
+{
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self.graphView action: @selector(swipe:)];
+    [swipeGesture setNumberOfTouchesRequired:2];
+    [self.graphView addGestureRecognizer:swipeGesture];
+    [swipeGesture release];
+}
 
 /*---------- RESPONDING TO SEGMENTED CONTROLS ----------*/
 
@@ -164,6 +172,7 @@
     [self addPanGestureRecognizerToGraph_View:self.graphView];
     [self addDoubleTapGestureRecognizerToGraph_View:self.graphView];
     [self addTripleTapGestureRecognizerToGraph_View:self.graphView];
+    [self addSwipeRecognizerToGraph_View:self.graphView];
     
     //need drawing setup code here to do anything
     [self.graphView defineOrigin];

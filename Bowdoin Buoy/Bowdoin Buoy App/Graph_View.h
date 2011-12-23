@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @class Graph_View;
 
 @protocol GraphViewDelegate  
@@ -67,6 +66,7 @@
 - (void)pan:(UIGestureRecognizer *)recognizer;
 - (void)doubleTap:(UIGestureRecognizer *)recognizer;
 - (void)tripleTap:(UIGestureRecognizer *)recognizer;
+- (void)swipe:(UIGestureRecognizer *)recognizer;
 
 //custom drawing
 - (void)drawGraphForTwoMeterWaterTempOverTimeInterval:(int)interval andContext:(CGContextRef)context andStartDate:(NSString *)date;
