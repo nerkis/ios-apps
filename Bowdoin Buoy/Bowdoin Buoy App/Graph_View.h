@@ -14,7 +14,7 @@
 - (NSArray *)dataForGraphingFromDelegate:(Graph_View *)requestor withCategoryID:(int)identifier andNumberOfDays:(int)numDays andStartDate:(NSString *)startDate;
 @end
 
-@interface Graph_View : UIView 
+@interface Graph_View : UIView <UIActionSheetDelegate>
 {
     CGFloat scaleY;   
     CGFloat scaleX;

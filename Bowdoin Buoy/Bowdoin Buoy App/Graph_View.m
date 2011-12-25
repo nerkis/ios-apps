@@ -288,16 +288,17 @@
     [self setNeedsDisplay];
 }
 
-//brings up modal view after a swipe
+//brings up date picker after a swipe
 - (void)swipe:(UIGestureRecognizer *)recognizer
 {
-    //code to bring up modal view
-    NSLog(@"SWIPE");
-    NSLog(@"SWIPE");
-    NSLog(@"SWIPE");
-    NSLog(@"SWIPE");
-    NSLog(@"SWIPE");
-    NSLog(@"SWIPE");
+     UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                   initWithTitle:@"Choose date range" 
+                                   delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                                   destructiveButtonTitle:@"Save" 
+                                   otherButtonTitles:nil];
+    [actionSheet showInView:self];
+    [actionSheet release];
 }
 
 
