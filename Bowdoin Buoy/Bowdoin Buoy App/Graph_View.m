@@ -291,13 +291,36 @@
 //brings up date picker after a swipe
 - (void)swipe:(UIGestureRecognizer *)recognizer
 {
-     UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                   initWithTitle:@"Choose date range" 
+    actionSheet = [[UIActionSheet alloc]
+                                   initWithTitle:nil 
                                    delegate:self 
-                                   cancelButtonTitle:@"Cancel" 
-                                   destructiveButtonTitle:@"Save" 
+                                   cancelButtonTitle:nil 
+                                   destructiveButtonTitle:nil 
                                    otherButtonTitles:nil];
+    
+    UIDatePicker *dateRangePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 33, 0, 0)];
+    UIToolbar *datePickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    datePickerToolbar.barStyle = UIBarStyleBlackOpaque;
+    [datePickerToolbar sizeToFit];
+    
+    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+    
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [toolbarItems addObject:flexSpace];
+    
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(DatePickerDoneClick)];
+    [toolbarItems addObject:doneBtn];
+    
+    [datePickerToolbar setItems:toolbarItems animated:YES];
+    
+    [actionSheet addSubview:datePickerToolbar];
+    [actionSheet addSubview:dateRangePicker];
     [actionSheet showInView:self];
+    [actionSheet setBounds:CGRectMake(80,-50,320, 464)];
+    
+    //[actionSheet addSubview:dateRangePicker];
+    //[actionSheet setBounds:CGRectMake(0, 0, 320, 464)];
+    //[actionSheet showInView:self];
     [actionSheet release];
 }
 
