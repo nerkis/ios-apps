@@ -291,14 +291,55 @@
 //brings up date picker after a swipe
 - (void)swipe:(UIGestureRecognizer *)recognizer
 {
-    actionSheet = [[UIActionSheet alloc]
-                                   initWithTitle:nil 
-                                   delegate:self 
-                                   cancelButtonTitle:nil 
-                                   destructiveButtonTitle:nil 
-                                   otherButtonTitles:nil];
+    /*actionSheet = [[UIActionSheet alloc] initWithTitle:nil 
+     delegate:nil
+     cancelButtonTitle:nil
+     destructiveButtonTitle:nil
+     otherButtonTitles:nil];
+     
+     [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+     
+     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+     
+     UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
+     pickerView.showsSelectionIndicator = YES;
+     //pickerView.dataSource = self;
+     pickerView.delegate = self;
+     
+     [actionSheet addSubview:pickerView];
+     [pickerView release];
+     
+     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
+     closeButton.momentary = YES; 
+     closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+     closeButton.tintColor = [UIColor blackColor];
+     //[closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
+     [actionSheet addSubview:closeButton];
+     [closeButton release];
+     
+     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+     [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+     
+     [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+     [actionSheet release];*/
     
-    UIDatePicker *dateRangePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 33, 0, 0)];
+    graphActionSheet = [[UIActionSheet alloc]
+                                   initWithTitle:nil
+                                   delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                                   destructiveButtonTitle:nil 
+                                   otherButtonTitles:@"Close", nil];
+    
+    //need to change toolbar shape and color
+    
+    firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(10, 150, 100, 0)];
+    [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
+    
+    //prevents user from picking a day after today
+    [firstDayPicker setMaximumDate:firstDayPicker.date];
+    
+   /* UIDatePicker *dateRangePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 33, 0, 0)];
     UIToolbar *datePickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     datePickerToolbar.barStyle = UIBarStyleBlackOpaque;
     [datePickerToolbar sizeToFit];
@@ -314,14 +355,14 @@
     [datePickerToolbar setItems:toolbarItems animated:YES];
     
     [actionSheet addSubview:datePickerToolbar];
-    [actionSheet addSubview:dateRangePicker];
-    [actionSheet showInView:self];
-    [actionSheet setBounds:CGRectMake(80,-50,320, 464)];
+    [self.actionSheet addSubview:self.firstDayPicker];
+    [actionSheet showInView:self];*/
     
-    //[actionSheet addSubview:dateRangePicker];
-    //[actionSheet setBounds:CGRectMake(0, 0, 320, 464)];
-    //[actionSheet showInView:self];
-    [actionSheet release];
+    [graphActionSheet addSubview:firstDayPicker];
+    [graphActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [graphActionSheet showInView:self];
+    [graphActionSheet setBounds:CGRectMake(0, 0, 500, 464)];//80, -50, 320, 400)];
+    [graphActionSheet release];
 }
 
 

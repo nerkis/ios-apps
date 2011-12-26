@@ -14,7 +14,7 @@
 - (NSArray *)dataForGraphingFromDelegate:(Graph_View *)requestor withCategoryID:(int)identifier andNumberOfDays:(int)numDays andStartDate:(NSString *)startDate;
 @end
 
-@interface Graph_View : UIView <UIActionSheetDelegate, UIPickerViewDelegate>//, UIPickerViewDataSource>
+@interface Graph_View : UIView <UIActionSheetDelegate, UIPickerViewDelegate>
 {
     CGFloat scaleY;   
     CGFloat scaleX;
@@ -33,7 +33,8 @@
     
     id <GraphViewDelegate> delegate;
     
-    UIActionSheet *actionSheet;
+    UIActionSheet *graphActionSheet;
+    UIDatePicker *firstDayPicker;
 }
 
 @property (assign) id <GraphViewDelegate> delegate;
