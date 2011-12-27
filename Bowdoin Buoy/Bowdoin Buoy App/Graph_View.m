@@ -216,7 +216,7 @@
     [self doubleTap:nil];
 }
 
-/*---------- ACTION SHEET METHODS ----------*/
+/*---------- ACTION SHEET BUTTON HANDLER ----------*/
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -315,6 +315,48 @@
 //brings up date picker after a swipe
 - (void)swipe:(UIGestureRecognizer *)recognizer
 {
+    //build our custom popover view
+    UIViewController* popoverContent = [[UIViewController alloc] init];
+    UIView* popoverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
+    popoverView.backgroundColor = [UIColor whiteColor];
+    
+    //create the date picker
+    firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
+    [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
+    
+    //create the earliest date that can be set
+    NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
+    [minDateComponents setDay:1];
+    [minDateComponents setMonth:MINIMUM_MONTH];
+    [minDateComponents setYear:MINIMUM_YEAR];
+    minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
+    
+    //set min and max date: user cannot pick date after today or before first data
+    [firstDayPicker setMaximumDate:firstDayPicker.date];
+    [firstDayPicker setMinimumDate:minimumDate];
+
+
+    //[popoverView addSubview:toolbar];
+    [popoverView addSubview:firstDayPicker];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(320, 244);
+    
+    //create a popover controller
+    UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    
+    //present the popover view
+    [popoverController presentPopoverFromRect:CGRectMake(0, 0, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    
+    //release the popover content
+    [popoverView release];
+    [popoverContent release];
+    
+    
+    
+    /*works on iphone
     //create the action sheet
     graphActionSheet = [[UIActionSheet alloc]
                                    initWithTitle:nil
@@ -342,7 +384,7 @@
     [graphActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     [graphActionSheet showInView:self];
     [graphActionSheet setBounds:CGRectMake(0, 0, 500, 464)];//80, -50, 320, 400)];
-    [graphActionSheet release];
+    [graphActionSheet release];*/
 }
 
 
