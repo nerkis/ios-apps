@@ -45,8 +45,7 @@
     [self.tabBarController setViewControllers:[NSArray arrayWithObjects:summary,graph,nil] animated:NO];
     [self.window addSubview:self.tabBarController.view];    
     
-    /****UNCOMMENT WHEN FINISHED WITH TESTING****/
-    //[graph.dataModel downloadAllData];
+    [graph.dataModel downloadAllData];
     [graph release];
     
     [self.window makeKeyAndVisible];

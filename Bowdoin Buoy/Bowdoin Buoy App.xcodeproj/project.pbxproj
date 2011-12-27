@@ -37,7 +37,6 @@
 		09B724EF14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */; };
 		09F71EA314A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F71EA214A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib */; };
 		09F71EA914A1A18200BAE9A8 /* D0205.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09F71EA814A1A18200BAE9A8 /* D0205.gif */; };
-		68379D0514A532E00008E7CE /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68379D0414A532E00008E7CE /* DatePickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,8 +90,6 @@
 		09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bowdoin_Buoy_App_iPhone_Graph_Data.m; sourceTree = "<group>"; };
 		09F71EA214A185FA00BAE9A8 /* Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bowdoin_Buoy_App_iPad_Summary_View_Controller.xib; sourceTree = "<group>"; };
 		09F71EA814A1A18200BAE9A8 /* D0205.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = D0205.gif; sourceTree = "<group>"; };
-		68379D0314A532E00008E7CE /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerView.h; path = ../DatePickerView.h; sourceTree = "<group>"; };
-		68379D0414A532E00008E7CE /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerView.m; path = ../DatePickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +188,6 @@
 				09B724EE14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m */,
 				0982C9D0148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h */,
 				0982C9D1148A9CF7007EF09E /* Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m */,
-				68379D0314A532E00008E7CE /* DatePickerView.h */,
-				68379D0414A532E00008E7CE /* DatePickerView.m */,
 				09A2857D1497E508005C87D6 /* Graph_View.h */,
 				09A2857E1497E508005C87D6 /* Graph_View.m */,
 				0982C9DD148AA185007EF09E /* AxesDrawer.h */,
@@ -357,7 +352,6 @@
 				09A2857F1497E508005C87D6 /* Graph_View.m in Sources */,
 				09B724EF14999AC8006C4CA0 /* Bowdoin_Buoy_App_iPhone_Graph_Data.m in Sources */,
 				0960929914A1724400FB3F2C /* Bowdoin_Buoy_App_iPhone_Summary_Data.m in Sources */,
-				68379D0514A532E00008E7CE /* DatePickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

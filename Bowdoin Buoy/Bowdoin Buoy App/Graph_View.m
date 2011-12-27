@@ -226,11 +226,14 @@
         NSLog(@"grabbing date from date picker");
         NSDate *chosenDate = firstDayPicker.date;
         
-        
+        //convert chosen date into a string
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"yyyy-MM-dd"];
-        NSString* str = [formatter stringFromDate:chosenDate];
-        NSLog(@"%@", str);
+        NSString* firstDay = [formatter stringFromDate:chosenDate];
+        [self setFirstDay:firstDay];
+        NSLog(@"set first day as: %@", firstDay);
+        
+        [self setNeedsDisplay];
     }
 }
 
@@ -461,9 +464,6 @@
     CGContextSetLineWidth(context, 1);
     [[UIColor blackColor] setStroke];
     UIGraphicsPopContext();
-    
-   
-    
 }
 
 - (void)drawGraphForTenMeterWaterTempOverTimeInterval:(int)interval andContext:(CGContextRef)context andStartDate:(NSString *)date
