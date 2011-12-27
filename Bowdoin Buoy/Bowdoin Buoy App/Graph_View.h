@@ -35,6 +35,7 @@
     
     UIActionSheet *graphActionSheet;
     UIDatePicker *firstDayPicker;
+    NSDate *minimumDate;
 }
 
 @property (assign) id <GraphViewDelegate> delegate;

@@ -47,6 +47,9 @@
 #define WEEK_INTERVAL 7
 #define MONTH_INTERVAL 28
 
+#define MINIMUM_MONTH 3
+#define MINIMUM_YEAR 2011
+
 //constants for drawing axes and graph
 #define RIGHT_EDGE_BUFFER 10
 
@@ -213,6 +216,24 @@
     [self doubleTap:nil];
 }
 
+/*---------- ACTION SHEET METHODS ----------*/
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == actionSheet.destructiveButtonIndex) 
+    {
+        //grab date picker date and redraw graph with it
+        NSLog(@"grabbing date from date picker");
+        NSDate *chosenDate = firstDayPicker.date;
+        
+        
+        NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSString* str = [formatter stringFromDate:chosenDate];
+        NSLog(@"%@", str);
+    }
+}
+
 
 /*---------- GESTURE RECOGNIZERS ----------*/
 
@@ -291,72 +312,28 @@
 //brings up date picker after a swipe
 - (void)swipe:(UIGestureRecognizer *)recognizer
 {
-    /*actionSheet = [[UIActionSheet alloc] initWithTitle:nil 
-     delegate:nil
-     cancelButtonTitle:nil
-     destructiveButtonTitle:nil
-     otherButtonTitles:nil];
-     
-     [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-     
-     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
-     
-     UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
-     pickerView.showsSelectionIndicator = YES;
-     //pickerView.dataSource = self;
-     pickerView.delegate = self;
-     
-     [actionSheet addSubview:pickerView];
-     [pickerView release];
-     
-     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
-     closeButton.momentary = YES; 
-     closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-     closeButton.tintColor = [UIColor blackColor];
-     //[closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
-     [actionSheet addSubview:closeButton];
-     [closeButton release];
-     
-     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-     [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
-     
-     [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
-     [actionSheet release];*/
-    
+    //create the action sheet
     graphActionSheet = [[UIActionSheet alloc]
                                    initWithTitle:nil
                                    delegate:self 
                                    cancelButtonTitle:@"Cancel" 
-                                   destructiveButtonTitle:nil 
-                                   otherButtonTitles:@"Close", nil];
-    
-    //need to change toolbar shape and color
-    
+                                   destructiveButtonTitle:@"Save" 
+                                   otherButtonTitles:nil];
+
+    //create the date picker
     firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(10, 150, 100, 0)];
     [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
     
-    //prevents user from picking a day after today
+    //create the earliest date that can be set
+    NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
+    [minDateComponents setDay:1];
+    [minDateComponents setMonth:MINIMUM_MONTH];
+    [minDateComponents setYear:MINIMUM_YEAR];
+    minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
+    
+    //set min and max date: user cannot pick date after today or before first data
     [firstDayPicker setMaximumDate:firstDayPicker.date];
-    
-   /* UIDatePicker *dateRangePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 33, 0, 0)];
-    UIToolbar *datePickerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    datePickerToolbar.barStyle = UIBarStyleBlackOpaque;
-    [datePickerToolbar sizeToFit];
-    
-    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
-    
-    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    [toolbarItems addObject:flexSpace];
-    
-    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(DatePickerDoneClick)];
-    [toolbarItems addObject:doneBtn];
-    
-    [datePickerToolbar setItems:toolbarItems animated:YES];
-    
-    [actionSheet addSubview:datePickerToolbar];
-    [self.actionSheet addSubview:self.firstDayPicker];
-    [actionSheet showInView:self];*/
+    [firstDayPicker setMinimumDate:minimumDate];
     
     [graphActionSheet addSubview:firstDayPicker];
     [graphActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
