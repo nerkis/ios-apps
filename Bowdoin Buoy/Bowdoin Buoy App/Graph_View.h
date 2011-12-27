@@ -33,6 +33,7 @@
     
     id <GraphViewDelegate> delegate;
     
+    //for choosing graph start date
     UIActionSheet *graphActionSheet;
     UIDatePicker *firstDayPicker;
     NSDate *minimumDate;

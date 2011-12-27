@@ -174,11 +174,21 @@
     [self addTripleTapGestureRecognizerToGraph_View:self.graphView];
     [self addSwipeRecognizerToGraph_View:self.graphView];
     
+    //get today's date to initially draw graph for today
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* todayDateComponents = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    NSDate *today = [calendar dateFromComponents:todayDateComponents];
+    
+    //formate date to a string
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString* todayString = [formatter stringFromDate:today];
+    
     //need drawing setup code here to do anything
     [self.graphView defineOrigin];
     [self.graphView setTimeInterval:DAY_TIMEFRAME];
     [self.graphView setDrawingMode:currentGraphType];
-    [self.graphView setFirstDay:@"2011-12-08"];
+    [self.graphView setFirstDay:todayString];
 }
 
 //gets data from Bowdoin_Buoy_App_iPhone_Graph_Data using delegate
