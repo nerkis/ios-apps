@@ -342,13 +342,13 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(320, 244);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(320, 210);
     
     //create a popover controller
     UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     
     //present the popover view
-    [popoverController presentPopoverFromRect:CGRectMake(0, 0, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
     
     //release the popover content
     [popoverView release];
@@ -356,7 +356,7 @@
     
     
     
-    /*works on iphone
+    /*working datepicker for iphone
     //create the action sheet
     graphActionSheet = [[UIActionSheet alloc]
                                    initWithTitle:nil
