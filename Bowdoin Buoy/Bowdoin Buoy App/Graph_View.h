@@ -36,6 +36,7 @@
     //for choosing graph start date
     UIActionSheet *graphActionSheet;
     UIPopoverController *popoverController;
+    UIToolbar *pickerToolbar;
     UIDatePicker *firstDayPicker;
     NSDate *minimumDate;
 }
