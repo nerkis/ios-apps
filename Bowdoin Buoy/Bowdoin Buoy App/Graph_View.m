@@ -47,6 +47,7 @@
 #define WEEK_INTERVAL 7
 #define MONTH_INTERVAL 28
 
+#define MINIMUM_DAY 9
 #define MINIMUM_MONTH 3
 #define MINIMUM_YEAR 2011
 
@@ -315,76 +316,130 @@
 //brings up date picker after a swipe
 - (void)swipe:(UIGestureRecognizer *)recognizer
 {
-    //build our custom popover view
-    UIViewController* popoverContent = [[UIViewController alloc] init];
-    UIView* popoverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
-    popoverView.backgroundColor = [UIColor whiteColor];
+    BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
     
-    //create the date picker
-    firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
-    [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
-    
-    //create the earliest date that can be set
-    NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
-    [minDateComponents setDay:1];
-    [minDateComponents setMonth:MINIMUM_MONTH];
-    [minDateComponents setYear:MINIMUM_YEAR];
-    minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
-    
-    //set min and max date: user cannot pick date after today or before first data
-    [firstDayPicker setMaximumDate:firstDayPicker.date];
-    [firstDayPicker setMinimumDate:minimumDate];
+    if (!iPad)          //datepicker in action sheet for iphone
+    {        
+        //create the action sheet
+        graphActionSheet = [[UIActionSheet alloc]
+                            initWithTitle:nil
+                            delegate:self 
+                            cancelButtonTitle:@"Cancel" 
+                            destructiveButtonTitle:@"Save" 
+                            otherButtonTitles:nil];
 
+        //create date picker
+        firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(10, 150, 100, 0)];
+        [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
+        
+        //create the earliest date that can be set
+        NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
+        [minDateComponents setDay:MINIMUM_DAY];
+        [minDateComponents setMonth:MINIMUM_MONTH];
+        [minDateComponents setYear:MINIMUM_YEAR];
+        minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
+        
+        //set min and max date: user cannot pick date after today or before first data
+        [firstDayPicker setMaximumDate:firstDayPicker.date];
+        [firstDayPicker setMinimumDate:minimumDate];
+        
+        //add picker view to action sheet
+        [graphActionSheet addSubview:firstDayPicker];
+        [graphActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+        [graphActionSheet showInView:self];
+        [graphActionSheet setBounds:CGRectMake(0, 0, 500, 464)];//80, -50, 320, 400)];
+        [graphActionSheet release];
+    }
+    else if (iPad)          //datepicker in popover view for ipad
+    {        
+        //create view to hold the picker
+        UIView *pickerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 260)];
+        
+        //create a toolbar to hold buttons and make buttons
+        UIToolbar *pickerToolbar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 400, 44)] autorelease];
+        pickerToolbar.barStyle = UIBarStyleBlackOpaque;
+        NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+        
+        //add cancel button
+        UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonPressed:)] autorelease];
+        [toolbarItems addObject:cancelButton];
+        
+        //flex space
+        UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        [toolbarItems addObject:flexSpace];
+        
+        //add save button
+        UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveButtonPressed:)] autorelease];
+        [toolbarItems addObject:saveButton];
+        
+        [pickerToolbar setItems:toolbarItems animated:YES];
+        [toolbarItems release];
+        
+        [pickerToolbar setBarStyle:UIBarStyleBlackTranslucent];
+        [pickerView addSubview:pickerToolbar];
 
-    //[popoverView addSubview:toolbar];
-    [popoverView addSubview:firstDayPicker];
-    popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(320, 210);
-    
-    //create a popover controller
-    UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
-    
-    //present the popover view
-    [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
-    
-    //release the popover content
-    [popoverView release];
-    [popoverContent release];
-    
-    
-    
-    /*working datepicker for iphone
-    //create the action sheet
-    graphActionSheet = [[UIActionSheet alloc]
-                                   initWithTitle:nil
-                                   delegate:self 
-                                   cancelButtonTitle:@"Cancel" 
-                                   destructiveButtonTitle:@"Save" 
-                                   otherButtonTitles:nil];
+        
+        //create the date picker
+        firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, 400, 216)];
+        [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
+        
+        //create the earliest date that can be set
+        NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
+        [minDateComponents setDay:MINIMUM_DAY];
+        [minDateComponents setMonth:MINIMUM_MONTH];
+        [minDateComponents setYear:MINIMUM_YEAR];
+        minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
+        
+        //set min and max date: user cannot pick date after today or before first data
+        [firstDayPicker setMaximumDate:firstDayPicker.date];
+        [firstDayPicker setMinimumDate:minimumDate];
+        
+        //add picker to view holding picker
+        [pickerView addSubview:firstDayPicker];
 
-    //create the date picker
-    firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(10, 150, 100, 0)];
-    [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
+        //create a view controller and add view holding picker as its view
+        UIViewController *popoverContent = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+        popoverContent.view = pickerView;
+        popoverContent.contentSizeForViewInPopover = popoverContent.view.frame.size;
+        UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+        [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+        [popoverContent release];
+        
+                
+        /*works for presenting popover on ipad
+        //create the date picker
+        firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
+        [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
     
-    //create the earliest date that can be set
-    NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
-    [minDateComponents setDay:1];
-    [minDateComponents setMonth:MINIMUM_MONTH];
-    [minDateComponents setYear:MINIMUM_YEAR];
-    minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
+        //create the earliest date that can be set
+        NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
+        [minDateComponents setDay:MINIMUM_DAY];
+        [minDateComponents setMonth:MINIMUM_MONTH];
+        [minDateComponents setYear:MINIMUM_YEAR];
+        minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
     
-    //set min and max date: user cannot pick date after today or before first data
-    [firstDayPicker setMaximumDate:firstDayPicker.date];
-    [firstDayPicker setMinimumDate:minimumDate];
+        //set min and max date: user cannot pick date after today or before first data
+        [firstDayPicker setMaximumDate:firstDayPicker.date];
+        [firstDayPicker setMinimumDate:minimumDate];
+        
+        
+        //build our custom popover view
+        UIViewController* popoverContent = [[UIViewController alloc] init];
+        UIView* popoverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
+        popoverView.backgroundColor = [UIColor whiteColor];
+
+        //[popoverView addSubview:toolbar];
+        [popoverView addSubview:firstDayPicker];
+        popoverContent.view = popoverView;
+        popoverContent.contentSizeForViewInPopover = CGSizeMake(320, 210);
     
-    [graphActionSheet addSubview:firstDayPicker];
-    [graphActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [graphActionSheet showInView:self];
-    [graphActionSheet setBounds:CGRectMake(0, 0, 500, 464)];//80, -50, 320, 400)];
-    [graphActionSheet release];*/
+        //create and present popover controller
+        UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+        [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+        
+        [popoverView release];
+        [popoverContent release];*/
+    }
 }
 
 
