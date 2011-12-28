@@ -238,6 +238,29 @@
     }
 }
 
+/*---------- POPOVER BUTTON HANDLERS ----------*/
+
+- (IBAction)cancelButtonPressed:(id)sender
+{
+    [popoverController dismissPopoverAnimated:YES];
+}
+
+- (IBAction)saveButtonPressed:(id)sender
+{
+    [popoverController dismissPopoverAnimated:YES];
+    //grab date picker date and redraw graph with it
+    NSLog(@"grabbing date from date picker");
+    NSDate *chosenDate = firstDayPicker.date;
+    
+    //convert chosen date into a string
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString* firstDay = [formatter stringFromDate:chosenDate];
+    [self setFirstDay:firstDay];
+    NSLog(@"set first day as: %@", firstDay);
+    
+    [self setNeedsDisplay];
+}
 
 /*---------- GESTURE RECOGNIZERS ----------*/
 
@@ -353,10 +376,10 @@
     else if (iPad)          //datepicker in popover view for ipad
     {        
         //create view to hold the picker
-        UIView *pickerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 260)];
+        UIView *pickerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 260)];
         
         //create a toolbar to hold buttons and make buttons
-        UIToolbar *pickerToolbar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 400, 44)] autorelease];
+        UIToolbar *pickerToolbar = [[[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
         pickerToolbar.barStyle = UIBarStyleBlackOpaque;
         NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
         
@@ -380,7 +403,7 @@
 
         
         //create the date picker
-        firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, 400, 216)];
+        firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, 320, 216)];
         [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
         
         //create the earliest date that can be set
@@ -401,44 +424,9 @@
         UIViewController *popoverContent = [[UIViewController alloc] initWithNibName:nil bundle:nil];
         popoverContent.view = pickerView;
         popoverContent.contentSizeForViewInPopover = popoverContent.view.frame.size;
-        UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+        popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
         [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
         [popoverContent release];
-        
-                
-        /*works for presenting popover on ipad
-        //create the date picker
-        firstDayPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
-        [firstDayPicker setDatePickerMode:UIDatePickerModeDate];
-    
-        //create the earliest date that can be set
-        NSDateComponents *minDateComponents = [[[NSDateComponents alloc] init] autorelease];
-        [minDateComponents setDay:MINIMUM_DAY];
-        [minDateComponents setMonth:MINIMUM_MONTH];
-        [minDateComponents setYear:MINIMUM_YEAR];
-        minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
-    
-        //set min and max date: user cannot pick date after today or before first data
-        [firstDayPicker setMaximumDate:firstDayPicker.date];
-        [firstDayPicker setMinimumDate:minimumDate];
-        
-        
-        //build our custom popover view
-        UIViewController* popoverContent = [[UIViewController alloc] init];
-        UIView* popoverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 344)];
-        popoverView.backgroundColor = [UIColor whiteColor];
-
-        //[popoverView addSubview:toolbar];
-        [popoverView addSubview:firstDayPicker];
-        popoverContent.view = popoverView;
-        popoverContent.contentSizeForViewInPopover = CGSizeMake(320, 210);
-    
-        //create and present popover controller
-        UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
-        [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
-        
-        [popoverView release];
-        [popoverContent release];*/
     }
 }
 

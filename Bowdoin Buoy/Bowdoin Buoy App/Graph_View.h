@@ -35,6 +35,7 @@
     
     //for choosing graph start date
     UIActionSheet *graphActionSheet;
+    UIPopoverController *popoverController;
     UIDatePicker *firstDayPicker;
     NSDate *minimumDate;
 }
@@ -75,6 +76,10 @@
 
 //custom drawing
 - (void)drawGraphForTwoMeterWaterTempOverTimeInterval:(int)interval andContext:(CGContextRef)context andStartDate:(NSString *)date;
+
+//popover methods
+- (IBAction)cancelButtonPressed:(id)sender;
+- (IBAction)saveButtonPressed:(id)sender;
 
 //define custom colors
 + (UIColor*)myLightBlueColor;
