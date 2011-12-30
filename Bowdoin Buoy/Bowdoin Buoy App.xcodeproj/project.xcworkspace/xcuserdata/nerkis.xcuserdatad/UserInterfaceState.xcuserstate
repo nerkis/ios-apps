@@ -6944,9 +6944,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>346787779.95608503</real>
-		<string>{10253, 943}</string>
-		<string>{12762, 0}</string>
+		<real>346916306.23300701</real>
+		<string>{6032, 1254}</string>
+		<string>{7160, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9024,9 +9024,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>346785711.80521202</real>
-		<string>{620, 984}</string>
-		<string>{995, 0}</string>
+		<real>346915959.294168</real>
+		<string>{1078, 1026}</string>
+		<string>{1874, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10244,7 +10244,7 @@
 		</dict>
 		<string>IDEDeviceLocation</string>
 		<string>IDEDeviceArchitecture</string>
-		<string>dvtdevice-iphonesimulator:/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk-iPhone</string>
+		<string>dvtdevice-iphonesimulator:/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk-iPad</string>
 		<string>i386</string>
 		<dict>
 			<key>$class</key>
@@ -10543,7 +10543,7 @@
 				<integer>757</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>346787756.98808599</real>
+			<real>346916278.55418599</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -10554,7 +10554,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 12:55 PM</string>
+		<string>Today at 12:37 AM</string>
 		<integer>234</integer>
 		<string>Bowdoin Buoy App</string>
 		<dict>
@@ -10958,7 +10958,7 @@
 		<string>IDEActiveWorkspaceTabController</string>
 		<string>IDEWindowToolbarIsVisible</string>
 		<string>IDEWindowTabBarIsVisible</string>
-		<string>{{24, 4}, {1224, 774}}</string>
+		<string>{{26, 4}, {1224, 774}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11518,10 +11518,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>346787779.95798898</real>
-		<string>{10253, 943}</string>
-		<string>{12762, 0}</string>
-		<string>-swipe:</string>
+		<real>346916306.23495901</real>
+		<string>{6032, 1254}</string>
+		<string>{7160, 0}</string>
+		<string>-configureDatePicker</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>

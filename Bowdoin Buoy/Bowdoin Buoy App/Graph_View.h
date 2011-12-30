@@ -39,6 +39,7 @@
     UIToolbar *pickerToolbar;
     UIDatePicker *firstDayPicker;
     NSDate *minimumDate;
+    NSDate *startDate;
 }
 
 @property (assign) id <GraphViewDelegate> delegate;
@@ -60,6 +61,7 @@
 @property (nonatomic) CGFloat originalScaleY;
 
 @property (nonatomic, retain) NSString *firstDayForData;
+@property (nonatomic, retain) NSDate *startDate;
 
 //graph setup
 - (void)defineOrigin;

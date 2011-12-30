@@ -19,6 +19,7 @@
 @synthesize shouldSetYAxisMarker, originalOriginIsSet;
 @synthesize drawTripleTemperature, drawChlorophyll, drawTripleSalinity, timeIntervalIsWeek, timeIntervalIsDay;
 @synthesize firstDayForData;
+@synthesize startDate;
 
 //constants for graph types
 #define TWO_METER_WATER 0
@@ -241,6 +242,11 @@
     //set min and max date: user cannot pick date after today or before first data
     [firstDayPicker setMaximumDate:firstDayPicker.date];
     [firstDayPicker setMinimumDate:minimumDate];
+    
+    //helps launch picker with last chosen date
+    if (self.startDate)
+        [firstDayPicker setDate:self.startDate];
+        
     return firstDayPicker;
 }
 
@@ -274,6 +280,7 @@
 }
 
 //creates the toolbar for the action sheet (iphone)
+//needs to be written
 - (UIToolbar *) configureActionSheetToolbar
 {
     return pickerToolbar;
@@ -309,6 +316,7 @@
 - (IBAction)saveButtonPressed:(id)sender
 {
     [popoverController dismissPopoverAnimated:YES];
+    
     //grab date picker date and redraw graph with it
     NSLog(@"grabbing date from date picker");
     NSDate *chosenDate = firstDayPicker.date;
@@ -319,6 +327,9 @@
     NSString* firstDay = [formatter stringFromDate:chosenDate];
     [self setFirstDay:firstDay];
     NSLog(@"set first day as: %@", firstDay);
+    
+    //ensures launch with last chosen date
+    self.startDate = firstDayPicker.date;
     
     [self setNeedsDisplay];
 }
