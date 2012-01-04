@@ -302,6 +302,9 @@
         [self setFirstDay:firstDay];
         NSLog(@"set first day as: %@", firstDay);
         
+        //ensures launch with last chosen date
+        self.startDate = firstDayPicker.date;
+        
         [self setNeedsDisplay];
     }
 }

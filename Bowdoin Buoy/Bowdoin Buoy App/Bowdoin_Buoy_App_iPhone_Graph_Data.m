@@ -512,7 +512,15 @@
                 //adds data for each day to array
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
-                    [chlorophyllData addObject:[self.sensorOptics_SDataForDayDictionary objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    if (indexOfFirstDayOfWeek + counter < uniqueDaysInOrderList.count)
+                    {
+                        [chlorophyllData addObject:[self.sensorOptics_SDataForDayDictionary objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    }
+                    else
+                    {
+                        chlorophyllData = nil;
+                        return chlorophyllData;
+                    }
                 }
                                 
                 return chlorophyllData;
@@ -536,7 +544,15 @@
                 //adds data for each day to array
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
-                    [twoMeterWaterTemperatureData addObject:[self.sensorSBE37DataForDayDictionaryForTwoMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    if (indexOfFirstDayOfWeek + counter < uniqueDaysInOrderList.count)
+                    {
+                        [twoMeterWaterTemperatureData addObject:[self.sensorSBE37DataForDayDictionaryForTwoMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    }
+                    else
+                    {
+                        twoMeterWaterTemperatureData = nil;
+                        return twoMeterWaterTemperatureData;
+                    }
                 }
                                 
                 return twoMeterWaterTemperatureData;
@@ -561,7 +577,15 @@
                 //adds data for each day to array
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
-                    [tenMeterWaterTemperatureData addObject:[self.sensorSBE16DataForDayDictionaryForTenMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    if (indexOfFirstDayOfWeek + counter < uniqueDaysInOrderList.count)
+                    {
+                        [tenMeterWaterTemperatureData addObject:[self.sensorSBE16DataForDayDictionaryForTenMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    }
+                    else
+                    {
+                        tenMeterWaterTemperatureData = nil;
+                        return tenMeterWaterTemperatureData;
+                    }
                 }
                                 
                 return tenMeterWaterTemperatureData;
@@ -586,7 +610,16 @@
                 //adds data for each day to array
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
-                    [twentyMeterWaterTemperatureData addObject:[self.sensorSBE16DataForDayDictionaryForTwentyMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    if (indexOfFirstDayOfWeek + counter < uniqueDaysInOrderList.count)
+                    {
+                        [twentyMeterWaterTemperatureData addObject:[self.sensorSBE16DataForDayDictionaryForTwentyMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    }
+                    else
+                    {
+                        twentyMeterWaterTemperatureData = nil;
+                        return twentyMeterWaterTemperatureData;
+                    }
+
                 }
                                 
                 return twentyMeterWaterTemperatureData;
@@ -611,7 +644,15 @@
                 //adds data for each day to array
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
-                    [twoMeterWaterSalinityData addObject:[self.sensorSBE37DataForDayDictionaryForTwoMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    if (indexOfFirstDayOfWeek + counter < uniqueDaysInOrderList.count)
+                    {
+                        [twoMeterWaterSalinityData addObject:[self.sensorSBE37DataForDayDictionaryForTwoMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    }
+                    else
+                    {
+                        twoMeterWaterSalinityData = nil;
+                        return twoMeterWaterSalinityData;
+                    }
                 }
                                 
                 return twoMeterWaterSalinityData;
@@ -629,16 +670,24 @@
                 //needs keys in order for seven days
                 uniqueDaysInOrderList = [[self.sensorSBE16DataForDayDictionaryForTenMeterWater allKeys] sortedArrayUsingSelector:@selector(compare:)];
                                 
-                NSMutableArray *tenMeterWaterTemperatureData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
+                NSMutableArray *tenMeterWaterSalinityData = [NSMutableArray arrayWithCapacity:WEEK_INTERVAL];
                 int indexOfFirstDayOfWeek = [uniqueDaysInOrderList indexOfObject:startDate];
                                 
                 //adds data for each day to array
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
-                    [tenMeterWaterTemperatureData addObject:[self.sensorSBE16DataForDayDictionaryForTenMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    if (indexOfFirstDayOfWeek + counter < uniqueDaysInOrderList.count)
+                    {
+                        [tenMeterWaterSalinityData addObject:[self.sensorSBE16DataForDayDictionaryForTenMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    }
+                    else
+                    {
+                        tenMeterWaterSalinityData = nil;
+                        return tenMeterWaterSalinityData;
+                    }
                 }
                                 
-                return tenMeterWaterTemperatureData;
+                return tenMeterWaterSalinityData;
             }
             break;   
             
@@ -659,7 +708,15 @@
                 //adds data for each day to array
                 for (int counter = 0; counter < WEEK_INTERVAL; counter++)
                 {
-                    [twentyMeterWaterSalinityData addObject:[self.sensorSBE16DataForDayDictionaryForTwentyMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    if (indexOfFirstDayOfWeek + counter < uniqueDaysInOrderList.count)
+                    {
+                        [twentyMeterWaterSalinityData addObject:[self.sensorSBE16DataForDayDictionaryForTwentyMeterWater objectForKey:[uniqueDaysInOrderList objectAtIndex:(indexOfFirstDayOfWeek + counter)]]];
+                    }
+                    else
+                    {
+                        twentyMeterWaterSalinityData = nil;
+                        return twentyMeterWaterSalinityData;
+                    }
                 }
                                 
                 return twentyMeterWaterSalinityData;
