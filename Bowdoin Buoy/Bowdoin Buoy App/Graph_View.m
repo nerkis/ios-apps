@@ -48,7 +48,7 @@
 #define WEEK_INTERVAL 7
 #define MONTH_INTERVAL 28
 
-#define MINIMUM_DAY 9
+#define MINIMUM_DAY 10
 #define MINIMUM_MONTH 3
 #define MINIMUM_YEAR 2011
 
@@ -218,7 +218,7 @@
     [self doubleTap:nil];
 }
 
-/*---------- ACTION SHEET AND POPOVER HANDLERS ----------*/
+/*---------- ACTION SHEET, POPOVER, AND ALERT HANDLERS ----------*/
 
 //creates date picker configured for our graph
 - (UIDatePicker *) configureDatePicker
@@ -337,6 +337,66 @@
     [self setNeedsDisplay];
 }
 
+- (void)presentDatePicker
+{
+    BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    
+    if (!iPad)          //datepicker in action sheet for iphone
+    {        
+        //create the action sheet
+        graphActionSheet = [[UIActionSheet alloc]
+                            initWithTitle:nil
+                            delegate:self 
+                            cancelButtonTitle:@"Cancel" 
+                            destructiveButtonTitle:@"Save" 
+                            otherButtonTitles:nil];
+        
+        [self configureDatePicker];
+        
+        //add picker view to action sheet
+        [graphActionSheet addSubview:firstDayPicker];
+        [graphActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+        [graphActionSheet showInView:self];
+        [graphActionSheet setBounds:CGRectMake(0, 0, 480, 464)];//80, -50, 320, 400)];
+        [graphActionSheet release];
+    }
+    else if (iPad)          //datepicker in popover view for ipad
+    {        
+        //create view to hold the picker
+        UIView *pickerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 260)];
+        
+        [self configurePopoverToolbar];
+        [pickerView addSubview:pickerToolbar];
+        
+        [self configureDatePicker];
+        [pickerView addSubview:firstDayPicker];
+        
+        //create a view controller and add view holding picker as its view
+        UIViewController *popoverContent = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+        popoverContent.view = pickerView;
+        popoverContent.contentSizeForViewInPopover = popoverContent.view.frame.size;
+        popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+        [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+        [popoverContent release];
+    }
+}
+
+//alert choose date button handler
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == alertView.firstOtherButtonIndex) 
+    {
+        [self presentDatePicker];
+    }
+}
+
+- (void)presentDateAlert
+{
+    //create alert and display it
+    dateAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Selected date range is missing data. Please choose a different start date." delegate:self cancelButtonTitle:nil otherButtonTitles:@"Choose New Date", nil];
+    [dateAlert show];
+}
+
 /*---------- GESTURE RECOGNIZERS ----------*/
 
 //method for a zoom by pinching
@@ -414,46 +474,7 @@
 //brings up date picker after a swipe
 - (void)swipe:(UIGestureRecognizer *)recognizer
 {
-    BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-    
-    if (!iPad)          //datepicker in action sheet for iphone
-    {        
-        //create the action sheet
-        graphActionSheet = [[UIActionSheet alloc]
-                            initWithTitle:nil
-                            delegate:self 
-                            cancelButtonTitle:@"Cancel" 
-                            destructiveButtonTitle:@"Save" 
-                            otherButtonTitles:nil];
-        
-        [self configureDatePicker];
-        
-        //add picker view to action sheet
-        [graphActionSheet addSubview:firstDayPicker];
-        [graphActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-        [graphActionSheet showInView:self];
-        [graphActionSheet setBounds:CGRectMake(0, 0, 480, 464)];//80, -50, 320, 400)];
-        [graphActionSheet release];
-    }
-    else if (iPad)          //datepicker in popover view for ipad
-    {        
-        //create view to hold the picker
-        UIView *pickerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 260)];
-        
-        [self configurePopoverToolbar];
-        [pickerView addSubview:pickerToolbar];
-        
-        [self configureDatePicker];
-        [pickerView addSubview:firstDayPicker];
-
-        //create a view controller and add view holding picker as its view
-        UIViewController *popoverContent = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-        popoverContent.view = pickerView;
-        popoverContent.contentSizeForViewInPopover = popoverContent.view.frame.size;
-        popoverController = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
-        [popoverController presentPopoverFromRect:CGRectMake(360, 440, 320, 344) inView:self permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
-        [popoverContent release];
-    }
+    [self presentDatePicker];
 }
 
 
@@ -576,7 +597,7 @@
     }
     else
     {
-        NSLog(@"MISSING DATA, CAN'T GRAPH");
+        [self presentDateAlert];
     }
     
     //create context for axes
@@ -692,7 +713,7 @@
     }
     else
     {
-        NSLog(@"MISSING DATA, CAN'T GRAPH");
+        //NSLog(@"MISSING DATA, CAN'T GRAPH");
     }
     
     //create context for axes
@@ -818,7 +839,7 @@
     }
     else
     {
-        NSLog(@"MISSING DATA, CAN'T GRAPH");
+        //NSLog(@"MISSING DATA, CAN'T GRAPH");
     }
     
     //create context for axes
@@ -932,7 +953,7 @@
     }
     else
     {
-        NSLog(@"MISSING DATA, CAN'T GRAPH");
+        [self presentDateAlert];
     }
     
     //create context for axes
@@ -1046,7 +1067,7 @@
     }
     else
     {
-        NSLog(@"MISSING DATA, CAN'T GRAPH");
+        //NSLog(@"MISSING DATA, CAN'T GRAPH");
     }
     
     //create context for axes
@@ -1170,7 +1191,7 @@
     }
     else
     {
-        NSLog(@"MISSING DATA, CAN'T GRAPH");
+        //NSLog(@"MISSING DATA, CAN'T GRAPH");
     }
     
     //create context for axes
@@ -1293,7 +1314,7 @@
     }
     else
     {
-        NSLog(@"MISSING DATA, CAN'T GRAPH");
+        [self presentDateAlert];
     }
     
     //create context for axes

@@ -14,7 +14,7 @@
 - (NSArray *)dataForGraphingFromDelegate:(Graph_View *)requestor withCategoryID:(int)identifier andNumberOfDays:(int)numDays andStartDate:(NSString *)startDate;
 @end
 
-@interface Graph_View : UIView <UIActionSheetDelegate, UIPickerViewDelegate>
+@interface Graph_View : UIView <UIActionSheetDelegate, UIPickerViewDelegate, UIAlertViewDelegate>
 {
     CGFloat scaleY;   
     CGFloat scaleX;
@@ -40,6 +40,7 @@
     UIDatePicker *firstDayPicker;
     NSDate *minimumDate;
     NSDate *startDate;
+    UIAlertView *dateAlert;
 }
 
 @property (assign) id <GraphViewDelegate> delegate;
@@ -66,7 +67,6 @@
 //graph setup
 - (void)defineOrigin;
 - (void)setFirstDay:(NSString *)date;
-
 - (void)setTimeInterval:(int)identifier;
 - (void)setDrawingMode:(int)identifier;
 
@@ -80,9 +80,22 @@
 //custom drawing
 - (void)drawGraphForTwoMeterWaterTempOverTimeInterval:(int)interval andContext:(CGContextRef)context andStartDate:(NSString *)date;
 
+//datepicker methods
+- (UIDatePicker *)configureDatePicker;
+- (void)presentDatePicker;
+
 //popover methods
+- (UIToolbar *) configurePopoverToolbar;
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;
+
+//action sheet methods
+- (UIToolbar *) configureActionSheetToolbar;
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
+
+//alert method
+- (void)presentDateAlert;
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
 
 //define custom colors
 + (UIColor*)myLightBlueColor;
