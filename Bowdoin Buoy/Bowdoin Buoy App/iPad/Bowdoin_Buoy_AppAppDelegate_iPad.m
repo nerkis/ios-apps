@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_AppAppDelegate_iPad.m
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 11/19/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 11/19/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 

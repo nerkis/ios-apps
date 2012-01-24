@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_App_iPhone_Summary_Data.m
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 12/20/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 12/20/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 
@@ -83,7 +83,6 @@
     NSString *windSpeedBlock = [self.webPageAsString substringWithRange:windSpeedBlockRange];
     NSRange windSpeedEndRange = [windSpeedBlock rangeOfString:CLOSED_PARENTHESIS];
     self.windSpeedProperty = [windSpeedBlock substringToIndex:windSpeedEndRange.location+CLOSED_PARENTHESIS.length];
-    
 }
 
 - (void)getWaveHeight 
@@ -179,12 +178,10 @@
 - (void)getTimeStamp 
 {
     NSRange timeStampRange = [self.webPageAsString rangeOfString:TIMESTAMP_FILTER];
-    
     NSRange timeStampBlockRange = NSMakeRange(timeStampRange.location+timeStampRange.length, STANDARD_BLOCK_SIZE);
     NSString *timeStampBlock = [self.webPageAsString substringWithRange:timeStampBlockRange];
     NSRange timeStampEndRange = [timeStampBlock rangeOfString:TIMESTAMP_STRING_CUTOFF];
     self.timeStampProperty = [timeStampBlock substringToIndex:timeStampEndRange.location+TIMESTAMP_STRING_CUTOFF.length];
-    
 }
 
 - (void)setProperties
@@ -198,6 +195,13 @@
     [self getPAR];    
     [self getTimeStamp];
     [self getTitleAndPosition];
+}
+
+//updates all the properties bygrabbing the most recent data
+- (void)updateWebPage
+{
+    [self grabHTMLfromURL:[NSURL URLWithString:@"http://gyre.umeoce.maine.edu/data/gomoos/buoy/html/D02.html"]];
+    [self setProperties];
 }
 
 - (id)init

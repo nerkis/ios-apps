@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_App_iPhone_Summary_Data.h
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 12/20/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 12/20/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 
@@ -41,5 +41,8 @@
 @property (nonatomic, retain) NSString *title;
 
 @property (nonatomic, retain) NSString *webPageAsString;
+
+-(void)updateWebPage;
+
 
 @end

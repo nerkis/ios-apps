@@ -2,7 +2,7 @@
 //  Graph_View.m
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 12/3/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 12/3/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 //  A class that draws the graphs of the buoy data.
@@ -20,6 +20,7 @@
 @synthesize drawTripleTemperature, drawChlorophyll, drawTripleSalinity, timeIntervalIsWeek, timeIntervalIsDay;
 @synthesize firstDayForData;
 @synthesize startDate;
+@synthesize myInfo;
 
 //constants for graph types
 #define TWO_METER_WATER 0
@@ -56,17 +57,17 @@
 #define RIGHT_EDGE_BUFFER 10
 
 
-#define IPHONE_SCALE_X_FACTOR_DAY 18
+#define IPHONE_SCALE_X_FACTOR_DAY 18.23
 #define IPHONE_SCALE_X_FACTOR_WEEK 2.57
 
-#define IPHONE_DEFAULT_SCALE_X_DAY 18.39
+#define IPHONE_DEFAULT_SCALE_X_DAY 19.3
 #define IPHONE_DEFAULT_SCALE_X_WEEK 64
 
 
 #define IPAD_SCALE_X_FACTOR_DAY 42
 #define IPAD_SCALE_X_FACTOR_WEEK 5.75
 
-#define IPAD_DEFAULT_SCALE_X_DAY 41.3
+#define IPAD_DEFAULT_SCALE_X_DAY 43.1
 #define IPAD_DEFAULT_SCALE_X_WEEK 140.5
 
 
@@ -86,11 +87,31 @@
 
 #define CIRCLE_RADIUS 2
 
+#define TEMPERATURE_UNITS @"Degrees Celsius: °C"
+#define CHLOROPHYLL_UNITS @"Micrograms/liter: µg/L"
+#define DAY_UNITS @"Hours"
+#define WEEK_UNITS @"Days"
+
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {}
     return self;
 }
+
+- (Graph_Info_View_Controller *)myInfo
+{
+    BOOL iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    if (!iPad && !myInfo)
+    {
+        myInfo = [[Graph_Info_View_Controller alloc] initWithNibName:@"Graph_Info_View_Controller_iPhone" bundle:nil];
+    }
+    else if (iPad && !myInfo)
+    {
+        myInfo = [[Graph_Info_View_Controller alloc] initWithNibName:@"Graph_Info_View_Controller_iPad" bundle:nil];
+    }
+    return myInfo;
+}	
+
 
 /*---------- GRAPH SETUP ----------*/
 
@@ -106,6 +127,8 @@
 - (void)setFirstDay:(NSString *)date
 {
     self.firstDayForData = date;
+    self.myInfo.startDate = date;
+
 }
 
 - (void)setTimeInterval:(int)identifier
@@ -118,6 +141,8 @@
             self.timeIntervalIsDay = YES;
             self.timeIntervalIsWeek = NO;
             self.shouldSetYAxisMarker = YES;
+            self.myInfo.xAxisUnits = DAY_UNITS;
+
             if (!iPad)
             {
                 self.scaleX = IPHONE_DEFAULT_SCALE_X_DAY;
@@ -135,6 +160,8 @@
             self.timeIntervalIsDay = NO;
             self.timeIntervalIsWeek = YES;
             self.shouldSetYAxisMarker = YES;
+            self.myInfo.xAxisUnits = WEEK_UNITS;
+
             if (!iPad)
             {
                 self.scaleX = IPHONE_DEFAULT_SCALE_X_WEEK;
@@ -163,6 +190,8 @@
             self.drawTripleSalinity = YES;
             self.drawChlorophyll = NO;
             self.shouldSetYAxisMarker = YES;
+            self.myInfo.yAxisUnits = @"Practical Salinity Units: psu";
+
             if (!iPad)
             {
                 self.originalScaleY = IPHONE_DEFAULT_SCALE_Y_SALINITY;
@@ -181,6 +210,8 @@
             self.drawTripleSalinity = NO;
             self.drawChlorophyll = NO;
             self.shouldSetYAxisMarker = YES;
+            self.myInfo.yAxisUnits = TEMPERATURE_UNITS;
+
             if (!iPad)
             {            
                 self.originalScaleY = IPHONE_DEFAULT_SCALE_Y_TEMPERATURE;
@@ -195,6 +226,7 @@
             break;
             
         case CHLOROPHYLL_GRAPH:
+            self.myInfo.yAxisUnits = CHLOROPHYLL_UNITS;
             self.drawTripleTemperature = NO;
             self.drawTripleSalinity = NO;
             self.drawChlorophyll = YES;
@@ -240,7 +272,8 @@
     minimumDate = [[NSCalendar currentCalendar] dateFromComponents:minDateComponents]; 
     
     //set min and max date: user cannot pick date after today or before first data
-    [firstDayPicker setMaximumDate:firstDayPicker.date];
+    todayDate = firstDayPicker.date;
+    [firstDayPicker setMaximumDate:todayDate];
     [firstDayPicker setMinimumDate:minimumDate];
     
     //helps launch picker with last chosen date
@@ -258,11 +291,15 @@
     pickerToolbar.barStyle = UIBarStyleBlackOpaque;
     NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
     
-    //add cancel and save buttons
-    UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] 
-                                      initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 
-                                      target:self action:@selector(cancelButtonPressed:)] autorelease];
-    [toolbarItems addObject:cancelButton];
+    //add toolbar buttons
+    UIBarButtonItem *todayButton = [[[UIBarButtonItem alloc]
+                                     initWithTitle:@"Today" style:UIBarButtonItemStyleBordered 
+                                     target:self action:@selector(todayButtonPressed:)] autorelease];
+    [toolbarItems addObject:todayButton];
+    UIBarButtonItem *weekButton = [[[UIBarButtonItem alloc]
+                                    initWithTitle:@"Week Ago" style:UIBarButtonItemStyleBordered 
+                                    target:self action:@selector(weekButtonPressed:)] autorelease];
+    [toolbarItems addObject:weekButton];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] 
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
                                       target:nil action:nil];
@@ -309,10 +346,16 @@
     }
 }
 
-//popover cancel button handler
-- (IBAction)cancelButtonPressed:(id)sender
+//popover today button handler
+- (IBAction)todayButtonPressed:(id)sender
+{    
+    [firstDayPicker setDate:todayDate];
+}
+
+//popover week button handler
+- (IBAction)weekButtonPressed:(id)sender
 {
-    [popoverController dismissPopoverAnimated:YES];
+    NSLog(@"Nothing here yet");
 }
 
 //popover save button handler

@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 12/3/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 12/3/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 
@@ -38,5 +38,7 @@ UIViewController <GraphViewDelegate>
 //called when user interacts with segmented controls
 - (IBAction)graphSegmentedControlIndexChanged;
 - (IBAction)dateSegmentedControlIndexChanged;
+- (IBAction)infoButtonPressed:(UIButton *)sender;
+
 
 @end

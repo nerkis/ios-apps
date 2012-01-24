@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_App_iPhone_Graph_Data.h
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 12/14/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 12/14/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_App_iPhone_Graph_View_Controller.m
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 12/3/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 12/3/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 //  A class that communicates with instances of Graph_View
@@ -11,6 +11,7 @@
 //
 
 #import "Bowdoin_Buoy_App_iPhone_Graph_View_Controller.h"
+#import "Graph_Info_View_Controller.h"
 
 @implementation Bowdoin_Buoy_App_iPhone_Graph_View_Controller
 
@@ -159,6 +160,12 @@
     }
 }
 
+//pops up info about the graph
+- (void)infoButtonPressed:(UIButton *)sender
+{
+    [self presentModalViewController:self.graphView.myInfo animated:YES];
+    [self.graphView.myInfo updateLabels];
+}
 
 /*---------- OTHER METHODS ----------*/
 

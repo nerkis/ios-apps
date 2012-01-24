@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_App_iPhone_Summary_View_Controller.m
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 11/19/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 11/19/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 //  A class that displays a summary of the current conditions
@@ -71,6 +71,11 @@
     [self updateOutlets];
 }
 
+- (void)refreshPressed:(UIButton *)sender
+{
+    [self.summaryData updateWebPage];
+    [self updateOutlets];
+}
 
 - (void)releaseOutlets
 {

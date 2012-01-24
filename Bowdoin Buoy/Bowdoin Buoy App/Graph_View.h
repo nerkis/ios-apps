@@ -2,11 +2,12 @@
 //  Graph_View.h
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 12/3/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 12/3/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "Graph_Info_View_Controller.h"
 
 @class Graph_View;
 
@@ -33,6 +34,8 @@
     
     id <GraphViewDelegate> delegate;
     
+    Graph_Info_View_Controller *myInfo;
+
     //for choosing graph start date
     UIActionSheet *graphActionSheet;
     UIPopoverController *popoverController;
@@ -40,10 +43,14 @@
     UIDatePicker *firstDayPicker;
     NSDate *minimumDate;
     NSDate *startDate;
+    NSDate *todayDate;
     UIAlertView *dateAlert;
 }
 
 @property (assign) id <GraphViewDelegate> delegate;
+@property (nonatomic, retain) Graph_Info_View_Controller *myInfo;
+
+
 @property (nonatomic) CGFloat scaleY;
 @property (nonatomic) CGFloat scaleX;
 @property (nonatomic) CGFloat yAxisMarker;
@@ -86,7 +93,8 @@
 
 //popover methods
 - (UIToolbar *) configurePopoverToolbar;
-- (IBAction)cancelButtonPressed:(id)sender;
+- (IBAction)todayButtonPressed:(id)sender;
+- (IBAction)weekButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;
 
 //action sheet methods

@@ -2,7 +2,7 @@
 //  Bowdoin_Buoy_App_iPhone_Summary_View_Controller.h
 //  Bowdoin Buoy App
 //
-//  Created by Peter Yaworsky on 11/19/11.
+//  Created by Peter Yaworsky and Nicole Erkis on 11/19/11.
 //  Copyright 2011 Bowdoin College. All rights reserved.
 //
 
@@ -40,6 +40,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *latitudeDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *longitudeDisplay;
 @property (nonatomic, retain) IBOutlet UILabel *timeStampDisplay;
+
+- (IBAction)refreshPressed:(UIButton *)sender;
 
 
 @end
