@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10K549</string>
+		<string key="IBDocument.SystemVersion">10K540</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
 		<string key="IBDocument.AppKitVersion">1038.36</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
@@ -102,22 +102,24 @@
 									<object class="IBUISegmentedControl" id="538995751">
 										<reference key="NSNextResponder" ref="770737828"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{358, 7}, {117, 30}}</string>
+										<string key="NSFrame">{{323, 7}, {152, 30}}</string>
 										<reference key="NSSuperview" ref="770737828"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="145061131"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBSegmentControlStyle">2</int>
-										<int key="IBNumberOfSegments">2</int>
+										<int key="IBNumberOfSegments">3</int>
 										<int key="IBSelectedSegmentIndex">0</int>
 										<object class="NSArray" key="IBSegmentTitles">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<string>Day</string>
 											<string>Week</string>
+											<string>Month</string>
 										</object>
 										<object class="NSMutableArray" key="IBSegmentWidths">
 											<bool key="EncodedWithXMLCoder">YES</bool>
+											<real value="0.0"/>
 											<real value="0.0"/>
 											<real value="0.0"/>
 										</object>
@@ -125,14 +127,17 @@
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<boolean value="YES"/>
 											<boolean value="YES"/>
+											<boolean value="YES"/>
 										</object>
 										<object class="NSMutableArray" key="IBSegmentContentOffsets">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<string>{0, 0}</string>
 											<string>{0, 0}</string>
+											<string>{0, 0}</string>
 										</object>
 										<object class="NSMutableArray" key="IBSegmentImages">
 											<bool key="EncodedWithXMLCoder">YES</bool>
+											<reference ref="4"/>
 											<reference ref="4"/>
 											<reference ref="4"/>
 										</object>
@@ -545,11 +550,15 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>cancelButtonPressed:</string>
+							<string>monthButtonPressed:</string>
 							<string>saveButtonPressed:</string>
+							<string>todayButtonPressed:</string>
+							<string>weekButtonPressed:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -558,17 +567,27 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>cancelButtonPressed:</string>
+							<string>monthButtonPressed:</string>
 							<string>saveButtonPressed:</string>
+							<string>todayButtonPressed:</string>
+							<string>weekButtonPressed:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">cancelButtonPressed:</string>
+								<string key="name">monthButtonPressed:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">saveButtonPressed:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">todayButtonPressed:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">weekButtonPressed:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>

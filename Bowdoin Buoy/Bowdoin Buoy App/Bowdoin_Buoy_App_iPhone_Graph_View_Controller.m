@@ -29,6 +29,7 @@
 //constants for date range
 #define DAY_TIMEFRAME 0
 #define WEEK_TIMEFRAME 1
+#define MONTH_TIMEFRAME 2
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -152,6 +153,11 @@
             
         case WEEK_TIMEFRAME:
             [self.graphView setTimeInterval:WEEK_TIMEFRAME];
+            [self.graphView setNeedsDisplay];
+            break;
+            
+        case MONTH_TIMEFRAME:
+            [self.graphView setTimeInterval:MONTH_TIMEFRAME];
             [self.graphView setNeedsDisplay];
             break;
             

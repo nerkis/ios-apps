@@ -17,7 +17,8 @@
 @synthesize scaleY, scaleX, yAxisMarker, originalScaleY, scaleFactor;
 @synthesize graphOrigin, originalGraphOrigin;
 @synthesize shouldSetYAxisMarker, originalOriginIsSet;
-@synthesize drawTripleTemperature, drawChlorophyll, drawTripleSalinity, timeIntervalIsWeek, timeIntervalIsDay;
+@synthesize drawTripleTemperature, drawChlorophyll, drawTripleSalinity, timeIntervalIsWeek, timeIntervalIsDay,
+    timeIntervalIsMonth;
 @synthesize firstDayForData;
 @synthesize startDate;
 @synthesize myInfo;
@@ -44,6 +45,7 @@
 //constants for date ranges
 #define DAY_TIMEFRAME 0
 #define WEEK_TIMEFRAME 1
+#define MONTH_TIMEFRAME 2
 
 #define DAY_INTERVAL 1
 #define WEEK_INTERVAL 7
@@ -59,21 +61,25 @@
 
 #define IPHONE_SCALE_X_FACTOR_DAY 18.23
 #define IPHONE_SCALE_X_FACTOR_WEEK 2.57
+#define IPHONE_SCALE_X_FACTOR_MONTH 10 /*****/
 
 #define IPHONE_DEFAULT_SCALE_X_DAY 19.3
 #define IPHONE_DEFAULT_SCALE_X_WEEK 64
+#define IPHONE_DEFAULT_SCALE_X_MONTH 10 /*****/
 
 
 #define IPAD_SCALE_X_FACTOR_DAY 42
 #define IPAD_SCALE_X_FACTOR_WEEK 5.75
+#define IPAD_SCALE_X_FACTOR_MONTH 10 /*****/
 
 #define IPAD_DEFAULT_SCALE_X_DAY 43.1
 #define IPAD_DEFAULT_SCALE_X_WEEK 140.5
+#define IPAD_DEFAULT_SCALE_X_MONTH 10 /*****/
 
 
 #define IPHONE_DEFAULT_SCALE_Y_CHLOROPHYLL 20
-#define IPHONE_DEFAULT_SCALE_Y_TEMPERATURE 17//20
-#define IPHONE_DEFAULT_SCALE_Y_SALINITY 5//7
+#define IPHONE_DEFAULT_SCALE_Y_TEMPERATURE 17
+#define IPHONE_DEFAULT_SCALE_Y_SALINITY 5
 
 #define IPAD_DEFAULT_SCALE_Y_CHLOROPHYLL 40
 #define IPAD_DEFAULT_SCALE_Y_TEMPERATURE 40
@@ -91,6 +97,8 @@
 #define CHLOROPHYLL_UNITS @"Micrograms/liter: µg/L"
 #define DAY_UNITS @"Hours"
 #define WEEK_UNITS @"Days"
+/*****CHANGE*****/
+#define MONTH_UNITS @"12 Hours"
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -140,6 +148,7 @@
         case DAY_TIMEFRAME:
             self.timeIntervalIsDay = YES;
             self.timeIntervalIsWeek = NO;
+            self.timeIntervalIsMonth = NO;
             self.shouldSetYAxisMarker = YES;
             self.myInfo.xAxisUnits = DAY_UNITS;
 
@@ -159,6 +168,7 @@
         case WEEK_TIMEFRAME:
             self.timeIntervalIsDay = NO;
             self.timeIntervalIsWeek = YES;
+            self.timeIntervalIsMonth = NO;
             self.shouldSetYAxisMarker = YES;
             self.myInfo.xAxisUnits = WEEK_UNITS;
 
@@ -172,6 +182,26 @@
             {
                 self.scaleX = IPAD_DEFAULT_SCALE_X_WEEK;
                 self.scaleFactor = IPAD_SCALE_X_FACTOR_WEEK;
+            }
+            break;
+            
+        case MONTH_TIMEFRAME:
+            self.timeIntervalIsDay = NO;
+            self.timeIntervalIsWeek = NO;
+            self.timeIntervalIsMonth = YES;
+            self.shouldSetYAxisMarker = YES;
+            self.myInfo.xAxisUnits = MONTH_UNITS;
+            
+            if (!iPad)
+            {
+                self.scaleX = IPHONE_DEFAULT_SCALE_X_MONTH;
+                self.scaleFactor = IPHONE_SCALE_X_FACTOR_MONTH;
+                
+            }
+            else if (iPad)
+            {
+                self.scaleX = IPAD_DEFAULT_SCALE_X_MONTH;
+                self.scaleFactor = IPAD_SCALE_X_FACTOR_MONTH;
             }
             break;
             

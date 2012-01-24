@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10K549</string>
+		<string key="IBDocument.SystemVersion">10K540</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
 		<string key="IBDocument.AppKitVersion">1038.36</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
@@ -48,11 +48,10 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 68}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="411513975"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="778936343">
+						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4zODU5OTY2Njk4IDAuNDA1MDQwODMxOCAwLjY5NTY1MjE3MzkAA</bytes>
+							<bytes key="NSRGB">MC41MTcxNzAzOTg5IDAuNjY4MDIwNDcwMiAwLjgxNjMyNjUzMDYAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -78,9 +77,11 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 97}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="622413537"/>
-						<reference key="IBUIBackgroundColor" ref="778936343"/>
+						<object class="NSColor" key="IBUIBackgroundColor" id="957765420">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC41MTcxNzAzOTg5IDAuNjY4MDIwNDcwMiAwLjgxNjMyNjUzMDYAA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -98,9 +99,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 126}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="296852277"/>
-						<reference key="IBUIBackgroundColor" ref="778936343"/>
+						<reference key="IBUIBackgroundColor" ref="957765420"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -118,9 +118,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 155}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="741957333"/>
-						<reference key="IBUIBackgroundColor" ref="778936343"/>
+						<reference key="IBUIBackgroundColor" ref="957765420"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -138,9 +137,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 184}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="923299791"/>
-						<reference key="IBUIBackgroundColor" ref="778936343"/>
+						<reference key="IBUIBackgroundColor" ref="957765420"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -158,9 +156,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 213}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="250334773"/>
-						<reference key="IBUIBackgroundColor" ref="778936343"/>
+						<reference key="IBUIBackgroundColor" ref="957765420"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -178,9 +175,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 242}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="398097535"/>
-						<reference key="IBUIBackgroundColor" ref="778936343"/>
+						<reference key="IBUIBackgroundColor" ref="957765420"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -198,11 +194,10 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 68}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="760052273"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="99231122">
+						<object class="NSColor" key="IBUIBackgroundColor" id="683551936">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xMjE1MTk0NDQ3IDAuNjk1NjUyMTczOSAwLjM2NDE3NzE0NQA</bytes>
+							<bytes key="NSRGB">MC42MDM5MjE1OTIyIDAuNzUyOTQxMTkxMiAwLjgwMzkyMTU4MDMAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -226,9 +221,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 97}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="941341288"/>
-						<reference key="IBUIBackgroundColor" ref="99231122"/>
+						<reference key="IBUIBackgroundColor" ref="683551936"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -247,9 +241,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 126}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="797205273"/>
-						<reference key="IBUIBackgroundColor" ref="99231122"/>
+						<reference key="IBUIBackgroundColor" ref="683551936"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -268,9 +261,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 155}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1008119820"/>
-						<reference key="IBUIBackgroundColor" ref="99231122"/>
+						<reference key="IBUIBackgroundColor" ref="683551936"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -289,9 +281,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 213}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="538781051"/>
-						<reference key="IBUIBackgroundColor" ref="99231122"/>
+						<reference key="IBUIBackgroundColor" ref="683551936"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -310,9 +301,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 242}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="7517510"/>
-						<reference key="IBUIBackgroundColor" ref="99231122"/>
+						<reference key="IBUIBackgroundColor" ref="683551936"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -331,9 +321,8 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 184}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="250543268"/>
-						<reference key="IBUIBackgroundColor" ref="99231122"/>
+						<reference key="IBUIBackgroundColor" ref="683551936"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -352,11 +341,10 @@
 						<int key="NSvFlags">311</int>
 						<string key="NSFrame">{{45, 6}, {391, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="896662006"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="361701833">
+						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC42OTU2NTIxNzM5IDAuMTQ2MjAyMzk4NyAwLjM3NDc5OTA1MwA</bytes>
+							<bytes key="NSRGB">MC4yNjM3NTM4MjY0IDAuNTcwNzMyNTk3OSAwLjY5NTY1MjE3MzkAA</bytes>
 						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -366,10 +354,6 @@
 						<string key="IBUIText">Label</string>
 						<reference key="IBUITextColor" ref="517144984"/>
 						<nil key="IBUIHighlightedColor"/>
-						<object class="NSColor" key="IBUIShadowColor" id="539725757">
-							<int key="NSColorSpace">2</int>
-							<bytes key="NSRGB">MSAwLjQwMzkyMTYwNDIgMC41ODQzMTM3NTAzAA</bytes>
-						</object>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
@@ -379,9 +363,11 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{20, 35}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="179557745"/>
-						<reference key="IBUIBackgroundColor" ref="361701833"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4yNjM3NTM4MjY0IDAuNTcwNzMyNTk3OSAwLjY5NTY1MjE3MzkAA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -391,7 +377,6 @@
 						<reference key="IBUIFont" ref="991769597"/>
 						<reference key="IBUITextColor" ref="517144984"/>
 						<nil key="IBUIHighlightedColor"/>
-						<reference key="IBUIShadowColor" ref="539725757"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
@@ -401,9 +386,11 @@
 						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{240, 35}, {220, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="616187288"/>
-						<reference key="IBUIBackgroundColor" ref="361701833"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4yNjM3NTM4MjY0IDAuNTcwNzMyNTk3OSAwLjY5NTY1MjE3MzkAA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -412,7 +399,6 @@
 						<string key="IBUIText">Label</string>
 						<reference key="IBUITextColor" ref="517144984"/>
 						<nil key="IBUIHighlightedColor"/>
-						<reference key="IBUIShadowColor" ref="539725757"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
@@ -422,7 +408,6 @@
 						<int key="NSvFlags">282</int>
 						<string key="NSFrame">{{88, 271}, {304, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="263824104"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -445,7 +430,6 @@
 						<int key="NSvFlags">264</int>
 						<string key="NSFrame">{{440, 271}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -476,11 +460,10 @@
 				</object>
 				<string key="NSFrame">{{0, 20}, {480, 300}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="687430198"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC4yNjM3NTM4MjY0IDAuNTcwNzMyNTk3OSAwLjY5NTY1MjE3MzkAA</bytes>
+					<bytes key="NSRGB">MC4xMTQyNTIwNDI3IDAuMzI0NjAwNzUzNSAwLjU0ODkxMzA0MzUAA</bytes>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
@@ -814,125 +797,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">50</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBPartialClassDescription">
-					<string key="className">Bowdoin_Buoy_App_iPhone_Summary_View_Controller</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">refreshPressed:</string>
-						<string key="NS.object.0">UIButton</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">refreshPressed:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">refreshPressed:</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>PARDisplay</string>
-							<string>airTempDisplay</string>
-							<string>chlorophyllDisplay</string>
-							<string>latitudeDisplay</string>
-							<string>locationDisplay</string>
-							<string>longitudeDisplay</string>
-							<string>salinityDisplay</string>
-							<string>timeStampDisplay</string>
-							<string>waterTempDisplay</string>
-							<string>waveHeightDisplay</string>
-							<string>windSpeedDisplay</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>PARDisplay</string>
-							<string>airTempDisplay</string>
-							<string>chlorophyllDisplay</string>
-							<string>latitudeDisplay</string>
-							<string>locationDisplay</string>
-							<string>longitudeDisplay</string>
-							<string>salinityDisplay</string>
-							<string>timeStampDisplay</string>
-							<string>waterTempDisplay</string>
-							<string>waveHeightDisplay</string>
-							<string>windSpeedDisplay</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">PARDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">airTempDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">chlorophyllDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">latitudeDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">locationDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">longitudeDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">salinityDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">timeStampDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">waterTempDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">waveHeightDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">windSpeedDisplay</string>
-								<string key="candidateClassName">UILabel</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/Bowdoin_Buoy_App_iPhone_Summary_View_Controller.h</string>
-					</object>
-				</object>
-			</object>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">

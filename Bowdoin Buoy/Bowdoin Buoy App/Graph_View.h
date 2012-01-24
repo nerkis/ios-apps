@@ -61,6 +61,7 @@
 @property (nonatomic) BOOL drawTripleSalinity;
 @property (nonatomic) BOOL timeIntervalIsWeek;
 @property (nonatomic) BOOL timeIntervalIsDay;
+@property (nonatomic) BOOL timeIntervalIsMonth;
 
 @property (nonatomic) CGPoint graphOrigin;
 @property (nonatomic) CGPoint originalGraphOrigin;
