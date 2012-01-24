@@ -355,7 +355,11 @@
 //popover week button handler
 - (IBAction)weekButtonPressed:(id)sender
 {
-    NSLog(@"Nothing here yet");
+    //using todayDate, go back a week and set weekDate
+    NSDateComponents *dateChange = [[[NSDateComponents alloc] init] autorelease];
+    dateChange.week = -1;
+    weekDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateChange toDate:todayDate options:0];
+    [firstDayPicker setDate:weekDate];
 }
 
 //popover save button handler

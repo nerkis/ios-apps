@@ -41,9 +41,7 @@
     UIPopoverController *popoverController;
     UIToolbar *pickerToolbar;
     UIDatePicker *firstDayPicker;
-    NSDate *minimumDate;
-    NSDate *startDate;
-    NSDate *todayDate;
+    NSDate *minimumDate,*startDate,*todayDate,*weekDate;
     UIAlertView *dateAlert;
 }
 
