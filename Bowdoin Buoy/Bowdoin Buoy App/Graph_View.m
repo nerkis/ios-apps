@@ -300,6 +300,9 @@
                                     initWithTitle:@"Week Ago" style:UIBarButtonItemStyleBordered 
                                     target:self action:@selector(weekButtonPressed:)] autorelease];
     [toolbarItems addObject:weekButton];
+    UIBarButtonItem *monthButton = [[[UIBarButtonItem alloc] 
+                                     initWithTitle:@"Month Ago" style:UIBarButtonItemStyleBordered target:self action:@selector(monthButtonPressed:)] autorelease];
+    [toolbarItems addObject:monthButton];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] 
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
                                       target:nil action:nil];
@@ -355,11 +358,18 @@
 //popover week button handler
 - (IBAction)weekButtonPressed:(id)sender
 {
-    //using todayDate, go back a week and set weekDate
-    NSDateComponents *dateChange = [[[NSDateComponents alloc] init] autorelease];
-    dateChange.week = -1;
-    weekDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateChange toDate:todayDate options:0];
+    NSDateComponents *weekChange = [[[NSDateComponents alloc] init] autorelease];
+    weekChange.week = -1;
+    weekDate = [[NSCalendar currentCalendar] dateByAddingComponents:weekChange toDate:todayDate options:0];
     [firstDayPicker setDate:weekDate];
+}
+
+- (IBAction)monthButtonPressed:(id)sender
+{
+    NSDateComponents *monthChange = [[[NSDateComponents alloc] init] autorelease];
+    monthChange.month = -1;
+    monthDate = [[NSCalendar currentCalendar] dateByAddingComponents:monthChange toDate:todayDate options:0];
+    [firstDayPicker setDate:monthDate];
 }
 
 //popover save button handler

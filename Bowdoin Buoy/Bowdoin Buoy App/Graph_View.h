@@ -41,7 +41,7 @@
     UIPopoverController *popoverController;
     UIToolbar *pickerToolbar;
     UIDatePicker *firstDayPicker;
-    NSDate *minimumDate,*startDate,*todayDate,*weekDate;
+    NSDate *minimumDate,*startDate,*todayDate,*weekDate, *monthDate;
     UIAlertView *dateAlert;
 }
 
@@ -93,6 +93,7 @@
 - (UIToolbar *) configurePopoverToolbar;
 - (IBAction)todayButtonPressed:(id)sender;
 - (IBAction)weekButtonPressed:(id)sender;
+- (IBAction)monthButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;
 
 //action sheet methods
