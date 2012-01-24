@@ -35,11 +35,13 @@
         summary = [[Bowdoin_Buoy_App_iPhone_Summary_View_Controller alloc] initWithNibName:@"Bowdoin_Buoy_App_iPad_Summary_View_Controller" bundle:nil];
     
     UITabBarItem *summaryTab = [[[UITabBarItem alloc]initWithTitle:@"Summary" image:nil tag:1] autorelease];
+    summaryTab.image = [UIImage imageNamed:@"bars.png"];
     [summary setTabBarItem:summaryTab];
     
     //add graph view to tab bar controller
     Bowdoin_Buoy_App_iPhone_Graph_View_Controller *graph = [[Bowdoin_Buoy_App_iPhone_Graph_View_Controller alloc] init];    
     UITabBarItem *graphTab = [[[UITabBarItem alloc]initWithTitle:@"Graph" image:nil tag:1] autorelease];
+    graphTab.image = [UIImage imageNamed:@"graph.png"];
     [graph setTabBarItem:graphTab];
     
     [self.tabBarController setViewControllers:[NSArray arrayWithObjects:summary,graph,nil] animated:NO];
